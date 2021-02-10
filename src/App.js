@@ -1,3 +1,5 @@
+import { Switch, Route } from 'react-router-dom';
+/* styles */
 import './App.css';
 
 function App() {
