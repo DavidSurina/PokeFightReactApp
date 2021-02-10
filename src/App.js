@@ -8,10 +8,14 @@ function App() {
       
       <Switch>
         <Route path="/pokemon/:id/:info"></Route>
-        <Route path="/pokemon/:id"></Route>
-        <Route path="/pokemon"></Route>
-        <Route path="/">
-          <h1>PokeFight</h1>
+        <Route path="/pokemon/:id">
+          {/*Pokemon info by id*/}
+        </Route>
+        <Route path="/pokemon/fight">
+          {/*Pokemon Fight*/}
+        </Route>
+        <Route path={["/","/pokemon"]}>
+          {/*all pokemon*/}
         </Route>
       </Switch>
     </div>
