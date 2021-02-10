@@ -10,12 +10,15 @@ function App() {
     <div className="App">
       <Switch>
         <Route path="/pokemons/:id/:info"></Route>
-        <Route path="/pokemons/:id"></Route>
-        <Route path="/pokemons">
-          <ViewAllPokemons />
+        <Route path="/pokemons/:id">
+          {/*Pokemon info by id*/}
         </Route>
-        <Route path="/">
-          <h1>PokeFight</h1>
+        <Route path="/pokemons/fight">
+          {/*Pokemon Fight*/}
+        </Route>
+        <Route path={["/","/pokemons"]}>
+          {/*all pokemon*/}
+          <ViewAllPokemons />
         </Route>
       </Switch>
     </div>
