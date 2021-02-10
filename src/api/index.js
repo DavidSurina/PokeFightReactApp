@@ -1,7 +1,8 @@
 import axios from "axios";
 
 /* TODO: needs to be replaced w/ the heroku deployed app URL */
-const endpoint = "http://localhost:4000/";
+/* const endpoint = "http://localhost:4000/"; */
+const endpoint = "https://evening-falls-69897.herokuapp.com/";
 const Api = {
   getAllPokemons: async () => {
     try {
