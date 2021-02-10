@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 import Api from "../api/index";
 
 const ViewAllPokemons = () => {
-  const [pokemonList, setPokemonList] = useState([{id: 0, name: {english: "default"}}]);
+  const [pokemonList, setPokemonList] = useState();
 
   useEffect(() => {
     Api.getAllPokemons()
@@ -16,29 +16,32 @@ const ViewAllPokemons = () => {
       })
   },[]);
 
-  console.log("pokemonList", pokemonList);
-
   return(
     <>
       <h1>All Pokemons</h1>
       <div className="pokemon-list">
         <ul>
         {/* for performance reasons only the first 3 Pokemons are listed */}
-          <li key={pokemonList[0].id}>
-            <a href={`/pokemons/${pokemonList[0].id}`}>
-              {pokemonList[0].name.english}
-            </a>
-          </li>
-          <li key={pokemonList[1].id}>
-            <a href={`/pokemons/${pokemonList[1].id}`}>
-              {pokemonList[1].name.english}
-            </a>
-          </li>
-          <li key={pokemonList[2].id}>
-            <a href={`/pokemons/${pokemonList[2].id}`}>
-              {pokemonList[2].name.english}
-            </a>
-          </li>
+          {pokemonList 
+            ? <>
+              <li key={pokemonList[0].id}>
+                  <a href={`/pokemons/${pokemonList[0].id}`}>
+                    {pokemonList[0].name.english}
+                  </a>
+                </li> 
+                <li key={pokemonList[1].id}>
+                  <a href={`/pokemons/${pokemonList[1].id}`}>
+                    {pokemonList[1].name.english}
+                  </a>
+                </li>
+                <li key={pokemonList[2].id}>
+                  <a href={`/pokemons/${pokemonList[2].id}`}>
+                    {pokemonList[2].name.english}
+                  </a>
+                </li>
+              </>
+            : null }
+
         {/* FIXME: we need data streaming. Browser is  */}
 {/*           {pokemonList.map((pokemon) => {
             return <li key={pokemon.id}>
