@@ -1,25 +1,22 @@
 // ViewAllPokemons
-import React from 'react';
 import { useState, useEffect } from "react";
 import TransitionsModal from '../components/PokemonDetailed';
-
 
 // Import api functionality
 import Api from "../api/index";
 
 const ViewAllPokemons = () => {
   const [pokemonList, setPokemonList] = useState();
+  const [myPokemon, setMyPokemon] = useState();
 
+  const [openModal, setopenModal] = useState();
+  const toggleModalLayer = () => { setopenModal(!openModal);  }
 
-  // const [open, setOpen] = useState(false);
+  const modalData = (pokemon) => {
+     console.log('pokemon Function from Parent: ', pokemon);
+     setMyPokemon(pokemon);
+  }
 
-  // const handleOpen = () => {
-  //   setOpen(true);
-  // };
-
-  // const handleClose = () => {
-  //   setOpen(false);
-  // };
 
 
   useEffect(() => {
@@ -32,24 +29,17 @@ const ViewAllPokemons = () => {
       })
   },[]);
 
-
-
-
   return(
     <>
       <h1>All Pokemons</h1>
-{/*
-  <div   onClick={handleOpen}>CLICK HERE TO OPEN MODAL</div>*/}
-
-     {/* <TransitionsModal  openState={open} onClose={handleClose}  onOpen={handleOpen} />*/}
-       <TransitionsModal />
+       <TransitionsModal  openModal={toggleModalLayer}  currentPokemon={myPokemon} />
       <div className="pokemon-list">
       {/* FIXME: get better solution for limiting/offset/streaming */}
         <ul>
           {pokemonList
             ? pokemonList.slice(0, 10).map((pokemon) => {
-            return <li key={pokemon.id}>
-              <a href={`/pokemons/${pokemon.id}`}>
+            return <li  key={pokemon.id}>
+              <a onClick={() => {toggleModalLayer(); console.log('pokemon MAP: ', pokemon); modalData(pokemon)}} > {/* href={`/pokemons/${pokemon.id}`} */}
                 {pokemon.name.english}
               </a>
             </li>
