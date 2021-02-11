@@ -1,3 +1,5 @@
+// App.js
+import React from 'react';
 import { Switch, Route } from 'react-router-dom';
 /* views */
 import ViewAllPokemons from "./views/ViewAllPokemons"
@@ -6,6 +8,9 @@ import ViewAllPokemons from "./views/ViewAllPokemons"
 import './App.css';
 
 function App() {
+
+
+
   return (
     <div className="App">
       <Switch>
