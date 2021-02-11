@@ -15,6 +15,8 @@ const ViewAllPokemons = () => {
   const modalData = (pokemon) => {
      console.log('pokemon Function from Parent: ', pokemon);
      setMyPokemon(pokemon);
+     console.log('myPokemon  ', myPokemon  )
+     // console.log('myPokemon.name.english ', myPokemon.name.english )
   }
 
 
@@ -39,7 +41,7 @@ const ViewAllPokemons = () => {
           {pokemonList
             ? pokemonList.slice(0, 10).map((pokemon) => {
             return <li  key={pokemon.id}>
-              <a onClick={() => {toggleModalLayer(); console.log('pokemon MAP: ', pokemon); modalData(pokemon)}} > {/* href={`/pokemons/${pokemon.id}`} */}
+              <a onClick={() => {toggleModalLayer();   modalData(pokemon)}} > {/* href={`/pokemons/${pokemon.id}`} */}
                 {pokemon.name.english}
               </a>
             </li>
