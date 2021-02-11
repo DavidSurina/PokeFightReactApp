@@ -40,10 +40,8 @@ const ViewAllPokemons = () => {
         <ul>
           {pokemonList
             ? pokemonList.slice(0, 10).map((pokemon) => {
-            return <li  key={pokemon.id}>
-              <a onClick={() => {toggleModalLayer();   modalData(pokemon)}} > {/* href={`/pokemons/${pokemon.id}`} */}
-                {pokemon.name.english}
-              </a>
+            return <li  key={pokemon.id} onClick={() => {toggleModalLayer();   modalData(pokemon)}}>
+                 {pokemon.name.english}
             </li>
           })
           : null
