@@ -1,6 +1,7 @@
 import { Switch, Route } from 'react-router-dom';
 /* components */
 import InputForm from "./components/InputForm";
+import FightBar from "./components/FightBar";
 import Footer from "./components/Footer";
 /* views */
 import ViewAllPokemons from "./views/ViewAllPokemons"
@@ -20,6 +21,8 @@ function App() {
           <InputForm />
       </header>
       <main class="main">
+        <FightBar />
+        <div class="dividing-line"></div>
         <Switch>
           <Route path="/pokemons/:id/:info"></Route>
           <Route path="/pokemons/:id">

@@ -11,6 +11,13 @@ html {
     font-family: "Roboto", sans-serif;
 }
 
+.dividing-line {
+    width: 20%;
+    height: 3px;
+    margin: 8rem auto;
+    background-color: #000;
+}
+
 /*------Header--------*/
 
 header {
