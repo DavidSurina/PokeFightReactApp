@@ -1,0 +1,59 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    box-sizing: border-box;
+    min-width: 1920px;
+    margin: 0 auto;
+    font-size: 62.5%;
+    font-family: "Roboto", sans-serif;
+}
+
+.dividing-line {
+    width: 20%;
+    height: 3px;
+    margin: 8rem auto;
+    background-color: #000;
+}
+
+/*------Header--------*/
+
+header {
+    width: 100%;
+    min-height: 20rem;
+    margin: 0 auto;
+    z-index: 10;
+    position: fixed;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    align-items: center;
+    background-color: red;
+    border-bottom: 5px solid black;
+}
+
+header:after {
+    content: "";
+    background-color: white;
+    position: absolute;
+    width: 10rem;
+    top: 15rem;
+    left: 50%;
+    margin-left: -5rem;
+    height: 10rem;
+    border-radius: 50%;
+    border: 5px solid black;
+}
+
+/*------Main--------*/
+
+main {
+    width: 100%;
+    min-height: 50vh;
+    margin: 0 auto;
+    padding-top: 30rem;
+    display: flex;
+    flex-direction: column;
+}
