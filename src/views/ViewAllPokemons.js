@@ -13,10 +13,14 @@ const ViewAllPokemons = () => {
   const toggleModalLayer = () => { setopenModal(!openModal);  }
 
   const modalData = (pokemon) => {
-     console.log('pokemon Function from Parent: ', pokemon);
+     console.log('pokemonVALUE from Parent: ', pokemon);
      setMyPokemon(pokemon);
-     console.log('myPokemon  ', myPokemon  )
+
+     setTimeout(function() {
+        console.log('myPokemon-StateVariable from Parent after 1 second  ', myPokemon  )
      // console.log('myPokemon.name.english ', myPokemon.name.english )
+ }, 1000);
+
   }
 
 

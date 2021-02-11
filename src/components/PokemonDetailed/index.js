@@ -13,7 +13,8 @@ import './detailed.css';
 const  TransitionsModal = (openModal, currentPokemon) => {
 
   const {currentPokemonNow} = currentPokemon;
-  // console.log('currentPokemonNow; ' ,  currentPokemonNow)
+  //
+  console.log('currentPokemonNow from Child-Component; ' ,  currentPokemonNow)
   const [open, setOpen] =  useState(false);
   const handleOpen = () => { setOpen(true); };
   const handleClose = () => { setOpen(false); };
@@ -35,7 +36,7 @@ const  TransitionsModal = (openModal, currentPokemon) => {
   const classes = useStyles();
 
 
-  // console.log('currentPokemon   after 3000 from Child-comp: ', currentPokemon);
+  //  console.log('currentPokemon   after 3000ms from Child-comp: ', currentPokemon);
 
 
   return (
@@ -52,7 +53,7 @@ const  TransitionsModal = (openModal, currentPokemon) => {
       }}
       >
       <Fade in={open}>
-         <div className={classes.paper} id="modalFrame" > {currentPokemon ? "yes" : "nix"}
+         <div className={classes.paper} id="modalFrame" > {currentPokemon ? "yes"  : "nix"}
             <div className="ModalPokedex">
                <div className="modal">
                   <div className="modal-content">
