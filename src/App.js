@@ -1,3 +1,5 @@
+// App.js
+import React from 'react';
 import { Switch, Route } from 'react-router-dom';
 /* components */
 import InputForm from "./components/InputForm";
@@ -12,6 +14,9 @@ import logo from "./img/pokefight_logo.png";
 import './App.css';
 
 function App() {
+
+
+
   return (
     <div classNameName="App">
       <header className="header">
