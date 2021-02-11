@@ -28,7 +28,7 @@ export default function ImgMediaCard({ pokemon }) {
           component="img"
           alt="Pokeball"
           height="140"
-          image="/images/pokeball.png"
+          image={`https://pokeres.bastionbot.org/images/pokemon/${pokemon.id}.png`}
           title="Pokeball"
         />
         <Divider />
