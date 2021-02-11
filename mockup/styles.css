@@ -20,6 +20,7 @@ header {
     max-width: 1920px;
     min-height: 20rem;
     margin: 0 auto;
+    z-index: 10;
     position: fixed;
     display: flex;
     flex-flow: row wrap;
@@ -89,8 +90,8 @@ header:after {
 
 .home-button:hover,
 .search-submit-button:hover{
-    transform: scale(1.02);
-    transition: all .2s;
+    transform: translateY(-5px);
+    transition: all .3s;
 }
 
 /*------Main--------*/
@@ -248,7 +249,6 @@ main {
 .pokecard-type {
     width: 50%;
     height: 2rem;
-    border: 1px solid #000;
     border-radius: 1rem;
     color: #fff;
     font-size: 1.5rem;
@@ -291,4 +291,22 @@ main {
 
 .poison {
     background-color: rgb(183, 0, 255);
+}
+
+/*------Poke Grid--------*/
+
+.footer {
+    width: 100%;
+    min-height: 20rem;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    border-top: 5px solid #000;
+    background-color: red;
+    color: #fff;
+}
+
+.copyright {
+    text-align: center;
+    font-size: 1.5rem;
 }
