@@ -29,11 +29,11 @@ const  TransitionsModal = ({openModal, currentPokemon}) => {
 
   // types-array
   const types = currentPokemon ? currentPokemon.type : ['no data about Types for this Pokemon'] ;
-  const typesResult = types.map((type, index) =>  { return  <span> {type}  </span> } )
+  const typesResult = types.map((type, index) =>  { return  <span key={index}> {type}  </span> } )
 
   // attacks-array = real data seems to be missing inside of the api response
   const attacks = currentPokemon ? currentPokemon.type : ['no data about Attacks for this Pokemon'] ;
-  const attackResult = types.map((type, index) =>  { return  <span> {type}  </span> } )
+  const attackResult = types.map((type, index) =>  { return  <span key={index}> {type}  </span> } )
 
   const useStyles = makeStyles((theme) => ({
     modal: {

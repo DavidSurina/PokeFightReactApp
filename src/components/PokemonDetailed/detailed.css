@@ -1,3 +1,8 @@
+.pokemon-list ul li {
+    margin-top: 2em;
+    list-style: none;
+}
+
 #modalFrame {
   padding: 0;
   margin: 0;
