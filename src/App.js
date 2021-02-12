@@ -21,7 +21,7 @@ function App() {
     <div className="App">
       <header className="header">
           <div className="logo-wrapper">
-              <img className="pokefight-logo" src={logo} />
+              <img className="pokefight-logo" src={logo} alt="pokefight-logo" />
           </div>
           <InputForm />
       </header>
