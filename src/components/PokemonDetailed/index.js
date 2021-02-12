@@ -23,16 +23,16 @@ const  TransitionsModal = ({openModal, currentPokemon}) => {
     setOpen(!open);
 
 
-     axios
-      .get("https://pokeapi.co/api/v2/pokemon/1")
-      .then((response) => {
-        // setListPokemons(response.data.results);
-        console.log('response: ' , response);
-        console.log('response.data.results: ' , response.data.results);
-      })
-      .catch((error) => {
-        console.log("There was an error with your request");
-      });
+     // axios
+     //  .get("https://pokeapi.co/api/v2/pokemon/1")
+     //  .then((response) => {
+     //    // setListPokemons(response.data.results);
+     //    console.log('response: ' , response);
+     //    console.log('response.data.results: ' , response.data.results);
+     //  })
+     //  .catch((error) => {
+     //    console.log("There was an error with your request");
+     //  });
 
 
       },[openModal]);

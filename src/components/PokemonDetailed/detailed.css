@@ -93,9 +93,8 @@
 
 .ModalPokedex img {
   width: 300px;
-  max-width: 60vw;
   max-width: 30vw;
-  margin: 0 10px 15px 0;
+  margin: 20px 10px 15px 0;
 }
 /* RIGHT PART */
 .modal-container > div {
