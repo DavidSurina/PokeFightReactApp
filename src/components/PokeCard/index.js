@@ -10,60 +10,11 @@ import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import Chip from '@material-ui/core/Chip';
 import Divider from '@material-ui/core/Divider';
+// styles
+import "./style.css";
+import customStyles from "./materialStyle.css.js";
 
-const useStyles = makeStyles({
-  root: {
-    maxWidth: 345,
-    margin: "2rem auto",
-    border: "4px solid black",
-    borderRadius: "2rem",
-    "&:hover" : {
-        boxShadow: "0 0 5px 3px rgb(129, 129, 129)",
-        transform: "scale(1.05)",
-        transition: "all .3s",
-    }
-  },
-  divider: {
-    backgroundColor: "#000",
-  },
-  img: {
-    height: "60%",
-  },
-  name: {
-    textAlign: "center",
-    fontSize: "2.5rem",
-    fontWeight: "600",
-  },
-  type: {
-    width: "30%",
-    height: "3rem",
-    borderRadius: "1rem",
-    color: "#fff",
-    fontSize: "2rem",
-    textAlign: "center"
-  },
-  button: {
-    justifySelf: "center",
-    border: "3px solid #000",
-    borderRadius: "1rem",
-    backgroundColor: "#fff",
-    color: "#000",
-    fontSize: "1.8rem",
-    cursor: "pointer",
-    "&:hover" : {
-      color: "#fff",
-      backgroundColor: "red",
-      transition: "all .2s",
-    },
-  },
-  center: {
-    justifyContent: "center",
-  },
-  Fire: {
-    backgroundColor: "#ff8800",
-  },
-  
-});
+const useStyles = makeStyles(customStyles);
 
 export default function ImgMediaCard({ pokemon }) {
   const classes = useStyles();
@@ -86,7 +37,8 @@ export default function ImgMediaCard({ pokemon }) {
             {pokemon.name.english}
           </Typography>
           <Typography variant="body2" component="div">
-            {pokemon.type.map((pokeType)=>{return <Chip className={`${classes.type} classes.${pokeType}`} size="medium" label={pokeType} />})}
+            {pokemon.type.map((pokeType, index)=>{
+              return (<Chip className={`${classes.type} ${pokeType.toLowerCase()}`} size="medium" label={pokeType} />)})}
           </Typography>
         </CardContent>
       </CardActionArea>
