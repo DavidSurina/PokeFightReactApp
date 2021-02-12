@@ -14,7 +14,7 @@ import Divider from '@material-ui/core/Divider';
 const useStyles = makeStyles({
   root: {
     maxWidth: 345,
-    margin: "0 auto",
+    margin: "2rem auto",
     border: "4px solid black",
     borderRadius: "2rem",
     "&:hover" : {

@@ -23,11 +23,12 @@ export default function CenteredGrid({ pokemons }) {
     <div className={classes.root}>
       <Grid
         container
-        spacing={3}
+        spacing={4}
         direction="row"
-        alignContent="center"
-        justifyContent="center"
+        alignItems="center"
+        alignContent="flex-start"
         wrap= "wrap"
+        xl="20"
         style={{ minHeight: "50vh" }}
         >
         {/*         {restaurants.map((iteration, index) => {
@@ -36,9 +37,7 @@ export default function CenteredGrid({ pokemons }) {
         {pokemons
           ? pokemons.slice(0, 20).map((pokemon) => {
               return (
-                <Grid item sm={2} key={pokemon.id}>
                   <ImgMediaCard pokemon={pokemon} />
-                </Grid>
               );
             })
           : null}
