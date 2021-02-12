@@ -24,14 +24,14 @@ const ViewAllPokemons = () => {
   return(
     <>
       <h1>All Pokemons</h1>
-       <TransitionsModal  openModal={toggleModalLayer}  currentPokemon={myPokemon} />
+        <TransitionsModal  openModal={toggleModalLayer}  currentPokemon={myPokemon} />
       <div className="pokemon-list">
       {/* FIXME: get better solution for limiting/offset/streaming */}
         <ul>
           {pokemonList
             ? pokemonList.slice(0, 10).map((pokemon) => {
             return <li  key={pokemon.id} onClick={() => {toggleModalLayer();   setMyPokemon(pokemon)}}>
-                 {pokemon.name.english}
+                  {pokemon.name.english}
             </li>
           })
           : null
