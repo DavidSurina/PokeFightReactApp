@@ -52,6 +52,7 @@ const useStyles = makeStyles({
     cursor: "pointer",
     "&:hover" : {
       color: "#fff",
+      border: "3px solid #000",
       backgroundColor: "red",
       transition: "all .2s",
     },
@@ -62,13 +63,15 @@ const useStyles = makeStyles({
   Fire: {
     backgroundColor: "#ff8800",
   },
-  
+  Water: {
+    backgroundColor: "#ff8800",
+  },
 });
 
 export default function ImgMediaCard({ pokemon }) {
   const classes = useStyles();
-  console.log(pokemon);
-
+  //console.log(pokemon);
+  
   return (
     <Card className={classes.root}>
       <CardActionArea>
@@ -86,7 +89,9 @@ export default function ImgMediaCard({ pokemon }) {
             {pokemon.name.english}
           </Typography>
           <Typography variant="body2" component="div">
-            {pokemon.type.map((pokeType)=>{return <Chip className={`${classes.type} classes.${pokeType}`} size="medium" label={pokeType} />})}
+            {pokemon.type.map((pokeType)=>{
+              let poket = `classes.${pokeType}`
+              return <Chip className={`${classes.type} ${poket}`} size="medium" label={pokeType} />})}
           </Typography>
         </CardContent>
       </CardActionArea>

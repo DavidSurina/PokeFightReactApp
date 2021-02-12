@@ -18,16 +18,16 @@ function App() {
 
 
   return (
-    <div classNameName="App">
+    <div className="App">
       <header className="header">
           <div className="logo-wrapper">
               <img className="pokefight-logo" src={logo} />
           </div>
           <InputForm />
       </header>
-      <main class="main">
+      <main className="main">
         <FightBar />
-        <div class="dividing-line"></div>
+        <div className="dividing-line"></div>
         <Switch>
           <Route path="/pokemons/:id/:info"></Route>
           <Route path="/pokemons/:id">

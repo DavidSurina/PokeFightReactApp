@@ -26,6 +26,7 @@ header {
     z-index: 10;
     position: fixed;
     display: flex;
+    flex-basis: calc(33% - 2em);
     flex-flow: row wrap;
     justify-content: space-between;
     align-items: center;
