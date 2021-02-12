@@ -6,24 +6,10 @@ import TransitionsModal from '../components/PokemonDetailed';
 import Api from "../api/index";
 
 const ViewAllPokemons = () => {
-  const [pokemonList, setPokemonList] = useState();
-  const [myPokemon, setMyPokemon] = useState();
-
-  const [openModal, setopenModal] = useState();
-  const toggleModalLayer = () => { setopenModal(!openModal);  }
-
-  const modalData = (pokemon) => {
-     console.log('pokemonVALUE from Parent: ', pokemon);
-     setMyPokemon(pokemon);
-
-     setTimeout(function() {
-        console.log('myPokemon-StateVariable from Parent after 1 second  ', myPokemon  )
-     // console.log('myPokemon.name.english ', myPokemon.name.english )
- }, 1000);
-
-  }
-
-
+  const [pokemonList, setPokemonList] = useState()
+  const [myPokemon,   setMyPokemon]   = useState()
+  const [openModal,   setopenModal]   = useState()
+  const toggleModalLayer = () => { setopenModal(!openModal) }
 
   useEffect(() => {
     Api.getAllPokemons()
@@ -44,7 +30,7 @@ const ViewAllPokemons = () => {
         <ul>
           {pokemonList
             ? pokemonList.slice(0, 10).map((pokemon) => {
-            return <li  key={pokemon.id} onClick={() => {toggleModalLayer();   modalData(pokemon)}}>
+            return <li  key={pokemon.id} onClick={() => {toggleModalLayer();   setMyPokemon(pokemon)}}>
                  {pokemon.name.english}
             </li>
           })
