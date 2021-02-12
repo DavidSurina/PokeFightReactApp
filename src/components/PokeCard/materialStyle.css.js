@@ -46,8 +46,8 @@ const customStyles = {
   center: {
     justifyContent: "center",
   },
-  // in case we find a solution to get meterialUI classes to work -> ${classes.pokeType} 
-  /* Normal: {
+  // pokeTypes
+  Normal: {
     color: "rgba(22%, 42%, 73%, 1)",
     backgroundColor: "rgb(191, 217, 255)",
   },
@@ -114,7 +114,8 @@ const customStyles = {
   Steel: {
     color: "rgba(22%, 42%, 73%, 1)",
     backgroundColor: "rgb(191, 217, 255)",
-  }, */
+  },
+  // end pokeTypes
 };
 
 export default customStyles;

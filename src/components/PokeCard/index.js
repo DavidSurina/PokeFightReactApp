@@ -11,7 +11,6 @@ import Typography from '@material-ui/core/Typography';
 import Chip from '@material-ui/core/Chip';
 import Divider from '@material-ui/core/Divider';
 // styles
-import "./style.css";
 import customStyles from "./materialStyle.css.js";
 
 const useStyles = makeStyles(customStyles);
@@ -37,8 +36,8 @@ export default function ImgMediaCard({ pokemon }) {
             {pokemon.name.english}
           </Typography>
           <Typography variant="body2" component="div">
-            {pokemon.type.map((pokeType, index)=>{
-              return (<Chip className={`${classes.type} ${pokeType.toLowerCase()}`} size="medium" label={pokeType} />)})}
+            {pokemon.type.map((pokeType)=>{
+              return (<Chip className={`${classes.type} ${classes[pokeType]}`} size="medium" label={pokeType} />)})}
           </Typography>
         </CardContent>
       </CardActionArea>
@@ -50,3 +49,5 @@ export default function ImgMediaCard({ pokemon }) {
     </Card>
   );
 }
+
+//${pokeType.toLowerCase()}`}
