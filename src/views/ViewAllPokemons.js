@@ -6,18 +6,10 @@ import TransitionsModal from '../components/PokemonDetailed';
 import Api from "../api/index";
 
 const ViewAllPokemons = () => {
-  const [pokemonList, setPokemonList] = useState();
-  const [myPokemon, setMyPokemon] = useState();
-
-  const [openModal, setopenModal] = useState();
-  const toggleModalLayer = () => { setopenModal(!openModal);  }
-
-  const modalData = (pokemon) => {
-     console.log('pokemon Function from Parent: ', pokemon);
-     setMyPokemon(pokemon);
-  }
-
-
+  const [pokemonList, setPokemonList] = useState()
+  const [myPokemon,   setMyPokemon]   = useState()
+  const [openModal,   setopenModal]   = useState()
+  const toggleModalLayer = () => { setopenModal(!openModal) }
 
   useEffect(() => {
     Api.getAllPokemons()
@@ -38,10 +30,8 @@ const ViewAllPokemons = () => {
         <ul>
           {pokemonList
             ? pokemonList.slice(0, 10).map((pokemon) => {
-            return <li  key={pokemon.id}>
-              <a onClick={() => {toggleModalLayer(); console.log('pokemon MAP: ', pokemon); modalData(pokemon)}} > {/* href={`/pokemons/${pokemon.id}`} */}
-                {pokemon.name.english}
-              </a>
+            return <li  key={pokemon.id} onClick={() => {toggleModalLayer();   setMyPokemon(pokemon)}}>
+                 {pokemon.name.english}
             </li>
           })
           : null

@@ -1,3 +1,8 @@
+.pokemon-list ul li {
+    margin-top: 2em;
+    list-style: none;
+}
+
 #modalFrame {
   padding: 0;
   margin: 0;
@@ -134,11 +139,13 @@
 .ModalPokedex .usual-attacks {
   display: flex;
   flex-direction: column;
+  text-align: left;
 }
 
 .ModalPokedex ul {
   display: flex;
   margin-left: 10px;
+  padding-inline-start: 0;
 }
 
 .ModalPokedex li {

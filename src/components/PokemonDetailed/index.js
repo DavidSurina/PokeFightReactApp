@@ -10,12 +10,30 @@ import './detailed.css';
 // https://stackoverflow.com/questions/61115871/finddomnode-error-on-react-material-ui-select-menu
 // https://reactjs.org/docs/strict-mode.html#warning-about-deprecated-finddomnode-usage
 
-const  TransitionsModal = (openModal, currentPokemon) => {
+const  TransitionsModal = ({openModal, currentPokemon}) => {
+
 
   const [open, setOpen] =  useState(false);
   const handleOpen = () => { setOpen(true); };
   const handleClose = () => { setOpen(false); };
   useEffect(() => { setOpen(!open);    },[openModal]);
+
+
+// workaround: we fabricating the src URL to the Image  to comensate for the missing data
+  const src = 'https://pokeres.bastionbot.org/images/pokemon/1.png';
+
+  // size and weight and Image = real data seems to be missing inside of the api response
+  const sizeResult   = currentPokemon ? <span>{currentPokemon.base.Speed} m </span> : ['no size information'] ;
+  const weightResult = currentPokemon ? <span>{currentPokemon.base.Defense}  kg </span> : ['no weight information'] ;
+  const imageResult  = currentPokemon ? <img src={src}  alt={currentPokemon.name.english}  />  : ['no image information'] ;
+
+  // types-array
+  const types = currentPokemon ? currentPokemon.type : ['no data about Types for this Pokemon'] ;
+  const typesResult = types.map((type, index) =>  { return  <span key={index}> {type}  </span> } )
+
+  // attacks-array = real data seems to be missing inside of the api response
+  const attacks = currentPokemon ? currentPokemon.type : ['no data about Attacks for this Pokemon'] ;
+  const attackResult = types.map((type, index) =>  { return  <span key={index}> {type}  </span> } )
 
   const useStyles = makeStyles((theme) => ({
     modal: {
@@ -32,11 +50,6 @@ const  TransitionsModal = (openModal, currentPokemon) => {
   }));
   const classes = useStyles();
 
-
-      setTimeout(function() {
-         console.log('currentPokemon   after 3000 from Child-comp: ', currentPokemon);
-       }, 3000);
-
   return (
       <Modal
       aria-labelledby="transition-modal-title"
@@ -51,25 +64,26 @@ const  TransitionsModal = (openModal, currentPokemon) => {
       }}
       >
       <Fade in={open}>
-         <div className={classes.paper} id="modalFrame" > {currentPokemon ? "yes"   : "nix"}
-            <div className="ModalPokedex">
+         <div className={classes.paper} id="modalFrame" >
+              <div className="ModalPokedex">
                <div className="modal">
                   <div className="modal-content">
                      <span className="close" onClick={handleClose}>×</span>
-                     <h3>POKE-NAME<span> No.001</span></h3>
+                     <h3>{currentPokemon ? currentPokemon.name.english : ''}<span> No.001</span></h3>
                      <div className="modal-container">
-                        <img src="https://pokeres.bastionbot.org/images/pokemon/1.png" alt="pokemon1"/>
+                        {imageResult}
                         <div>
                            <p>A strange seed was planted on its back at birth. The plant sprouts and grows with this POKéMON.</p>
                            <div className="stats-container">
-                              <h4>Type : <span>grass, poison</span></h4>
+                              <h4>Type : {typesResult} </h4>
                               <div className="simple-data">
-                                 <h4>Size : <span>0.7 m</span></h4>
-                                 <h4>Weight : <span>6.9 kg</span></h4>
+                                 <h4>Size : {sizeResult}</h4>
+                                 <h4>Weight : {weightResult}</h4>
                               </div>
                               <div className="usual-attacks">
                                  <h4>Usual attacks :</h4>
                                  <ul className="attacks-list">
+                                    {/*{attacks}*/}
                                     <li>razor-wind - </li>
                                     <li>swords-dance - </li>
                                     <li>cut - </li>
