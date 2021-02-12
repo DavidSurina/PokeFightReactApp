@@ -94,6 +94,7 @@
 .ModalPokedex img {
   width: 300px;
   max-width: 60vw;
+  max-width: 30vw;
   margin: 0 10px 15px 0;
 }
 /* RIGHT PART */
