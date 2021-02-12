@@ -26,7 +26,7 @@ const ViewAllPokemons = () => {
 
   return(
     <>
-      <h1>All Pokemons</h1>
+      <h1 class="grid-heading">All Pokemons</h1>
         <TransitionsModal  openModal={toggleModalLayer}  currentPokemon={myPokemon} />
       <div className="pokemon-list">
         <CenteredGrid pokemons={pokemonList} />

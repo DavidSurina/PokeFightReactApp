@@ -38,6 +38,7 @@ const customStyles = {
     fontSize: "1.8rem",
     cursor: "pointer",
     "&:hover" : {
+      border: "3px solid black",
       color: "#fff",
       backgroundColor: "red",
       transition: "all .2s",
