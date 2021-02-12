@@ -37,12 +37,12 @@
 }
 
 .fighter-one-img:hover{
-    transform: rotate(20deg);
+    transform: rotate(5deg);
     transition: all .2s;
 }
 
 .fighter-two-img:hover {
-    transform: rotate(-20deg);
+    transform: rotate(-5deg);
     transition: all .2s;
 }
 

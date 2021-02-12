@@ -17,8 +17,8 @@ const useStyles = makeStyles(customStyles);
 
 export default function ImgMediaCard({ pokemon }) {
   const classes = useStyles();
-  console.log(pokemon);
-
+  //console.log(pokemon);
+  
   return (
     <Card className={classes.root}>
       <CardActionArea>
