@@ -12,6 +12,13 @@ html {
     font-family: "Roboto", sans-serif;
 }
 
+.dividing-line {
+    width: 20%;
+    height: 3px;
+    margin: 8rem auto;
+    background-color: #000;
+}
+
 
 /*------Header--------*/
 
@@ -115,6 +122,7 @@ main {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    background-image: linear-gradient(135deg, red 49.5%, black, white 50.5%) ;
     border: 3px solid black;
     border-radius: 5rem;
 }
@@ -129,8 +137,13 @@ main {
 .fighter-one-name,
 .fighter-two-name {
     height: 20%;
-    font-size: 2rem;
+    margin-top: .5rem;
+    font-size: 2.5rem;
     text-align: center;
+}
+
+.fighter-one-name {
+    color: #fff;
 }
 
 .fighter-one-img,
@@ -182,7 +195,7 @@ main {
 .poke-grid {
     width: 70%;
     min-height: 20vh;
-    margin: 10rem auto;
+    margin: 0 auto;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -293,7 +306,7 @@ main {
     background-color: rgb(183, 0, 255);
 }
 
-/*------Poke Grid--------*/
+/*------Footer--------*/
 
 .footer {
     width: 100%;
@@ -309,4 +322,96 @@ main {
 .copyright {
     text-align: center;
     font-size: 1.5rem;
+}
+
+/*------Pokecard detailed--------*/
+
+.pokecard-detailed-wrapper {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    z-index: 150;
+    background-color: rgba(0, 0, 0, 0.719); 
+}
+
+.pokecard-detailed {
+    width: 50%;
+    height: 50rem;
+    margin: 10rem auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    background-color: #fff;
+    border: 3px solid #000;
+    border-radius: 2rem;
+    overflow: hidden;
+}
+
+.pokecard-detailed-left {
+    width: 50%;
+    background-color: red;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: space-between;
+}
+
+.pokecard-detailed-name {
+    font-size: 3rem;
+    text-align: center;
+    color: #fff;
+}
+.pokecard-detailed-img {
+    width: 90%;
+    margin: 0 auto;
+    background-color: #fff;
+    border: 1px solid #000;
+    border-radius: 2rem;
+}
+
+.pokecard-detailed-right {
+    width: 50%;
+    border-left: 3px solid #000;
+    background-color: red;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.pokecard-detailed-stats-wrapper {
+    width: 70%;
+    margin-top: 7rem;
+    padding: 1rem 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #fff;
+    border: 1px solid #000;
+    border-radius: 1rem;
+}
+
+.pokecard-detailed-stats {
+    width: 90%;
+    margin: .5rem;
+    color: #000;
+    font-size: 3rem;
+}
+
+.pokecard-detailed-close {
+    width: 4rem;
+    height: 4rem;
+    align-self: flex-end;
+    color: #fff;
+    font-size: 2rem;
+    background-color: red;
+    border: none;
+    cursor: pointer;
+}
+
+.pokecard-detailed-close:hover {
+    transform: rotate(180deg);
+    transition: all .2s;
 }

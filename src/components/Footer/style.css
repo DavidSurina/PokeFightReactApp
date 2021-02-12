@@ -1,0 +1,15 @@
+.footer {
+    width: 100%;
+    min-height: 20rem;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    border-top: 5px solid #000;
+    background-color: red;
+    color: #fff;
+}
+
+.copyright {
+    text-align: center;
+    font-size: 1.5rem;
+}
