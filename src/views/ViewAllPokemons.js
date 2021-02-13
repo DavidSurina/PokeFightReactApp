@@ -24,6 +24,10 @@ const ViewAllPokemons = () => {
       })
   },[]);
 
+// console.log('myPokemon: ', myPokemon)
+// console.log('pokemonList: ', pokemonList)
+// console.log('pokemonList[0]: ', pokemonList[0])
+
   return(
     <>
       <h1 className="grid-heading">All Pokemons</h1>
