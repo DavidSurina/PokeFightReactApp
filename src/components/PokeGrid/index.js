@@ -34,6 +34,8 @@ export default function CenteredGrid({ pokemons, handleOpenParent, setMyPokemon}
         {/*         {restaurants.map((iteration, index) => {
           return <RestaurantCard key={index} restaurant={iteration} />;
         })} */}
+
+      {/* FIXME: get better solution for limiting/offset/streaming */}
         {pokemons
           ? pokemons.slice(0, 20).map((pokemon) => {
               return (

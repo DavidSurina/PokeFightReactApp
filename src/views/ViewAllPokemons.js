@@ -36,20 +36,6 @@ const ViewAllPokemons = () => {
             pokemons={pokemonList}
             handleOpenParent={handleOpenParent}
             setMyPokemon={setMyPokemon} />
-      {/* FIXME: get better solution for limiting/offset/streaming */}
-        <ul>
-          {pokemonList
-            ? pokemonList.slice(0, 10).map((pokemon) => {
-            return <li  key={pokemon.id} onClick={() => {
-              handleOpenParent();
-              setMyPokemon(pokemon)
-            }}>
-                 {pokemon.name.english}
-            </li>
-          })
-          : null
-          }
-        </ul>
       </div>
     </>
   );
