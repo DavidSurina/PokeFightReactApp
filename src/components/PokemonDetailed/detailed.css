@@ -22,6 +22,18 @@
   outline: transparent;
 }
 
+
+ /*this will prevent the modal from beeing visible onpageload*/
+#pageload {
+  visibility: hidden;
+  animation: cssAnimation 0s 5s forwards;
+}
+@keyframes cssAnimation {
+  to   {   visibility: visible;}
+}
+
+
+
 .ModalPokedex
 .modal {
   outline: transparent;
@@ -91,10 +103,31 @@
   cursor: pointer;
 }
 
+/*
+The below selector will ensure we prevent Content Reflow From 'Lazy-Loading' Images.
+This could be improoved much further, by applying the advice the below article offers:
+ https://css-tricks.com/preventing-content-reflow-from-lazy-loaded-images/
+ */
+.ModalPokedex .modal-container .imagecontainer {
+    background-color: darkseagreen;
+    border-top-left-radius: 25px;
+    border-top-right-radius: 25px;
+    display: block;
+    margin: 20px 10px 3em 0;
+}
+@media only screen and (min-width: 968px) {
+  .ModalPokedex .modal-container .imagecontainer {
+      width: 300px;
+      max-width: 30vw;
+      height: 300px;
+  }
+}
+
 .ModalPokedex img {
-  width: 300px;
-  max-width: 30vw;
-  margin: 20px 10px 15px 0;
+
+     max-width: 100%;
+     height: auto;
+    margin: 20px 10px 15px 0;
 }
 /* RIGHT PART */
 .modal-container > div {
@@ -152,6 +185,14 @@
   list-style: none;
   margin-right: 10px;
 }
+
+
+.ModalPokedex .MuiSvgIcon-root {
+    width: 6em;
+    height: 6em;
+    cursor: pointer;
+}
+
 
 @media screen and (max-width: 800px) {
   .modal-content {
