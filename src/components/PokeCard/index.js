@@ -42,7 +42,7 @@ export default function ImgMediaCard({ pokemon,  handleOpenParent, setMyPokemon 
           </Typography>
           <Typography variant="body2" component="div">
             {pokemon.type.map((pokeType, index)=>{
-              return (<Chip className={`${classes.type} ${pokeType.toLowerCase()}`} size="medium" label={pokeType} />)})}
+              return (<Chip key={index} className={`${classes.type} ${pokeType.toLowerCase()}`} size="medium" label={pokeType} />)})}
           </Typography>
         </CardContent>
       </CardActionArea>

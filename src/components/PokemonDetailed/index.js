@@ -53,6 +53,13 @@ const  TransitionsModal = ({ handleCloseParent, open, currentPokemon}) => {
   }));
   const classes = useStyles();
 
+
+
+// console.log('myPokemon: ', myPokemon)
+// console.log('pokemonList: ', pokemonList)
+// console.log('pokemonList[0]: ', pokemonList[0])
+
+
   return (
       <Modal
       aria-labelledby="transition-modal-title"
