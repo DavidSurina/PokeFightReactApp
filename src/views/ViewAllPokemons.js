@@ -25,12 +25,11 @@ const ViewAllPokemons = () => {
 
   return(
     <>
-      <h1>All Pokemons</h1>
+      <h1 class="grid-heading">All Pokemons</h1>
        <TransitionsModal
             handleCloseParent={handleCloseParent}
             open={open}
             currentPokemon={myPokemon} />
-
       <div className="pokemon-list">
       {/* FIXME: get better solution for limiting/offset/streaming */}
         <ul>

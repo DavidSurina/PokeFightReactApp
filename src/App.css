@@ -4,10 +4,6 @@
 }
 
 
-.MuiGrid-spacing-xs-4 {
-    margin: -32px !important ;
-}
-
 
 html {
     box-sizing: border-box;
@@ -32,6 +28,7 @@ header {
     z-index: 10;
     position: fixed;
     display: flex;
+    flex-basis: calc(33% - 2em);
     flex-flow: row wrap;
     justify-content: space-between;
     align-items: center;
@@ -52,6 +49,16 @@ header:after {
     border: 5px solid black;
 }
 
+.logo-wrapper {
+    height: 18rem;
+    width: 50%;
+}
+
+.pokefight-logo {
+    height: 100%;
+    padding-left: 10%;
+}
+
 /*------Main--------*/
 
 main {
@@ -61,4 +68,24 @@ main {
     padding-top: 30rem;
     display: flex;
     flex-direction: column;
+}
+
+.grid-heading {
+    width: 95%;
+    margin: 2rem auto;
+    font-size: 4rem;
+}
+
+.pokemon-list {
+    width: 95%;
+    margin: 0 auto;
+}
+
+.MuiGrid-spacing-xs-4 {
+    width: 100% !important;
+    margin: 0 !important;
+}
+
+.MuiGrid-spacing-xs-4 {
+    margin: -32px !important ;
 }
