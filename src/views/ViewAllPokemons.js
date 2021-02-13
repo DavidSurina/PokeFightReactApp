@@ -31,6 +31,7 @@ const ViewAllPokemons = () => {
             open={open}
             currentPokemon={myPokemon} />
       <div className="pokemon-list">
+        <CenteredGrid pokemons={pokemonList} />
       {/* FIXME: get better solution for limiting/offset/streaming */}
         <ul>
           {pokemonList
