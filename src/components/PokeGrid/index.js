@@ -16,7 +16,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function CenteredGrid({ pokemons }) {
+export default function CenteredGrid({ pokemons, handleOpenParent, setMyPokemon}) {
   const classes = useStyles();
 
   return (
@@ -37,7 +37,10 @@ export default function CenteredGrid({ pokemons }) {
         {pokemons
           ? pokemons.slice(0, 20).map((pokemon) => {
               return (
-                  <ImgMediaCard pokemon={pokemon} />
+                  <ImgMediaCard
+                    pokemon={pokemon}
+                    handleOpenParent={handleOpenParent}
+                    setMyPokemon={setMyPokemon}  />
               );
             })
           : null}

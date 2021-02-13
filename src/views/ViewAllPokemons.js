@@ -1,6 +1,7 @@
 // ViewAllPokemons
 import { useState, useEffect } from "react";
 import TransitionsModal from '../components/PokemonDetailed';
+import CenteredGrid from '../components/PokeGrid';
 
 // Import api functionality
 import Api from "../api/index";
@@ -31,7 +32,10 @@ const ViewAllPokemons = () => {
             open={open}
             currentPokemon={myPokemon} />
       <div className="pokemon-list">
-        <CenteredGrid pokemons={pokemonList} />
+        <CenteredGrid
+            pokemons={pokemonList}
+            handleOpenParent={handleOpenParent}
+            setMyPokemon={setMyPokemon} />
       {/* FIXME: get better solution for limiting/offset/streaming */}
         <ul>
           {pokemonList
