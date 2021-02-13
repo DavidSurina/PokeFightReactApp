@@ -28,7 +28,7 @@ export default function CenteredGrid({ pokemons, handleOpenParent, setMyPokemon}
         alignItems="center"
         alignContent="flex-start"
         wrap= "wrap"
-        xl="20"
+        xl={12}
         style={{ minHeight: "50vh" }}
         >
         {/*         {restaurants.map((iteration, index) => {
@@ -37,9 +37,10 @@ export default function CenteredGrid({ pokemons, handleOpenParent, setMyPokemon}
 
       {/* FIXME: get better solution for limiting/offset/streaming */}
         {pokemons
-          ? pokemons.slice(0, 20).map((pokemon) => {
+          ? pokemons.slice(0, 20).map((pokemon, index) => {
               return (
                   <ImgMediaCard
+                    key={index}
                     pokemon={pokemon}
                     handleOpenParent={handleOpenParent}
                     setMyPokemon={setMyPokemon}  />
