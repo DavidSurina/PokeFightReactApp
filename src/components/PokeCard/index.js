@@ -16,10 +16,10 @@ import customStyles from "./materialStyle.css.js";
 
 const useStyles = makeStyles(customStyles);
 
-export default function ImgMediaCard({ pokemon }) {
+export default function ImgMediaCard({ pokemon,  handleOpenParent, setMyPokemon  }) {
   const classes = useStyles();
   //console.log(pokemon);
-  
+
   return (
     <Card className={classes.root}>
       <CardActionArea>
@@ -30,6 +30,10 @@ export default function ImgMediaCard({ pokemon }) {
           height="140"
           image={`https://pokeres.bastionbot.org/images/pokemon/${pokemon.id}.png`}
           title="Pokeball"
+          onClick={() => {
+              handleOpenParent();
+              setMyPokemon(pokemon)
+            }}
         />
         <Divider className={classes.divider}/>
         <CardContent>

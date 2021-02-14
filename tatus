@@ -1,0 +1,109 @@
+[33mcommit 115ca543d85fbad37998ef08e2ab3019a497abb8[m[33m ([m[1;36mHEAD -> [m[1;32mviewDetails[m[33m, [m[1;31morigin/dev[m[33m)[m
+Merge: 6121969 505142e
+Author: Janis Jeanne Merkel <64575149+widukin@users.noreply.github.com>
+Date:   Fri Feb 12 16:30:11 2021 +0100
+
+    Merge pull request #17 from widukin/pokeCard
+    
+    Poke card
+
+[33mcommit 505142ec7c8a0448aaa8930ae418e0169a391138[m
+Merge: 66f0616 6121969
+Author: Janis Jeanne Merkel <janisjeanne.merkel@gmail.com>
+Date:   Fri Feb 12 16:26:56 2021 +0100
+
+    Merge branch 'dev' of https://github.com/widukin/PokeFightReactApp into pokeCard
+
+[33mcommit 612196931b2c308a2a727c276882aee348a2fe02[m
+Author: Janis Jeanne Merkel <janisjeanne.merkel@gmail.com>
+Date:   Fri Feb 12 16:20:05 2021 +0100
+
+    fix class to className
+
+[33mcommit 8e543b19df507ceeec6d16d8709e6e54ac816414[m[33m ([m[1;32mdev[m[33m)[m
+Merge: 3591f1d 04c8c32
+Author: Stefanibus <stefan.brueck@posteo.de>
+Date:   Fri Feb 12 16:10:58 2021 +0100
+
+    Merge pull request #15 from widukin/viewDetails
+    
+    View details
+
+[33mcommit 66f06166e9e08a6320d55f9e96486849f0d548a2[m
+Author: Janis Jeanne Merkel <janisjeanne.merkel@gmail.com>
+Date:   Fri Feb 12 16:01:30 2021 +0100
+
+    workaround for styling the pokemon types
+
+[33mcommit 1dc5a64b1ccd23ef401f52555ebd6e6279e3830d[m
+Author: Janis Jeanne Merkel <janisjeanne.merkel@gmail.com>
+Date:   Fri Feb 12 16:00:31 2021 +0100
+
+    modularize costumized materialUI styling
+
+[33mcommit c8e5e7e8d297881c47614b8325f8cfcd2665f7fb[m
+Merge: 180fd45 1e9dced
+Author: Janis Jeanne Merkel <64575149+widukin@users.noreply.github.com>
+Date:   Fri Feb 12 13:07:15 2021 +0100
+
+    Merge pull request #13 from widukin/postCard
+    
+    improved responsiveness of grid
+
+[33mcommit 1e9dced7dabc4e08ecd3306756ecb8ea04c264f6[m
+Author: DavidSurina <david.surina22@gmail.com>
+Date:   Fri Feb 12 13:03:53 2021 +0100
+
+    improved responsiveness of grid
+
+[33mcommit 180fd457a92a72ca9b70c1d696c7ec6b23a25569[m
+Merge: 35af505 eedb821
+Author: Janis Jeanne Merkel <64575149+widukin@users.noreply.github.com>
+Date:   Fri Feb 12 12:58:00 2021 +0100
+
+    Merge pull request #12 from widukin/pokecard
+    
+    Pokecard
+
+[33mcommit eedb821b77fcb6ce55d77ec42851a777a250fbbc[m
+Author: DavidSurina <david.surina22@gmail.com>
+Date:   Fri Feb 12 12:23:26 2021 +0100
+
+    changed rendering in poke grid
+
+[33mcommit 66e037dd9bfd6c31bcb674ead24d8676f17cf2f5[m
+Author: DavidSurina <david.surina22@gmail.com>
+Date:   Fri Feb 12 11:57:03 2021 +0100
+
+    changed styling for card
+
+[33mcommit e40872bb4023b9164ced4029e225492e233eb3bb[m
+Merge: ed9d223 35af505
+Author: DavidSurina <david.surina22@gmail.com>
+Date:   Fri Feb 12 09:29:06 2021 +0100
+
+    Merge branch 'pokeCard' of https://github.com/widukin/PokeFightReactApp into pokecard
+
+[33mcommit 35af5051cd9d884fc2893a9a299fcc444b59af49[m
+Author: Janis Jeanne Merkel <janisjeanne.merkel@gmail.com>
+Date:   Thu Feb 11 19:54:20 2021 +0100
+
+    add poke images to cards
+
+[33mcommit b548a7d4507109e8382d65be0da1bf1fcc65bc28[m
+Author: Janis Jeanne Merkel <janisjeanne.merkel@gmail.com>
+Date:   Thu Feb 11 19:23:55 2021 +0100
+
+    implement PokeCard
+
+[33mcommit 64a4260dd4c9d360aee7141eaf9a8fb017753014[m
+Author: Janis Jeanne Merkel <janisjeanne.merkel@gmail.com>
+Date:   Thu Feb 11 19:23:39 2021 +0100
+
+    implement PokeGrid
+
+[33mcommit 9530f3b2dbf6b724f0894d0db6ead48a25ebd5e4[m
+Author: Janis Jeanne Merkel <janisjeanne.merkel@gmail.com>
+Date:   Thu Feb 11 17:26:48 2021 +0100
+
+    delete unusefull a tag

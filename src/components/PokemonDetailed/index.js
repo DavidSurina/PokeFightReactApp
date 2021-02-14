@@ -2,6 +2,9 @@ import React, { useState, useEffect } from 'react';
 import {Modal, makeStyles, Backdrop, Fade } from '@material-ui/core';
 import axios from "axios";
 import './detailed.css';
+import ArrowForwardIosIcon from '@material-ui/icons/ArrowForwardIos';
+import ArrowBackIosIcon    from '@material-ui/icons/ArrowBackIos';
+
 
 // MODAL COMPONENT
 // https://material-ui.com/components/modal/#transitions
@@ -11,37 +14,21 @@ import './detailed.css';
 // https://stackoverflow.com/questions/61115871/finddomnode-error-on-react-material-ui-select-menu
 // https://reactjs.org/docs/strict-mode.html#warning-about-deprecated-finddomnode-usage
 
-const  TransitionsModal = ({openModal, currentPokemon}) => {
 
+const  TransitionsModal = ({ handleCloseParent, open, currentPokemon}) => {
 
-  const [open, setOpen] =  useState(false);
-  const handleOpen = () => { setOpen(true); };
-  const handleClose = () => { setOpen(false); };
-  useEffect(() => {
-
-
-    setOpen(!open);
-
-
-     // axios
-     //  .get("https://pokeapi.co/api/v2/pokemon/1")
-     //  .then((response) => {
-     //    // setListPokemons(response.data.results);
-     //    console.log('response: ' , response);
-     //    console.log('response.data.results: ' , response.data.results);
-     //  })
-     //  .catch((error) => {
-     //    console.log("There was an error with your request");
-     //  });
-
-
-      },[openModal]);
-
+  // onClick={skip(1)}  to be added into arrowForward
+  // const skip = (number) => {
+  //     //console.log('test', number)
+  //     // console.log('currentPokemon.id: ', currentPokemon.id )
+  //     // currentPokemon.id+number
+  //     // console.log('currentPokemon.id: ', currentPokemon.id )
+  // }
 
   // size and weight and Image = real data seems to be missing inside of the api response
   const sizeResult   = currentPokemon ? <span>{currentPokemon.base.Speed} m </span> : ['no size information'] ;
   const weightResult = currentPokemon ? <span>{currentPokemon.base.Defense}  kg </span> : ['no weight information'] ;
-  const imageResult  = currentPokemon ? <img src={'https://pokeres.bastionbot.org/images/pokemon/1'+ currentPokemon.id+'.png'}  alt={currentPokemon.name.english}  />  : ['no image information'] ;
+  const imageResult  = currentPokemon ? <img src={'https://pokeres.bastionbot.org/images/pokemon/'+ currentPokemon.id+'.png'}  alt={currentPokemon.name.english}  />  : ['no image information'] ;
 
   // types-array
   const types = currentPokemon ? currentPokemon.type : ['no data about Types for this Pokemon'] ;
@@ -72,22 +59,26 @@ const  TransitionsModal = ({openModal, currentPokemon}) => {
       aria-describedby="transition-modal-description"
       className={classes.modal}
       open={open}
-      onClose={handleClose}
+      onClose={handleCloseParent}
       closeAfterTransition
       BackdropComponent={Backdrop}
       BackdropProps={{
       timeout: 500,
       }}
       >
-      <Fade in={open}>
+      <Fade in={open} >
          <div className={classes.paper} id="modalFrame" >
               <div className="ModalPokedex">
                <div className="modal">
                   <div className="modal-content">
-                     <span className="close" onClick={handleClose}>×</span>
-                     <h3>{currentPokemon ? currentPokemon.name.english : ''}<span> No.00{currentPokemon ? currentPokemon.id : 'nix'}</span></h3>
+                     <span className="close" onClick={handleCloseParent}>×</span>
+                     <h3> Fight with: {currentPokemon ? currentPokemon.name.english : ''}<span> No.00{currentPokemon ? currentPokemon.id : 'nix'}</span></h3>
                      <div className="modal-container">
+                        <ArrowBackIosIcon color="secondary"></ArrowBackIosIcon>
+                        <div className="imagecontainer">
                         {imageResult}
+                        </div>
+                       <ArrowForwardIosIcon  color="secondary"></ArrowForwardIosIcon>
                         <div>
                            <p>A strange seed was planted on its back at birth. The plant sprouts and grows with this POKéMON.</p>
                            <div className="stats-container">
