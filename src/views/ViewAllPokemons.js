@@ -24,13 +24,17 @@ const ViewAllPokemons = ({fightPokemon, setFightPokemon}) => {
       })
   },[]);
 
+
+
   return(
     <>
       <h1 className="grid-heading">All Pokemons</h1>
        <TransitionsModal
             handleCloseParent={handleCloseParent}
             open={open}
-            currentPokemon={myPokemon} />
+            currentPokemon={myPokemon}
+            pokemonList={pokemonList}
+            />
       <div className="pokemon-list">
         <CenteredGrid
             pokemons={pokemonList}
