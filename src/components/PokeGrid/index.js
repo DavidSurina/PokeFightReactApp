@@ -1,9 +1,11 @@
-import React from 'react';
+import React, { useState } from 'react';
 // components
 import ImgMediaCard from '../PokeCard';
 // materialUI
 import { makeStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
+
+import "./style.css"
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -18,6 +20,8 @@ const useStyles = makeStyles((theme) => ({
 
 export default function CenteredGrid({ pokemons, handleOpenParent, setMyPokemon, setFightPokemon, fightPokemon}) {
   const classes = useStyles();
+  let [loadCount, setLoadCount] = useState(20);
+
 
   return (
     <div className={classes.root}>
@@ -37,7 +41,7 @@ export default function CenteredGrid({ pokemons, handleOpenParent, setMyPokemon,
 
       {/* FIXME: get better solution for limiting/offset/streaming */}
         {pokemons
-          ? pokemons.slice(0, 30).map((pokemon) => {
+          ? pokemons.slice(0, loadCount).map((pokemon) => {
               return (
                   <ImgMediaCard
                     pokemon={pokemon}
@@ -49,6 +53,7 @@ export default function CenteredGrid({ pokemons, handleOpenParent, setMyPokemon,
             })
           : null}
       </Grid>
+      <button class="load-more-btn" onClick={() => setLoadCount(loadCount + 20)}>Load more</button>
     </div>
   );
 }

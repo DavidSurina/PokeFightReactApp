@@ -38,6 +38,7 @@ function App() {
             <FightBar fightingPoke={pokeFightSel} reset={setPokeFightSel}/>
             <div className="dividing-line"></div>
             <ViewAllPokemons setFightPokemon={setPokeFightSel} fightPokemon={pokeFightSel}/>
+            
           </Route>
         </Switch>
       </main>
