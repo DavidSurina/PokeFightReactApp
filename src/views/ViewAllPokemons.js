@@ -24,9 +24,7 @@ const ViewAllPokemons = () => {
       })
   },[]);
 
-// console.log('myPokemon: ', myPokemon)
-// console.log('pokemonList: ', pokemonList)
-// console.log('pokemonList[0]: ', pokemonList[0])
+
 
   return(
     <>
@@ -34,7 +32,9 @@ const ViewAllPokemons = () => {
        <TransitionsModal
             handleCloseParent={handleCloseParent}
             open={open}
-            currentPokemon={myPokemon} />
+            currentPokemon={myPokemon}
+            pokemonList={pokemonList}
+            />
       <div className="pokemon-list">
         <CenteredGrid
             pokemons={pokemonList}

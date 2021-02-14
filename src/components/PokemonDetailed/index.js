@@ -1,3 +1,5 @@
+// MODAL COMPONENT
+// https://material-ui.com/components/modal/#transitions
 import React, { useState, useEffect } from 'react';
 import {Modal, makeStyles, Backdrop, Fade } from '@material-ui/core';
 import axios from "axios";
@@ -6,29 +8,46 @@ import ArrowForwardIosIcon from '@material-ui/icons/ArrowForwardIos';
 import ArrowBackIosIcon    from '@material-ui/icons/ArrowBackIos';
 
 
-// MODAL COMPONENT
-// https://material-ui.com/components/modal/#transitions
+const  TransitionsModal = ({ handleCloseParent, open, currentPokemon, pokemonList}) => {
 
-// Documentation about the Strict-Mode Error in the Console:  It will only come up in Production
-// https://stackoverflow.com/questions/61220424/material-ui-drawer-finddomnode-is-deprecated-in-strictmode
-// https://stackoverflow.com/questions/61115871/finddomnode-error-on-react-material-ui-select-menu
-// https://reactjs.org/docs/strict-mode.html#warning-about-deprecated-finddomnode-usage
+  const [count, setCount] = useState();
+  const [countState, setCountState] = useState(0);
+  const [MakeThemEqual, setMakeThemEqual] = useState(false);
 
 
-const  TransitionsModal = ({ handleCloseParent, open, currentPokemon}) => {
+  useEffect(() => {
+  currentPokemon ?  setCount(currentPokemon.id) :  console.log('no  information') ;
+  },[currentPokemon]);
 
-  // onClick={skip(1)}  to be added into arrowForward
-  // const skip = (number) => {
-  //     //console.log('test', number)
-  //     // console.log('currentPokemon.id: ', currentPokemon.id )
-  //     // currentPokemon.id+number
-  //     // console.log('currentPokemon.id: ', currentPokemon.id )
-  // }
+
+  //  swipe through collection with arrows
+  const skip = () => {
+    if (MakeThemEqual === true) {
+                // console.log(` 'Just Update!! currentPokemon.id is equal to countState`  , currentPokemon.id, countState);
+            // console.log('pokemonList[count]: ', pokemonList[count+1])
+             setCount(count + 1);
+            console.log('IS EQUAL   currentPokemon.id before', currentPokemon.id);
+            currentPokemon.id =  count;
+            console.log('IS EQUAL  currentPokemon.id after', currentPokemon.id);
+    } else  {
+            // console.log(` Initialize now! currentPokemon.id is NOT equal to countState`, currentPokemon.id, countState);
+            setCountState(currentPokemon.id);
+            setCount(currentPokemon.id);
+            // setCount(++count);
+            setMakeThemEqual(true);
+            // console.log('pokemonList[count]: ', pokemonList[currentPokemon.id])
+            console.log('IS NOT EQUAL  currentPokemon.id before', currentPokemon.id);
+            currentPokemon.id =  currentPokemon.id + 1;
+            console.log('IS NOT EQUAL currentPokemon.id after', currentPokemon.id);
+    }
+
+  }
 
   // size and weight and Image = real data seems to be missing inside of the api response
   const sizeResult   = currentPokemon ? <span>{currentPokemon.base.Speed} m </span> : ['no size information'] ;
   const weightResult = currentPokemon ? <span>{currentPokemon.base.Defense}  kg </span> : ['no weight information'] ;
-  const imageResult  = currentPokemon ? <img src={'https://pokeres.bastionbot.org/images/pokemon/'+ currentPokemon.id+'.png'}  alt={currentPokemon.name.english}  />  : ['no image information'] ;
+  const srcResult    = count ? currentPokemon.id :  count;
+  const imageResult  = currentPokemon ? <img src={'https://pokeres.bastionbot.org/images/pokemon/'+srcResult+'.png'}  alt={currentPokemon.name.english}  />  : ['no image information'] ;
 
   // types-array
   const types = currentPokemon ? currentPokemon.type : ['no data about Types for this Pokemon'] ;
@@ -53,13 +72,6 @@ const  TransitionsModal = ({ handleCloseParent, open, currentPokemon}) => {
   }));
   const classes = useStyles();
 
-
-
-// console.log('myPokemon: ', myPokemon)
-// console.log('pokemonList: ', pokemonList)
-// console.log('pokemonList[0]: ', pokemonList[0])
-
-
   return (
       <Modal
       aria-labelledby="transition-modal-title"
@@ -81,11 +93,11 @@ const  TransitionsModal = ({ handleCloseParent, open, currentPokemon}) => {
                      <span className="close" onClick={handleCloseParent}>×</span>
                      <h3> Fight with: {currentPokemon ? currentPokemon.name.english : ''}<span> No.00{currentPokemon ? currentPokemon.id : 'nix'}</span></h3>
                      <div className="modal-container">
-                        <ArrowBackIosIcon color="secondary"></ArrowBackIosIcon>
+                        <ArrowBackIosIcon  onClick={()=> {skip()}}  color="secondary"></ArrowBackIosIcon>
                         <div className="imagecontainer">
                         {imageResult}
                         </div>
-                       <ArrowForwardIosIcon  color="secondary"></ArrowForwardIosIcon>
+                       <ArrowForwardIosIcon onClick={()=> {skip()}} color="secondary"></ArrowForwardIosIcon>
                         <div>
                            <p>A strange seed was planted on its back at birth. The plant sprouts and grows with this POKéMON.</p>
                            <div className="stats-container">
@@ -117,3 +129,10 @@ const  TransitionsModal = ({ handleCloseParent, open, currentPokemon}) => {
 }
 
 export default TransitionsModal;
+
+
+
+// Documentation about the Strict-Mode Error in the Console:  It will only come up in Production
+// https://stackoverflow.com/questions/61220424/material-ui-drawer-finddomnode-is-deprecated-in-strictmode
+// https://stackoverflow.com/questions/61115871/finddomnode-error-on-react-material-ui-select-menu
+// https://reactjs.org/docs/strict-mode.html#warning-about-deprecated-finddomnode-usage
