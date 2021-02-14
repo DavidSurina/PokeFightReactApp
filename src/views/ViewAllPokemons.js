@@ -6,7 +6,7 @@ import CenteredGrid from '../components/PokeGrid';
 // Import api functionality
 import Api from "../api/index";
 
-const ViewAllPokemons = () => {
+const ViewAllPokemons = ({fightPokemon, setFightPokemon}) => {
   const [pokemonList, setPokemonList] = useState()
   const [myPokemon,   setMyPokemon]   = useState()
 
@@ -39,7 +39,9 @@ const ViewAllPokemons = () => {
         <CenteredGrid
             pokemons={pokemonList}
             handleOpenParent={handleOpenParent}
-            setMyPokemon={setMyPokemon} />
+            setMyPokemon={setMyPokemon}
+            setFightPokemon={setFightPokemon} 
+            fightPokemon={fightPokemon}/>
       </div>
     </>
   );

@@ -1,9 +1,11 @@
 .footer {
     width: 100%;
     min-height: 20rem;
+    position: absolute;
     display: flex;
     justify-content: center;
     align-items: flex-end;
+    align-self: flex-end;
     border-top: 5px solid #000;
     background-color: red;
     color: #fff;
