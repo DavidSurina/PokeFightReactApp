@@ -26,7 +26,7 @@ const ViewAllPokemons = ({fightPokemon, setFightPokemon}) => {
 
   return(
     <>
-      <h1 class="grid-heading">All Pokemons</h1>
+      <h1 className="grid-heading">All Pokemons</h1>
        <TransitionsModal
             handleCloseParent={handleCloseParent}
             open={open}

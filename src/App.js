@@ -1,9 +1,10 @@
 // App.js
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import { Switch, Route } from 'react-router-dom';
 /* components */
 import InputForm from "./components/InputForm";
 import FightBar from "./components/FightBar";
+import PokemonFight from "./components/PokemonFight";
 import Footer from "./components/Footer";
 /* views */
 import ViewAllPokemons from "./views/ViewAllPokemons"
@@ -28,18 +29,14 @@ function App() {
           <InputForm input={input} setInput={setInput}/>
       </header>
       <main className="main">
-        <FightBar fightingPoke={pokeFightSel} reset={setPokeFightSel}/>
-        <div className="dividing-line"></div>
         <Switch>
-          <Route path="/pokemons/:id/:info"></Route>
-          <Route path="/pokemons/:id">
-            {/*Pokemon info by id*/}
-          </Route>
           <Route path="/pokemons/fight">
-            {/*Pokemon Fight*/}
+            <PokemonFight fightingPoke={pokeFightSel}/>
           </Route>
           <Route path={["/","/pokemons"]}>
             {/*all pokemon*/}
+            <FightBar fightingPoke={pokeFightSel} reset={setPokeFightSel}/>
+            <div className="dividing-line"></div>
             <ViewAllPokemons setFightPokemon={setPokeFightSel} fightPokemon={pokeFightSel}/>
           </Route>
         </Switch>
