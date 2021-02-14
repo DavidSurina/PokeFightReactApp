@@ -27,3 +27,11 @@
 .pokefight-top-img {
     width: 35%;
 }
+
+.pokefight-bot-img {
+    margin-left: 2rem;
+}
+
+.pokefight-top-img {
+    margin-top: 3rem;
+}

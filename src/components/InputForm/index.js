@@ -1,12 +1,13 @@
 import SelectInput from '@material-ui/core/Select/SelectInput';
+import { Link } from 'react-router-dom';
 import './style.css';
 
 export default function InputForm({input, setInput}) {
   return (
     <form action="" className="header-form">
-      <button className="home-button" href="#">
+      <Link to="/" className="home-button">
         Home
-      </button>
+      </Link>
       <input
         className="search-input"
         type="text"
