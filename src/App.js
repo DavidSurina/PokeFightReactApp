@@ -14,8 +14,10 @@ import logo from "./img/pokefight_logo.png";
 import './App.css';
 
 function App() {
+  //Search input
   let [input, setInput] = useState("");
-
+  //Selected pokemon for fight
+  let [pokeFightSel, setPokeFightSel] = useState([]);
 
   return (
     <div className="App">
@@ -26,7 +28,7 @@ function App() {
           <InputForm input={input} setInput={setInput}/>
       </header>
       <main className="main">
-        <FightBar />
+        <FightBar fightingPoke={pokeFightSel} reset={setPokeFightSel}/>
         <div className="dividing-line"></div>
         <Switch>
           <Route path="/pokemons/:id/:info"></Route>
@@ -38,7 +40,7 @@ function App() {
           </Route>
           <Route path={["/","/pokemons"]}>
             {/*all pokemon*/}
-            <ViewAllPokemons />
+            <ViewAllPokemons setFightPokemon={setPokeFightSel} fightPokemon={pokeFightSel}/>
           </Route>
         </Switch>
       </main>

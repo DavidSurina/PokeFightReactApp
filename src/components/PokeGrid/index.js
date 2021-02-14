@@ -16,7 +16,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function CenteredGrid({ pokemons, handleOpenParent, setMyPokemon}) {
+export default function CenteredGrid({ pokemons, handleOpenParent, setMyPokemon, setFightPokemon, fightPokemon}) {
   const classes = useStyles();
 
   return (
@@ -37,12 +37,14 @@ export default function CenteredGrid({ pokemons, handleOpenParent, setMyPokemon}
 
       {/* FIXME: get better solution for limiting/offset/streaming */}
         {pokemons
-          ? pokemons.slice(0, 20).map((pokemon) => {
+          ? pokemons.slice(0, 30).map((pokemon) => {
               return (
                   <ImgMediaCard
                     pokemon={pokemon}
                     handleOpenParent={handleOpenParent}
-                    setMyPokemon={setMyPokemon}  />
+                    setMyPokemon={setMyPokemon}
+                    setFightPokemon={setFightPokemon}
+                    fightPokemon={fightPokemon}  />
               );
             })
           : null}
