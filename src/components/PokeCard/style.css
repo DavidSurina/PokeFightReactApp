@@ -1,84 +1,89 @@
 .normal {
-  color: rgba(22%, 42%, 73%, 1) !important;
-  background-color: rgb(191, 217, 255) !important;
+  color: #fff !important;
+  background-color: #A8A77A !important;
 }
 
 .fire {
-  color: rgba(87%, 32%, 23%, 1) !important;
-  background-color: rgb(251, 226, 144) !important;
+  color: #fff !important;
+  background-color: #EE8130 !important;
 }
 
 .water {
-  color: rgb(191, 217, 255) !important;
-  background-color: rgba(22%, 42%, 73%, 1) !important;
+  color: #fff !important;
+  background-color: #6390F0 !important;
 }
 
 .electric {
-  color: rgba(100%, 88%, 19%, 1) !important;
-  background-color: rgb(191, 217, 255) !important;
+  color: #fff !important;
+  background-color: #F7D02C !important;
 }
 
 .grass {
-  color: rgba(22%, 42%, 73%, 1) !important;
-  background-color: rgb(191, 217, 255) !important;
+  color: #fff !important;
+  background-color: #7AC74C !important;
 }
 
 .ice {
-  color: rgba(22%, 42%, 73%, 1) !important;
-  background-color: rgb(191, 217, 255) !important;
+  color: #fff !important;
+  background-color: #96D9D6 !important;
 }
 
 .fighting {
-  color: rgba(22%, 42%, 73%, 1) !important;
-  background-color: rgb(191, 217, 255) !important;
+  color: #fff !important;
+  background-color: #C22E28 !important;
 }
 
 .poison {
-  color: rgba(22%, 42%, 73%, 1) !important;
-  background-color: rgb(191, 217, 255) !important;
+  color: #fff !important;
+  background-color: #A33EA1 !important;
 }
 
 .ground {
-  color: rgba(22%, 42%, 73%, 1) !important;
-  background-color: rgb(191, 217, 255) !important;
+  color: #fff !important;
+  background-color: #E2BF65 !important;
 }
 
 .flying {
-  color: rgba(22%, 42%, 73%, 1) !important;
-  background-color: rgb(191, 217, 255) !important;
+  color: #fff !important;
+  background-color: #A98FF3 !important;
 }
 
 .psychic {
-  color: rgba(22%, 42%, 73%, 1) !important;
-  background-color: rgb(191, 217, 255) !important;
+  color: #fff !important;
+  background-color: #F95587 !important;
 }
 
 .bug {
-  color: rgba(22%, 42%, 73%, 1) !important;
-  background-color: rgb(191, 217, 255) !important;
+  color: #fff !important;
+  background-color: #A6B91A !important;
 }
 
 .rock {
-  color: rgba(22%, 42%, 73%, 1) !important;
-  background-color: rgb(191, 217, 255) !important;
+  color: #fff !important;
+  background-color: #B6A136 !important;
 }
 
 .ghost {
-  color: rgba(22%, 42%, 73%, 1) !important;
-  background-color: rgb(191, 217, 255) !important;
+  color: #fff !important;
+  background-color: #735797 !important;
 }
 
 .dragon {
-  color: rgba(22%, 42%, 73%, 1) !important;
-  background-color: rgb(191, 217, 255) !important;
+  color: #fff !important;
+  background-color: #6F35FC !important;
 }
 
 .dark {
-  color: rgba(22%, 42%, 73%, 1) !important;
-  background-color: rgb(191, 217, 255) !important;
+  color: #fff !important;
+  background-color: #705746 !important;
 }
 
 .steel {
-  color: rgba(22%, 42%, 73%, 1) !important;
-  background-color: rgb(191, 217, 255) !important;
+  color: #fff!important;
+  background-color: #B7B7CE !important;
+}
+
+.fairy {
+  color: #fff!important;
+  background-color: #D685AD !important;
 }
