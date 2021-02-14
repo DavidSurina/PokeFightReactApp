@@ -1,5 +1,5 @@
 // App.js
-import React from 'react';
+import React, {useState} from 'react';
 import { Switch, Route } from 'react-router-dom';
 /* components */
 import InputForm from "./components/InputForm";
@@ -14,7 +14,7 @@ import logo from "./img/pokefight_logo.png";
 import './App.css';
 
 function App() {
-
+  let [input, setInput] = useState("");
 
 
   return (
@@ -23,7 +23,7 @@ function App() {
           <div className="logo-wrapper">
               <img className="pokefight-logo" src={logo} alt="pokefight-logo" />
           </div>
-          <InputForm />
+          <InputForm input={input} setInput={setInput}/>
       </header>
       <main className="main">
         <FightBar />
