@@ -1,4 +1,3 @@
-import SelectInput from '@material-ui/core/Select/SelectInput';
 import { Link } from 'react-router-dom';
 import './style.css';
 
