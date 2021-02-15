@@ -4,103 +4,112 @@
 }
 
 #modalFrame {
-  padding: 0;
-  margin: 0;
-  background-color: transparent;
-  border: none;
-  border: solid 1px #555;
-  box-shadow: 10px -10px 5px rgb(0 0 0 / 60%);
-  -moz-box-shadow: 10px -10px 5px rgba(0,0,0,0.6);
-  -webkit-box-shadow: 10px -10px 5px rgb(0 0 0 / 60%);
-  -o-box-shadow: 10px -10px 5px rgba(0,0,0,0.6);
-  border-radius: 45px 0 62px 0;
-  outline: transparent;
-  max-width: 60vw;
+    padding: 0;
+    margin: 0;
+    background-color: transparent;
+    border: none;
+    border: solid 1px #555;
+    box-shadow: 10px -10px 5px rgb(0 0 0 / 60%);
+    -moz-box-shadow: 10px -10px 5px rgba(0, 0, 0, 0.6);
+    -webkit-box-shadow: 10px -10px 5px rgb(0 0 0 / 60%);
+    -o-box-shadow: 10px -10px 5px rgba(0, 0, 0, 0.6);
+    border-radius: 45px 0 62px 0;
+    outline: transparent;
+    max-width: 60vw;
 }
 
 .ModalPokedex {
-  outline: transparent;
+    outline: transparent;
 }
 
 
- /*this will prevent the modal from beeing visible onpageload*/
+/*this will prevent the modal from beeing visible onpageload*/
 #pageload {
-  visibility: hidden;
-  animation: cssAnimation 0s 5s forwards;
+    visibility: hidden;
+    animation: cssAnimation 0s 5s forwards;
 }
+
 @keyframes cssAnimation {
-  to   {   visibility: visible;}
+    to {
+        visibility: visible;
+    }
 }
 
 
 
-.ModalPokedex
-.modal {
-  outline: transparent;
+.ModalPokedex .modal {
+    outline: transparent;
 }
 
 .modal-content {
-  background-color: whitesmoke;
-  overflow-y: auto;
-  max-height: 80%;
-  border-radius: 45px 0 62px 0;
-  outline: transparent;
-  text-align: center;
-  max-width: 800px;
-  position: relative;
+    background-color: whitesmoke;
+    overflow-y: auto;
+    max-height: 80%;
+    border-radius: 45px 0 62px 0;
+    outline: transparent;
+    text-align: center;
+    max-width: 800px;
+    position: relative;
+
+}
+
+.line {
+    width: 100px;
+    margin: 14px auto -3px;
 }
 
 .ModalPokedex .close {
-  color: #fff;
-  position: absolute;
-  top: 0;
-  right: 0;
-  font-weight: bolder;
-  font-size: 35px;
-  background-color: #cf283a;
-  padding: 0 12px 3px 12px;
-  border-radius: 0 0 0 10px;
+    color: #fff;
+    position: absolute;
+    top: 0;
+    right: 0;
+    font-weight: bolder;
+    font-size: 35px;
+    background-color: #cf283a;
+    padding: 0 12px 3px 12px;
+    border-radius: 0 0 0 10px;
 }
 
 .ModalPokedex .close:hover {
-  cursor: pointer;
+    cursor: pointer;
 }
 
 .ModalPokedex h3 {
-  text-align: center;
-  font-size: 1.7rem;
+    text-align: center;
+    font-size: 1.7rem;
+    margin-top: 1em;
 }
 
 .ModalPokedex span {
-  font-weight: normal;
-  font-size: 1.3rem;
+    font-weight: normal;
+    font-size: 1.3rem;
 }
 
 .ModalPokedex .modal-content button {
-  display: block;
-  font-family: "Baloo Paaji 2", cursive;
-  font-size: 1.2rem;
-  background-color: #cf283a;
-  color: #fff;
-  padding: 0 30px;
-  height: 40px;
-  border: 2px solid transparent;
-  border-radius: 5px;
-  text-transform: uppercase;
-  margin: 25px auto;
-  transition: all 0.1s ease-in-out;
+    display: block;
+    font-family: "Baloo Paaji 2", cursive;
+    font-size: 1.2rem;
+    background-color: #cf283a;
+    color: #fff;
+    padding: 0 30px;
+    height: 40px;
+    border: 2px solid transparent;
+    border-radius: 5px;
+    text-transform: uppercase;
+    margin: 25px auto;
+    transition: all 0.1s ease-in-out;
 }
 
 .ModalPokedex .modal-container {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: space-evenly;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-evenly;
 }
 
 .ModalPokedex button:hover {
-  transform: scale(1.1);
-  cursor: pointer;
+    transform: scale(1.1);
+    cursor: pointer;
 }
 
 /*
@@ -115,75 +124,79 @@ This could be improoved much further, by applying the advice the below article o
     display: block;
     margin: 20px 10px 3em 0;
 }
+
 @media only screen and (min-width: 968px) {
-  .ModalPokedex .modal-container .imagecontainer {
-      width: 300px;
-      max-width: 30vw;
-      height: 300px;
-  }
+    .ModalPokedex .modal-container .imagecontainer {
+        width: 300px;
+        max-width: 30vw;
+        height: 300px;
+    }
 }
 
 .ModalPokedex img {
 
-     max-width: 100%;
-     height: auto;
+    max-width: 100%;
+    height: auto;
     margin: 20px 10px 15px 0;
 }
+
 /* RIGHT PART */
-.modal-container > div {
-  width: 500px;
+.modal-container>div {
+    width: 500px;
 }
 
-.modal-container > div > p {
-  text-align: justify;
-    font-size: 1.1em;
+.modal-container>div>p {
+    text-align: justify;
+    font-size: 1.9em;
+    margin: 0 2em;
+
 }
 
 /* STATS CONTAINER */
 
 .modal-container .stats-container {
-  display: flex;
-  flex-wrap: wrap;
-  background-color: rgb(100, 182, 97);
-  font-size: 1.3rem;
-  color: #fff;
-  border-radius: 5px;
-  padding: 20px;
-  margin: 20px 0;
+    display: flex;
+    flex-wrap: wrap;
+    background-color: rgb(100, 182, 97);
+    font-size: 1.3rem;
+    color: #fff;
+    border-radius: 5px;
+    padding: 20px;
+    margin: 20px 0;
 }
 
 .stats-container {
-  margin-top: 10px;
+    margin-top: 10px;
 }
 
 .simple-data {
-  display: flex;
+    display: flex;
 }
 
 .stats-container h4 {
-  margin: 10px;
-  color: #313131;
+    margin: 10px;
+    color: #313131;
 }
 
 .stats-container span {
-  color: #fff;
+    color: #fff;
 }
 
 .ModalPokedex .usual-attacks {
-  display: flex;
-  flex-direction: column;
-  text-align: left;
+    display: flex;
+    flex-direction: column;
+    text-align: left;
 }
 
 .ModalPokedex ul {
-  display: flex;
-  margin-left: 10px;
-  padding-inline-start: 0;
+    display: flex;
+    margin-left: 10px;
+    padding-inline-start: 0;
 }
 
 .ModalPokedex li {
-  list-style: none;
-  margin-right: 10px;
+    list-style: none;
+    margin-right: 10px;
 }
 
 
@@ -195,19 +208,20 @@ This could be improoved much further, by applying the advice the below article o
 
 
 @media screen and (max-width: 800px) {
-  .modal-content {
-    /*margin-top: 120px;*/
-    width: 80%;
-    max-width: 92vw;
-    margin: 0 auto;
-  }
+    .modal-content {
+        /*margin-top: 120px;*/
+        width: 80%;
+        max-width: 92vw;
+        margin: 0 auto;
+    }
 }
 
 @media screen and (max-width: 400px) {
-  .simple-data {
-    flex-direction: column;
-  }
-  .attacks-list {
-    flex-direction: column;
-  }
+    .simple-data {
+        flex-direction: column;
+    }
+
+    .attacks-list {
+        flex-direction: column;
+    }
 }
