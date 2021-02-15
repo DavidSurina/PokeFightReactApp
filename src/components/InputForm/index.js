@@ -17,7 +17,7 @@ export default function InputForm({input, setInput}) {
         value={input}
         onChange={(event)=> setInput(event.target.value)}
       />
-      <input className="search-submit-button" type="submit" value="Search" />
+      <Link to="/pokemons/search" className="search-submit-button" type="submit" >Search</Link>
     </form>
   );
 }
