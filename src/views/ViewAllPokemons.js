@@ -33,6 +33,7 @@ const ViewAllPokemons = ({fightPokemon, setFightPokemon}) => {
             handleCloseParent={handleCloseParent}
             open={open}
             currentPokemon={myPokemon}
+            setMyPokemon={setMyPokemon}
             pokemonList={pokemonList}
             />
       <div className="pokemon-list">
@@ -40,7 +41,7 @@ const ViewAllPokemons = ({fightPokemon, setFightPokemon}) => {
             pokemons={pokemonList}
             handleOpenParent={handleOpenParent}
             setMyPokemon={setMyPokemon}
-            setFightPokemon={setFightPokemon} 
+            setFightPokemon={setFightPokemon}
             fightPokemon={fightPokemon}/>
       </div>
     </>
