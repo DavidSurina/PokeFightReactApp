@@ -22,7 +22,7 @@ const customStyles = {
     fontWeight: "600",
   },
   type: {
-    width: "30%",
+    width: "32%",
     height: "3rem",
     borderRadius: "1rem",
     color: "#fff",
@@ -47,76 +47,61 @@ const customStyles = {
   center: {
     justifyContent: "center",
   },
-  // pokeTypes
+  // in case we find a solution to get meterialUI classes to work -> ${classes.pokeType} 
   Normal: {
-    color: "rgba(22%, 42%, 73%, 1)",
-    backgroundColor: "rgb(191, 217, 255)",
+    backgroundColor: "#A8A77A",
   },
   Fire: {
-    color: "rgba(87%, 32%, 23%, 1)",
-    backgroundColor: "rgb(251, 226, 144)",
+    backgroundColor: "#EE8130",
   },
   Water: {
-    color: "rgb(191, 217, 255)",
-    backgroundColor: "rgba(22%, 42%, 73%, 1)",
+    backgroundColor: "#6390F0",
   },
   Electric: {
-    color: "rgba(100%, 88%, 19%, 1)",
-    backgroundColor: "rgb(191, 217, 255)",
+    backgroundColor: "#F7D02C",
   },
   Grass: {
-    color: "rgba(22%, 42%, 73%, 1)",
-    backgroundColor: "rgb(191, 217, 255)",
+    backgroundColor: "#7AC74C",
   },
   Ice: {
-    color: "rgba(22%, 42%, 73%, 1)",
-    backgroundColor: "rgb(191, 217, 255)",
+    backgroundColor: "#96D9D6",
   },
   Fighting: {
-    color: "rgba(22%, 42%, 73%, 1)",
-    backgroundColor: "rgb(191, 217, 255)",
+    backgroundColor: "#C22E28",
   },
   Poison: {
-    color: "rgba(22%, 42%, 73%, 1)",
-    backgroundColor: "rgb(191, 217, 255)",
+    backgroundColor: "#A33EA1",
   },
   Ground: {
-    color: "rgba(22%, 42%, 73%, 1)",
-    backgroundColor: "rgb(191, 217, 255)",
+    backgroundColor: "#E2BF65",
   },
   Flying: {
-    color: "rgba(22%, 42%, 73%, 1)",
-    backgroundColor: "rgb(191, 217, 255)",
+    backgroundColor: "#A98FF3",
   },
   Psychic: {
-    color: "rgba(22%, 42%, 73%, 1)",
-    backgroundColor: "rgb(191, 217, 255)",
+    backgroundColor: "#F95587",
   },
   Bug: {
-    color: "rgba(22%, 42%, 73%, 1)",
-    backgroundColor: "rgb(191, 217, 255)",
+    backgroundColor: "#A6B91A",
   },
   Rock: {
-    color: "rgba(22%, 42%, 73%, 1)",
-    backgroundColor: "rgb(191, 217, 255)",
+    backgroundColor: "#B6A136",
   },
   Ghost: {
-    color: "rgba(22%, 42%, 73%, 1)",
-    backgroundColor: "rgb(191, 217, 255)",
+    backgroundColor: "#735797",
   },
   Dragon: {
-    color: "rgba(22%, 42%, 73%, 1)",
-    backgroundColor: "rgb(191, 217, 255)",
+    backgroundColor: "#6F35FC",
   },
   Dark: {
-    color: "rgba(22%, 42%, 73%, 1)",
-    backgroundColor: "rgb(191, 217, 255)",
+    backgroundColor: "#705746",
   },
   Steel: {
-    color: "rgba(22%, 42%, 73%, 1)",
-    backgroundColor: "rgb(191, 217, 255)",
+    backgroundColor: "#B7B7CE",
   },
-  // end pokeTypes
+  Fairy: {
+    backgroundColor: "#D685AD",
+  }
 };
 
 export default customStyles;

@@ -1,18 +1,18 @@
 // ViewAllPokemons
 import { useState, useEffect } from "react";
-
-// Import Components
 import TransitionsModal from '../components/PokemonDetailed';
 import CenteredGrid from '../components/PokeGrid';
 
 // Import api functionality
 import Api from "../api/index";
 
-const ViewAllPokemons = () => {
+const ViewAllPokemons = ({fightPokemon, setFightPokemon}) => {
   const [pokemonList, setPokemonList] = useState()
   const [myPokemon,   setMyPokemon]   = useState()
-  const [openModal,   setopenModal]   = useState()
-  const toggleModalLayer = () => { setopenModal(!openModal) }
+
+  const [open, setOpen] =  useState(false);
+  const handleOpenParent  = () => { setOpen(true); };
+  const handleCloseParent = () => { setOpen(false); };
 
   useEffect(() => {
     Api.getAllPokemons()
@@ -24,23 +24,25 @@ const ViewAllPokemons = () => {
       })
   },[]);
 
+
+
   return(
     <>
-      <h1 class="grid-heading">All Pokemons</h1>
-        <TransitionsModal  openModal={toggleModalLayer}  currentPokemon={myPokemon} />
+      <h1 className="grid-heading">All Pokemons</h1>
+       <TransitionsModal
+            handleCloseParent={handleCloseParent}
+            open={open}
+            currentPokemon={myPokemon}
+            setMyPokemon={setMyPokemon}
+            pokemonList={pokemonList}
+            />
       <div className="pokemon-list">
-        <CenteredGrid pokemons={pokemonList} />
-      {/* FIXME: get better solution for limiting/offset/streaming */}
-        <ul>
-          {pokemonList
-            ? pokemonList.slice(0, 10).map((pokemon) => {
-            return <li  key={pokemon.id} onClick={() => {toggleModalLayer(); setMyPokemon(pokemon)}}>
-                  {pokemon.name.english}
-            </li>
-          })
-          : null
-          }
-        </ul>
+        <CenteredGrid
+            pokemons={pokemonList}
+            handleOpenParent={handleOpenParent}
+            setMyPokemon={setMyPokemon}
+            setFightPokemon={setFightPokemon}
+            fightPokemon={fightPokemon}/>
       </div>
     </>
   );

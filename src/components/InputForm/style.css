@@ -2,23 +2,29 @@
     width: 50%;
     display: flex;
     flex-direction: row;
-    justify-content: flex-end;
+    justify-content: center;
+    align-items: center;
     flex-wrap: wrap;
 }
 
 .home-button {
     width: 10rem;
-    height: 5.4rem;
+    height: 4.6rem;
+    padding-top: .7rem;
     font-size: 2.5rem;
+    background-color: #fff;
     border: 2px solid black;
     border-radius: 1.5rem;
+    color: #000;
+    text-align: center;
+    text-decoration: none;
     cursor: pointer;
 }
 
 .search-input {
     width: 45rem;
     height: 5rem;
-    margin: 0 2rem;
+    margin: .5rem 2rem;
     padding-left: 1rem;
     font-size: 2.5rem;
     border: 2px solid black;
@@ -28,7 +34,6 @@
 .search-submit-button {
     width: 10rem;
     height: 5.4rem;
-    margin-right: 10%;
     font-size: 2.5rem;
     border: 2px solid black;
     border-radius: 1.5rem; 

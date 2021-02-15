@@ -15,10 +15,22 @@ import customStyles from "./materialStyle.css.js";
 
 const useStyles = makeStyles(customStyles);
 
-export default function ImgMediaCard({ pokemon }) {
+export default function ImgMediaCard({ pokemon,  handleOpenParent, setMyPokemon, setFightPokemon, fightPokemon }) {
   const classes = useStyles();
-  //console.log(pokemon);
-  
+  const fightPokemonSelection = (arr) => {
+    if(arr.length < 2) {
+      //const oArray = arr
+      //console.log(oArray)
+      const nArray = [...arr];
+      nArray.push(pokemon);
+      console.log(nArray);
+      setFightPokemon(nArray)
+      alert(`${pokemon.name.english} ready to fight`) 
+    } else {
+      //console.log(arr)
+      alert("you chose 2 pokemon already")
+    }
+  }
   return (
     <Card className={classes.root}>
       <CardActionArea>
@@ -29,20 +41,25 @@ export default function ImgMediaCard({ pokemon }) {
           height="140"
           image={`https://pokeres.bastionbot.org/images/pokemon/${pokemon.id}.png`}
           title="Pokeball"
+          onClick={() => {
+              handleOpenParent();
+              setMyPokemon(pokemon)
+            }}
         />
         <Divider className={classes.divider}/>
         <CardContent>
           <Typography className={classes.name} gutterBottom variant="h5" component="h2">
             {pokemon.name.english}
           </Typography>
-          <Typography variant="body2" component="div">
-            {pokemon.type.map((pokeType)=>{
-              return (<Chip className={`${classes.type} ${classes[pokeType]}`} size="medium" label={pokeType} />)})}
+          <Typography variant="body2" component="div" className="type-wrapper" align="center">
+            {pokemon.type.map((pokeType, index)=>{
+              return (<Chip key={index} className={`${classes.type} ${classes[pokeType]}`} size="medium" label={pokeType} />)})}
           </Typography>
         </CardContent>
       </CardActionArea>
       <CardActions className={classes.center}>
-        <Button className={classes.button} variant="outlined" size="small" color="secondary" onClick={() => { alert('ready to fight') }}>
+        <Button className={classes.button} variant="outlined" size="small" color="secondary" onClick={() => {
+          fightPokemonSelection(fightPokemon)}}>
           Choose
         </Button>
       </CardActions>
