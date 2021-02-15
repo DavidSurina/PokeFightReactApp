@@ -2,6 +2,7 @@
 // https://material-ui.com/components/modal/#transitions
 import React, { useState, useEffect  } from 'react';
 import {Modal, makeStyles, Backdrop, Fade } from '@material-ui/core';
+import Button from '@material-ui/core/Button';
 
 // API IMPORT caused an issue =  I will look into this later
 // Import api functionality
@@ -126,18 +127,24 @@ const  TransitionsModal = ({ handleCloseParent, open, currentPokemon, setMyPokem
                        <hr className="line" />
                      <div className="modal-container">
                         <ArrowBackIosIcon  onClick={()=> {arrowDown()}}  color="secondary"></ArrowBackIosIcon>
-                        <div className="imagecontainer">
+                        <div className="ButtonAndText">
+                          <Button className={classes.button} variant="outlined" size="small" color="secondary"
+                              onClick={() => { fightPokemonSelection(fightPokemon)}}>
+                              Choose Pokemon for fight!
+                          </Button>
+                             <p>{pokemonDescription ?
+                                 pokemonDescription.data.flavor_text_entries[0].flavor_text
+                                 : ''
+                               }
+                               </p>
+                          </div>  <div className="imagecontainer">
                         {imageResult}
                         </div>
                        <ArrowForwardIosIcon onClick={()=> {arrowUp()}} color="secondary"></ArrowForwardIosIcon>
                         <div>
-                        <div onClick={() => {fightPokemonSelection(fightPokemon)}}>Choose Pokemon</div>
-                           <p>{pokemonDescription ?
-                               pokemonDescription.data.flavor_text_entries[0].flavor_text
-                               : ''
-                             }
-                             </p>
-                           <div className="stats-container">
+                        {/*<div onClick={() => {fightPokemonSelection(fightPokemon)}}>Choose Pokemon Button</div>*/}
+
+                          <div className="stats-container">
                               <h4>Type : {typesResult} </h4>
                               <div className="simple-data">
                                  <h4>Size : {sizeResult}</h4>
