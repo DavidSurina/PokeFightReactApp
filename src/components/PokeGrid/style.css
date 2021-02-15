@@ -1,3 +1,9 @@
+.load-more-btn-container {
+    width: 100%;
+    display: flex;
+    justify-content: center !important;
+}
+
 .load-more-btn {
     width: 10%;
     height: 5rem;
