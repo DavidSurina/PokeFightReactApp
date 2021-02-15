@@ -13,7 +13,7 @@ import ArrowForwardIosIcon from '@material-ui/icons/ArrowForwardIos';
 import ArrowBackIosIcon    from '@material-ui/icons/ArrowBackIos';
 
 
-const  TransitionsModal = ({ handleCloseParent, open, currentPokemon, setMyPokemon, pokemonList}) => {
+const  TransitionsModal = ({ handleCloseParent, open, currentPokemon, setMyPokemon, pokemonList, setFightPokemon, fightPokemon  }) => {
 
   const [pokemonDetails, setPokemonDetails] = useState();
   const [pokemonDescription, setPokemonDescription] = useState();
@@ -22,6 +22,22 @@ const  TransitionsModal = ({ handleCloseParent, open, currentPokemon, setMyPokem
     // PageLoad-Initialization of -API-Request for details
    currentPokemon ?  requestpokemonDetails(currentPokemon.id) :  console.log('no Detailed-Pokemon-Data')
   },[currentPokemon]);
+
+  // copied from PokeCard/ Component: ImgMediaCard
+  const fightPokemonSelection = (arr) => {
+    if(arr.length < 2) {
+      //const oArray = arr
+      //console.log(oArray)
+      const nArray = arr;
+      nArray.push(currentPokemon);
+      console.log(nArray);
+      setFightPokemon(nArray)
+      alert(`${currentPokemon.name.english} ready to fight`)
+    } else {
+      //console.log(arr)
+      alert("you chose 2 pokemon already")
+    }
+  }
 
    const requestpokemonDetails = (PokeNumber) => {
         let details = "https://pokeapi.co/api/v2/pokemon/"
@@ -115,6 +131,7 @@ const  TransitionsModal = ({ handleCloseParent, open, currentPokemon, setMyPokem
                         </div>
                        <ArrowForwardIosIcon onClick={()=> {arrowUp()}} color="secondary"></ArrowForwardIosIcon>
                         <div>
+                        <div onClick={() => {fightPokemonSelection(fightPokemon)}}>Choose Pokemon</div>
                            <p>{pokemonDescription ?
                                pokemonDescription.data.flavor_text_entries[0].flavor_text
                                : ''
