@@ -1,4 +1,3 @@
-import SelectInput from '@material-ui/core/Select/SelectInput';
 import { Link } from 'react-router-dom';
 import './style.css';
 
@@ -17,7 +16,7 @@ export default function InputForm({input, setInput}) {
         value={input}
         onChange={(event)=> setInput(event.target.value)}
       />
-      <input className="search-submit-button" type="submit" value="Search" />
+      <Link to="/pokemons/search" className="search-submit-button" type="submit" >Search</Link>
     </form>
   );
 }
