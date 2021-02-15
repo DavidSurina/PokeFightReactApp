@@ -52,12 +52,14 @@ function App() {
           <Route path="/pokemons/search">
             <FightBar fightingPoke={pokeFightSel} reset={setPokeFightSel}/>
             <div className="dividing-line"></div>
+            <h1 className="grid-heading">Search : {searchInput}</h1>
             <ViewSearch pokemonList={pokemonList} searchInput={searchInput} setFightPokemon={setPokeFightSel} fightPokemon={pokeFightSel}/>
           </Route>
           <Route path={["/","/pokemons"]}>
             {/*all pokemon*/}
             <FightBar fightingPoke={pokeFightSel} reset={setPokeFightSel}/>
             <div className="dividing-line"></div>
+            <h1 className="grid-heading">All Pokemons</h1>
             <ViewAllPokemons pokemonList={pokemonList} setFightPokemon={setPokeFightSel} fightPokemon={pokeFightSel}/>
           </Route>
         </Switch>
