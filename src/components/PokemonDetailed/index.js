@@ -1,62 +1,64 @@
 // MODAL COMPONENT
 // https://material-ui.com/components/modal/#transitions
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect  } from 'react';
 import {Modal, makeStyles, Backdrop, Fade } from '@material-ui/core';
 import axios from "axios";
 import './detailed.css';
 import ArrowForwardIosIcon from '@material-ui/icons/ArrowForwardIos';
 import ArrowBackIosIcon    from '@material-ui/icons/ArrowBackIos';
 
+// Import api functionality
+import Api from "./pokeAPI.js";
 
-const  TransitionsModal = ({ handleCloseParent, open, currentPokemon, pokemonList}) => {
+const  TransitionsModal = ({ handleCloseParent, open, currentPokemon, setMyPokemon, pokemonList}) => {
 
-  const [count, setCount] = useState();
-  const [countState, setCountState] = useState(0);
-  const [MakeThemEqual, setMakeThemEqual] = useState(false);
-
+  const [pokemonDetails, setPokemonDetails] = useState();
 
   useEffect(() => {
-  currentPokemon ?  setCount(currentPokemon.id) :  console.log('no  information') ;
+    // initialize PokeDetails-API-Request
+   currentPokemon ?  requestpokemonDetails(currentPokemon.id) :  console.log('no Detailed-Pokemon-Data available at current')
   },[currentPokemon]);
 
 
-  //  swipe through collection with arrows
-  const skip = () => {
-    if (MakeThemEqual === true) {
-                // console.log(` 'Just Update!! currentPokemon.id is equal to countState`  , currentPokemon.id, countState);
-            // console.log('pokemonList[count]: ', pokemonList[count+1])
-             setCount(count + 1);
-            console.log('IS EQUAL   currentPokemon.id before', currentPokemon.id);
-            currentPokemon.id =  count;
-            console.log('IS EQUAL  currentPokemon.id after', currentPokemon.id);
-    } else  {
-            // console.log(` Initialize now! currentPokemon.id is NOT equal to countState`, currentPokemon.id, countState);
-            setCountState(currentPokemon.id);
-            setCount(currentPokemon.id);
-            // setCount(++count);
-            setMakeThemEqual(true);
-            // console.log('pokemonList[count]: ', pokemonList[currentPokemon.id])
-            console.log('IS NOT EQUAL  currentPokemon.id before', currentPokemon.id);
-            currentPokemon.id =  currentPokemon.id + 1;
-            console.log('IS NOT EQUAL currentPokemon.id after', currentPokemon.id);
-    }
-
+  const requestpokemonDetails = (PokeNumber) => {
+      Api.getPokemonDetails(PokeNumber)
+        .then((res)=>{
+          setPokemonDetails(res);
+        })
+        .catch((err)=>{
+          console.error(err)
+        })
   }
 
+  // arrow Up click through collection
+  const arrowUp = () => {
+            requestpokemonDetails(currentPokemon.id+1);
+            setMyPokemon(pokemonList[currentPokemon.id]);
+}
+  // arrow Down click through collection
+  const arrowDown = () => {
+            requestpokemonDetails(currentPokemon.id-1);
+            setMyPokemon(pokemonList[currentPokemon.id-2]);
+}
+
   // size and weight and Image = real data seems to be missing inside of the api response
-  const sizeResult   = currentPokemon ? <span>{currentPokemon.base.Speed} m </span> : ['no size information'] ;
-  const weightResult = currentPokemon ? <span>{currentPokemon.base.Defense}  kg </span> : ['no weight information'] ;
-  const srcResult    = count ? currentPokemon.id :  count;
-  const imageResult  = currentPokemon ? <img src={'https://pokeres.bastionbot.org/images/pokemon/'+srcResult+'.png'}  alt={currentPokemon.name.english}  />  : ['no image information'] ;
+  const sizeResult   = pokemonDetails ? <span>{pokemonDetails.data.height.toFixed(1)/10} m </span> : ['no size info '] ;
+  const weightResult = pokemonDetails ? <span>{pokemonDetails.data.weight}  kg </span> : ['no weight info '] ;
+  const imageResult  = currentPokemon ? <img src={'https://pokeres.bastionbot.org/images/pokemon/'+currentPokemon.id+'.png'}  alt={currentPokemon.name.english}  />  : ['no image information'] ;
 
   // types-array
   const types = currentPokemon ? currentPokemon.type : ['no data about Types for this Pokemon'] ;
   const typesResult = types.map((type, index) =>  { return  <span key={index}> {type}  </span> } )
 
-  // attacks-array = real data seems to be missing inside of the api response
-  const attacks = currentPokemon ? currentPokemon.type : ['no data about Attacks for this Pokemon'] ;
-  const attackResult = types.map((type, index) =>  { return  <span key={index}> {type}  </span> } )
+  // attacks-array
+  const attacks = pokemonDetails ? pokemonDetails.data.moves   : [{'move': {'name' : 'No Name available at current'}}]
+  const attackResult = attacks ?
+  // show the 6 first moves for this pokemon
+  attacks.slice(0, 6).map((attack, index) =>  { return  <li key={index}> {attack.move.name}  </li> } )
+  // else pass the following sting
+  : 'no attackResult-Data';
 
+  // Modal Styling
   const useStyles = makeStyles((theme) => ({
     modal: {
       display: 'flex',
@@ -93,11 +95,11 @@ const  TransitionsModal = ({ handleCloseParent, open, currentPokemon, pokemonLis
                      <span className="close" onClick={handleCloseParent}>×</span>
                      <h3> Fight with: {currentPokemon ? currentPokemon.name.english : ''}<span> No.00{currentPokemon ? currentPokemon.id : 'nix'}</span></h3>
                      <div className="modal-container">
-                        <ArrowBackIosIcon  onClick={()=> {skip()}}  color="secondary"></ArrowBackIosIcon>
+                        <ArrowBackIosIcon  onClick={()=> {arrowDown()}}  color="secondary"></ArrowBackIosIcon>
                         <div className="imagecontainer">
                         {imageResult}
                         </div>
-                       <ArrowForwardIosIcon onClick={()=> {skip()}} color="secondary"></ArrowForwardIosIcon>
+                       <ArrowForwardIosIcon onClick={()=> {arrowUp()}} color="secondary"></ArrowForwardIosIcon>
                         <div>
                            <p>A strange seed was planted on its back at birth. The plant sprouts and grows with this POKéMON.</p>
                            <div className="stats-container">
@@ -109,11 +111,7 @@ const  TransitionsModal = ({ handleCloseParent, open, currentPokemon, pokemonLis
                               <div className="usual-attacks">
                                  <h4>Usual attacks :</h4>
                                  <ul className="attacks-list">
-                                    {/*{attacks}*/}
-                                    <li>razor-wind - </li>
-                                    <li>swords-dance - </li>
-                                    <li>cut - </li>
-                                    <li>bind</li>
+                                     {attackResult}
                                  </ul>
                               </div>
                            </div>
@@ -129,7 +127,6 @@ const  TransitionsModal = ({ handleCloseParent, open, currentPokemon, pokemonLis
 }
 
 export default TransitionsModal;
-
 
 
 // Documentation about the Strict-Mode Error in the Console:  It will only come up in Production
