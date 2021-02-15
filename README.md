@@ -75,7 +75,7 @@ WBS Coding School - Team-Project
 ### Backend
 [PokeFight on Heroku](https://evening-falls-69897.herokuapp.com)
 
-Test available endpoints for **POSTS**
+<!-- Test available endpoints for **POSTS**
 
 - [All posts](https://flaky-tales-api.herokuapp.com/posts)
 - [Post with postId 4](https://flaky-tales-api.herokuapp.com/posts/4)
@@ -90,7 +90,7 @@ Test available endpoints for **USERS**
 - [All users](https://flaky-tales-api.herokuapp.com/users)
 - [User with userId 2](https://flaky-tales-api.herokuapp.com/users/2)
 - [All users orderd by {username} and sorted in {desc}ending order](https://flaky-tales-api.herokuapp.com/users?orderby=username&sort=desc)
-- [Search for users of which fields contain _"tustra anz"_](https://flaky-tales-api.herokuapp.com/users/search/?who=tustra&anz)
+- [Search for users of which fields contain _"tustra anz"_](https://flaky-tales-api.herokuapp.com/users/search/?who=tustra&anz) -->
 
 ## Requirements and Installation
 
