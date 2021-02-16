@@ -18,14 +18,14 @@ const useStyles = makeStyles(customStyles);
 export default function ImgMediaCard({ pokemon,  handleOpenParent, setMyPokemon, setFightPokemon, fightPokemon }) {
   const classes = useStyles();
   const fightPokemonSelection = (arr) => {
+    const nArray = [...arr];
     if(arr.length < 2) {
-      const nArray = [...arr];
       nArray.push(pokemon);
       console.log(nArray);
       setFightPokemon(nArray)
-    } else {
-      //console.log(arr)
-      alert("you chose 2 pokemon already")
+    } else if(arr.length === 2) {
+      nArray[1] = pokemon;
+      setFightPokemon(nArray);
     }
   }
   return (
