@@ -1,4 +1,5 @@
 // MODAL COMPONENT
+import axios from "axios";
 // https://material-ui.com/components/modal/#transitions
 import React, { useState, useEffect  } from 'react';
 import {Modal, makeStyles, Backdrop, Fade } from '@material-ui/core';
@@ -7,11 +8,6 @@ import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import Chip from '@material-ui/core/Chip';
 import customStyles from "../PokeCard/materialStyle.css.js";
-
-// API IMPORT caused an issue =  I will look into this later
-// Import api functionality
-// import Api from "./pokeAPI.js";
-import axios from "axios";
 
 import './detailed.css';
 import ArrowForwardIosIcon from '@material-ui/icons/ArrowForwardIos';
@@ -54,10 +50,9 @@ const  TransitionsModal = ({ handleCloseParent, open, currentPokemon, setMyPokem
               const resDescription = responses[1]
               setPokemonDescription(resDescription);
         }))
-        // reminaing tiny Question , will still look into it
-        // .catch(errors => {
-        //       console.error(error);
-        // })
+        .catch(errors => {
+              console.error(errors);
+        })
     }
       // arrow Up click through collection
       const arrowUp = () => {
@@ -93,7 +88,6 @@ const  TransitionsModal = ({ handleCloseParent, open, currentPokemon, setMyPokem
       // types will be looped over in the jsx return statement
       const types = currentPokemon ? currentPokemon.type : ['no data about Types for this Pokemon'] ;
 
-
       // attacks-array
       const attacks = pokemonDetails ? pokemonDetails.data.moves   : [{'move': {'name' : 'No Name available at current'}}]
       const attackResult = attacks ?
@@ -116,7 +110,6 @@ const  TransitionsModal = ({ handleCloseParent, open, currentPokemon, setMyPokem
           padding: theme.spacing(2, 4, 3),
         },
       }));
-
 
       const classesModal = useStyles();
       // const useStyles = makeStyles();
@@ -154,8 +147,9 @@ const  TransitionsModal = ({ handleCloseParent, open, currentPokemon, setMyPokem
                               onClick={() => { fightPokemonSelection(fightPokemon)}}>
                               Choose Pokemon for fight!
                           </Button>
-                             <p>{pokemonDescription ?
-                                 pokemonDescription.data.flavor_text_entries[0].flavor_text
+                             <p className="encodingIssue">{pokemonDescription ?
+                                  pokemonDescription.data.flavor_text_entries[0].flavor_text
+                                 // JSON.stringify(pokemonDescription.data.flavor_text_entries[0].flavor_text).replace( /[\r\n]+/gm, " " )
                                  : ''
                                }
                                </p>
@@ -167,10 +161,13 @@ const  TransitionsModal = ({ handleCloseParent, open, currentPokemon, setMyPokem
                           <div className="stats-container">
                               <h4>
                               Type :</h4>
-                               {types.map((type, index) =>  { return  (
-                                  <Chip key={index} className={`${classesButton.type} ${classesButton[type]}`} size="medium" label={type} />
+
+                            <Typography variant="body2" component="div" className="type-wrapper" align="center">
+                               {types.map((typeItem, index) =>  { return  (
+                                  <Chip key={index} className={`${classesButton.types} ${classesButton[typeItem]}`} size="medium" label={typeItem} />
                                   )
                                })}
+                            </Typography>
                               <div className="simple-data">
                                  <h4>Size : {sizeResult}</h4>
                                  <h4>Weight : {weightResult}</h4>

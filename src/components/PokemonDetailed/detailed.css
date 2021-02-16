@@ -242,6 +242,20 @@ This could be improoved much further, by applying the advice the below article o
 .modal-container .ButtonAndText {
     width: 280px;
 }
+.encodingIssue {
+    white-space: pre-wrap;
+    text-align: left !important;
+    height: 220px;
+    margin: 0 2em;
+}
+
+@media screen and (max-width: 1300px) {
+    .encodingIssue {
+        height: 160px;
+        text-align: center !important;
+    }
+}
+
 
 @media screen and (max-width: 800px) {
     .modal-content {
