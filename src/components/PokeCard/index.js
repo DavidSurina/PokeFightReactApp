@@ -17,6 +17,9 @@ const useStyles = makeStyles(customStyles);
 
 export default function ImgMediaCard({ pokemon,  handleOpenParent, setMyPokemon, setFightPokemon, fightPokemon }) {
   const classes = useStyles();
+
+  const imgString = `https://pokeres.bastionbot.org/images/pokemon/${pokemon.id}.png`;
+
   const fightPokemonSelection = (arr) => {
     const nArray = [...arr];
     if(arr.length < 2) {
@@ -36,7 +39,7 @@ export default function ImgMediaCard({ pokemon,  handleOpenParent, setMyPokemon,
           component="img"
           alt="Pokeball"
           height="140"
-          image={`https://pokeres.bastionbot.org/images/pokemon/${pokemon.id}.png`}
+          image={imgString}
           title="Pokeball"
           onClick={() => {
               handleOpenParent();
