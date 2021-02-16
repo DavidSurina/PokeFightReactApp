@@ -53,8 +53,9 @@ export default function CenteredGrid({ pokemons, handleOpenParent, setMyPokemon,
             })
           : null}
       </Grid>
-      <div class="load-more-btn-container">
-        <button class="load-more-btn" onClick={() => setLoadCount(loadCount + 20)}>Load more</button>
+
+      <div className="load-more-btn-container">
+        <button className="load-more-btn" onClick={() => setLoadCount(loadCount + 20)}>Load more</button>
       </div>
     </div>
   );
