@@ -65,7 +65,7 @@ export default function ImgMediaCard({ pokemon,  handleOpenParent, setMyPokemon,
               setMyPokemon(pokemon)
             }}
         />
-        <Divider className={classes.divider}/>
+        <Divider className={classes.divider}/>n
         <CardContent>
           <Typography className={classes.name} gutterBottom variant="h5" component="h2">
             {pokemon.name.english}
