@@ -4,6 +4,10 @@ import React, { useState, useEffect  } from 'react';
 import {Modal, makeStyles, Backdrop, Fade } from '@material-ui/core';
 import Button from '@material-ui/core/Button';
 
+import Typography from '@material-ui/core/Typography';
+import Chip from '@material-ui/core/Chip';
+import customStyles from "../PokeCard/materialStyle.css.js";
+
 // API IMPORT caused an issue =  I will look into this later
 // Import api functionality
 // import Api from "./pokeAPI.js";
@@ -74,9 +78,9 @@ const  TransitionsModal = ({ handleCloseParent, open, currentPokemon, setMyPokem
       const weightResult = pokemonDetails ? <span>{pokemonDetails.data.weight}  kg </span> : ['no weight info '] ;
       const imageResult  = currentPokemon ? <img src={'https://pokeres.bastionbot.org/images/pokemon/'+currentPokemon.id+'.png'}  alt={currentPokemon.name.english}  />  : ['no image information'] ;
 
-      // types-array
+      // types will be looped over in the jsx return statement
       const types = currentPokemon ? currentPokemon.type : ['no data about Types for this Pokemon'] ;
-      const typesResult = types.map((type, index) =>  { return  <span key={index}> {type}  </span> } )
+
 
       // attacks-array
       const attacks = pokemonDetails ? pokemonDetails.data.moves   : [{'move': {'name' : 'No Name available at current'}}]
@@ -86,7 +90,7 @@ const  TransitionsModal = ({ handleCloseParent, open, currentPokemon, setMyPokem
       // else pass the following sting
       : 'no attackResult-Data';
 
-      // Modal Styling
+     // Modal Styling
       const useStyles = makeStyles((theme) => ({
         modal: {
           display: 'flex',
@@ -100,14 +104,20 @@ const  TransitionsModal = ({ handleCloseParent, open, currentPokemon, setMyPokem
           padding: theme.spacing(2, 4, 3),
         },
       }));
-      const classes = useStyles();
+
+
+      const classesModal = useStyles();
+      // const useStyles = makeStyles();
+
+      const classesButton = useStyles(customStyles);
+
 
   return (
     <>
       <Modal
       aria-labelledby="transition-modal-title"
       aria-describedby="transition-modal-description"
-      className={classes.modal}
+      className={classesModal.modal}
       open={open}
       onClose={handleCloseParent}
       closeAfterTransition
@@ -117,7 +127,7 @@ const  TransitionsModal = ({ handleCloseParent, open, currentPokemon, setMyPokem
       }}
       >
       <Fade in={open} >
-         <div className={classes.paper} id="modalFrame" >
+         <div className={classesModal.paper} id="modalFrame" >
               <div className="ModalPokedex">
                <div className="modal">
                   <div className="modal-content">
@@ -128,7 +138,7 @@ const  TransitionsModal = ({ handleCloseParent, open, currentPokemon, setMyPokem
                      <div className="modal-container">
                         <ArrowBackIosIcon  onClick={()=> {arrowDown()}}  color="secondary"></ArrowBackIosIcon>
                         <div className="ButtonAndText">
-                          <Button className={classes.button} variant="outlined" size="small" color="secondary"
+                          <Button className={classesModal.button} variant="outlined" size="small" color="secondary"
                               onClick={() => { fightPokemonSelection(fightPokemon)}}>
                               Choose Pokemon for fight!
                           </Button>
@@ -142,10 +152,13 @@ const  TransitionsModal = ({ handleCloseParent, open, currentPokemon, setMyPokem
                         </div>
                        <ArrowForwardIosIcon onClick={()=> {arrowUp()}} color="secondary"></ArrowForwardIosIcon>
                         <div>
-                        {/*<div onClick={() => {fightPokemonSelection(fightPokemon)}}>Choose Pokemon Button</div>*/}
-
                           <div className="stats-container">
-                              <h4>Type : {typesResult} </h4>
+                              <h4>
+                              Type :</h4>
+                               {types.map((type, index) =>  { return  (
+                                  <Chip key={index} className={`${classesButton.type} ${classesButton[type]}`} size="medium" label={type} />
+                                  )
+                               })}
                               <div className="simple-data">
                                  <h4>Size : {sizeResult}</h4>
                                  <h4>Weight : {weightResult}</h4>
