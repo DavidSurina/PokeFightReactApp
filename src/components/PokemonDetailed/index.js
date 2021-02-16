@@ -64,13 +64,28 @@ const  TransitionsModal = ({ handleCloseParent, open, currentPokemon, setMyPokem
     }
       // arrow Up click through collection
       const arrowUp = () => {
-                requestpokemonDetails(currentPokemon.id+1);
-                setMyPokemon(pokemonList[currentPokemon.id]);
+                if (currentPokemon.id > 100 ) {
+                   setMyPokemon(pokemonList[3])
+                   requestpokemonDetails(currentPokemon.id-1);
+                  }
+                 else {
+                  requestpokemonDetails(currentPokemon.id+1);
+                  setMyPokemon(pokemonList[currentPokemon.id]);
+                }
     }
       // arrow Down click through collection
       const arrowDown = () => {
-                requestpokemonDetails(currentPokemon.id-1);
-                setMyPokemon(pokemonList[currentPokemon.id-2]);
+                if (currentPokemon.id < 3 ) {
+                      if (pokemonList.length > 100) {
+                        return setMyPokemon(pokemonList[100])
+                      }
+                  requestpokemonDetails(currentPokemon.id-1);
+                  setMyPokemon(pokemonList[pokemonList.length-2])
+                  }
+                 else {
+                  requestpokemonDetails(currentPokemon.id-1);
+                  setMyPokemon(pokemonList[currentPokemon.id-2]);
+                }
     }
 
       // size and weight and Image = real data seems to be missing inside of the api response
