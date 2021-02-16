@@ -19,13 +19,10 @@ export default function ImgMediaCard({ pokemon,  handleOpenParent, setMyPokemon,
   const classes = useStyles();
   const fightPokemonSelection = (arr) => {
     if(arr.length < 2) {
-      //const oArray = arr
-      //console.log(oArray)
       const nArray = [...arr];
       nArray.push(pokemon);
       console.log(nArray);
       setFightPokemon(nArray)
-      alert(`${pokemon.name.english} ready to fight`) 
     } else {
       //console.log(arr)
       alert("you chose 2 pokemon already")

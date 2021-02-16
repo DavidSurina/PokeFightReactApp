@@ -30,7 +30,7 @@ export default function CenteredGrid({ pokemons, handleOpenParent, setMyPokemon,
         spacing={4}
         direction="row"
         alignItems="center"
-        alignContent="flex-start"
+        alignContent="center"
         wrap= "wrap"
         xl={12}
         >
