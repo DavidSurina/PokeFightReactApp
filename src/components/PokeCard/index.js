@@ -10,6 +10,8 @@ import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import Chip from '@material-ui/core/Chip';
 import Divider from '@material-ui/core/Divider';
+//pokeball png
+import PokeballPng from '../../img/pokeball.png';
 // styles
 import customStyles from "./materialStyle.css.js";
 
@@ -20,7 +22,7 @@ const useStyles = makeStyles(customStyles);
 export default function ImgMediaCard({ pokemon,  handleOpenParent, setMyPokemon, setFightPokemon, fightPokemon }) {
   //state variable created to determine if the picture is loaded
   const [loaded, setLoaded] = useState(false);
-
+  //url sting for img call
   const urlStr = `https://pokeres.bastionbot.org/images/pokemon/${pokemon.id}.png`;
 
   const classes = useStyles();
@@ -30,12 +32,10 @@ export default function ImgMediaCard({ pokemon,  handleOpenParent, setMyPokemon,
     try{
       const response = await axios.get(urlStr)
       if (response.data) {
-        setLoaded(true)
-        return response.config.url}
+        setLoaded(true)}
       } catch (err){
         console.error(err)
       }
-      
   }
   getImage();
 
@@ -43,7 +43,6 @@ export default function ImgMediaCard({ pokemon,  handleOpenParent, setMyPokemon,
     const nArray = [...arr];
     if(arr.length < 2) {
       nArray.push(pokemon);
-      console.log(nArray);
       setFightPokemon(nArray)
     } else if(arr.length === 2) {
       nArray[1] = pokemon;
@@ -59,14 +58,14 @@ export default function ImgMediaCard({ pokemon,  handleOpenParent, setMyPokemon,
           component="img"
           alt="Pokeball"
           height="140"
-          image={loaded === true ? urlStr : "https://upload.wikimedia.org/wikipedia/commons/4/4c/Pokeball.png"}
+          image={loaded === true ? urlStr : PokeballPng}
           title="Pokeball"
           onClick={() => {
               handleOpenParent();
               setMyPokemon(pokemon)
             }}
         />
-        <Divider className={classes.divider}/>
+        <Divider className={classes.divider}/>n
         <CardContent>
           <Typography className={classes.name} gutterBottom variant="h5" component="h2">
             {pokemon.name.english}
@@ -86,5 +85,3 @@ export default function ImgMediaCard({ pokemon,  handleOpenParent, setMyPokemon,
     </Card>
   );
 }
-
-//${pokeType.toLowerCase()}`}
