@@ -111,11 +111,11 @@
     justify-content: space-evenly;
 }
 
-
-@media only screen and (max-width: 1210px) {
-    .ModalPokedex .modal-container {
+ .ModalPokedex .modal-container {
         flex-direction: column;
-    }
+ }
+@media only screen and (max-width: 2210px) {
+
     .modal-container .ButtonAndText {
     width: 70% !important;
     }
@@ -143,22 +143,109 @@ This could be improoved much further, by applying the advice the below article o
     border-top-right-radius: 25px;
     display: block;
     margin: 20px 10px 3em 0;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: whitesmoke;
+
 }
 
 @media only screen and (min-width: 968px) {
     .ModalPokedex .modal-container .imagecontainer {
-        width: 300px;
+/*        width: 300px;
         max-width: 30vw;
-        height: 300px;
+        height: 300px;*/
     }
 }
 
-.ModalPokedex img {
 
+@media only screen and (max-width: 3968px) {
+     .ModalPokedex .usual-attacks {
+        flex-direction: column;
+    }
+    .ModalPokedex .modal-container .imagecontainer {
+        width: 80% !important;
+        margin: 13px 0 0 0;
+    }
+    .modal-container>div{
+        width: 80% !important;
+    }
+}
+
+
+
+
+
+.ModalPokedex img {
     max-width: 100%;
     height: auto;
     margin: 20px 10px 15px 0;
 }
+
+
+.ModalPokedex .MuiSvgIcon-root {
+    width: 100px;
+    height: 6em;
+    cursor: pointer;
+}
+
+     .ModalPokedex img {
+        width: 60vw;
+        margin: 0;
+        max-width: 222px;
+    }
+
+@media screen and (max-width: 3200px) {
+    .modal-container {
+        position: relative;
+}
+
+    .ModalPokedex .MuiSvgIcon-root {
+        width: 50px;
+        height: 3em;
+        cursor: pointer;
+        position: absolute;
+    }
+    #modalFrame > div > div > div > div > svg:nth-child(1),
+    #modalFrame > div > div > div > div > svg:nth-child(4) {
+        top: 20%;
+    }
+    #modalFrame > div > div > div > div > svg:nth-child(1) {
+        left: 1vw;
+    }
+    #modalFrame > div > div > div > div > svg:nth-child(4) {
+        right: 1vw;
+    }
+
+
+}
+
+
+
+
+@media screen and (min-width: 1300px) {
+
+    .ModalPokedex .MuiSvgIcon-root {
+        width: 80px;
+        height: 6em;
+    }
+    #modalFrame > div > div > div > div > svg:nth-child(1),
+    #modalFrame > div > div > div > div > svg:nth-child(4) {
+        top: 3%;
+    }
+    #modalFrame > div > div > div > div > svg:nth-child(1) {
+        left: 8vw;
+    }
+    #modalFrame > div > div > div > div > svg:nth-child(4) {
+        right: 8vw;
+    }
+
+
+}
+
+
+
 
 /* RIGHT PART */
 .modal-container>div {
@@ -208,11 +295,6 @@ This could be improoved much further, by applying the advice the below article o
     text-align: left;
 }
 
-@media only screen and (max-width: 968px) {
-    .ModalPokedex .usual-attacks {
-        flex-direction: column;
-    }
-}
 
 .ModalPokedex ul {
     display: flex;
@@ -228,16 +310,9 @@ This could be improoved much further, by applying the advice the below article o
     display: flex;
     justify-content: center;
     align-items: start;
-
-
 }
 
 
-.ModalPokedex .MuiSvgIcon-root {
-    width: 100px;
-    height: 6em;
-    cursor: pointer;
-}
 
 .modal-container .ButtonAndText {
     width: 280px;
@@ -249,19 +324,92 @@ This could be improoved much further, by applying the advice the below article o
     margin: 0 2em;
 }
 
-@media screen and (max-width: 1300px) {
-    .encodingIssue {
-        height: 160px;
-        text-align: center !important;
-    }
+.encodingIssue {
+    height: 160px;
+    text-align: center !important;
 }
+
 
 
 @media screen and (max-width: 800px) {
     .modal-content {
-        /*margin-top: 120px;*/
-        /*width: 80%;*/
-        /*max-width: 92vw;*/
+        margin-top: 120px;
+        width: 100%;
+        max-width: 95vw;
         margin: 0 auto;
     }
+     .ModalPokedex .modal-content button  {
+        margin: 20px auto !important;
+        padding:  20px !important;
+    }
+     .mobileHide ,
+    .stats-container h4,
+    .encodingIssue {
+    display: none;
+    }
+    .ModalPokedex ul {
+    flex-direction: row;
+    flex-flow: wrap;
+    }
+    .ModalPokedex li {
+    list-style: none;
+    margin-right: 0px;
+    width: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 60px;
+    border: 1px solid whitesmoke;
+    margin: 10px;
+    padding: 10px;
+    }
+}
+
+
+.attacks-list {
+
+    justify-content: center;
+}
+
+
+
+@media screen and (max-width: 460px) {
+    .ModalPokedex li {
+    margin:  0px;
+    }
+}
+
+@media screen and (max-width: 420px) {
+    .ModalPokedex li {
+    padding:  0px;
+    }
+}
+@media screen and (max-width: 400px) {
+    .ModalPokedex .usual-attacks {
+        overflow: hidden;
+    }
+    .ModalPokedex ul {
+       flex-flow:wrap;
+    }
+    .ModalPokedex li {
+    border: unset;
+    margin: 10px;
+    padding:  0px;
+    }
+    .ModalPokedex li {
+    width: 90px;
+    }
+}
+
+@media screen and (max-width: 390px) {
+    .ModalPokedex li {
+    margin:  0px;
+    }
+}
+
+@media screen and (max-width: 320px) {
+    .ModalPokedex li:nth-child(n+3) {
+        display: none;
+    }
+
 }
