@@ -2,6 +2,7 @@
 // https://material-ui.com/components/modal/#transitions
 import React, { useState, useEffect  } from 'react';
 import {Modal, makeStyles, Backdrop, Fade } from '@material-ui/core';
+import Button from '@material-ui/core/Button';
 
 // API IMPORT caused an issue =  I will look into this later
 // Import api functionality
@@ -13,7 +14,7 @@ import ArrowForwardIosIcon from '@material-ui/icons/ArrowForwardIos';
 import ArrowBackIosIcon    from '@material-ui/icons/ArrowBackIos';
 
 
-const  TransitionsModal = ({ handleCloseParent, open, currentPokemon, setMyPokemon, pokemonList}) => {
+const  TransitionsModal = ({ handleCloseParent, open, currentPokemon, setMyPokemon, pokemonList, setFightPokemon, fightPokemon  }) => {
 
   const [pokemonDetails, setPokemonDetails] = useState();
   const [pokemonDescription, setPokemonDescription] = useState();
@@ -22,6 +23,22 @@ const  TransitionsModal = ({ handleCloseParent, open, currentPokemon, setMyPokem
     // PageLoad-Initialization of -API-Request for details
    currentPokemon ?  requestpokemonDetails(currentPokemon.id) :  console.log('no Detailed-Pokemon-Data')
   },[currentPokemon]);
+
+  // copied from PokeCard/ Component: ImgMediaCard
+  const fightPokemonSelection = (arr) => {
+    if(arr.length < 2) {
+      //const oArray = arr
+      //console.log(oArray)
+      const nArray = arr;
+      nArray.push(currentPokemon);
+      console.log(nArray);
+      setFightPokemon(nArray)
+      alert(`${currentPokemon.name.english} ready to fight`)
+    } else {
+      //console.log(arr)
+      alert("you chose 2 pokemon already")
+    }
+  }
 
    const requestpokemonDetails = (PokeNumber) => {
         let details = "https://pokeapi.co/api/v2/pokemon/"
@@ -110,17 +127,24 @@ const  TransitionsModal = ({ handleCloseParent, open, currentPokemon, setMyPokem
                        <hr className="line" />
                      <div className="modal-container">
                         <ArrowBackIosIcon  onClick={()=> {arrowDown()}}  color="secondary"></ArrowBackIosIcon>
-                        <div className="imagecontainer">
+                        <div className="ButtonAndText">
+                          <Button className={classes.button} variant="outlined" size="small" color="secondary"
+                              onClick={() => { fightPokemonSelection(fightPokemon)}}>
+                              Choose Pokemon for fight!
+                          </Button>
+                             <p>{pokemonDescription ?
+                                 pokemonDescription.data.flavor_text_entries[0].flavor_text
+                                 : ''
+                               }
+                               </p>
+                          </div>  <div className="imagecontainer">
                         {imageResult}
                         </div>
                        <ArrowForwardIosIcon onClick={()=> {arrowUp()}} color="secondary"></ArrowForwardIosIcon>
                         <div>
-                           <p>{pokemonDescription ?
-                               pokemonDescription.data.flavor_text_entries[0].flavor_text
-                               : ''
-                             }
-                             </p>
-                           <div className="stats-container">
+                        {/*<div onClick={() => {fightPokemonSelection(fightPokemon)}}>Choose Pokemon Button</div>*/}
+
+                          <div className="stats-container">
                               <h4>Type : {typesResult} </h4>
                               <div className="simple-data">
                                  <h4>Size : {sizeResult}</h4>

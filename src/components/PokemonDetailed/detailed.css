@@ -15,7 +15,7 @@
     -o-box-shadow: 10px -10px 5px rgba(0, 0, 0, 0.6);
     border-radius: 45px 0 62px 0;
     outline: transparent;
-    max-width: 60vw;
+    /*max-width: 60vw;*/
 }
 
 .ModalPokedex {
@@ -91,12 +91,12 @@
     font-size: 1.2rem;
     background-color: #cf283a;
     color: #fff;
-    padding: 0 30px;
+    padding: 0 3px;
     height: 40px;
     border: 2px solid transparent;
     border-radius: 5px;
     text-transform: uppercase;
-    margin: 25px auto;
+    margin: 0px auto 25px;
     transition: all 0.1s ease-in-out;
 }
 
@@ -106,6 +106,22 @@
     align-items: center;
     justify-content: space-evenly;
 }
+
+
+@media only screen and (max-width: 1210px) {
+    .ModalPokedex .modal-container {
+        flex-direction: column;
+    }
+    .modal-container .ButtonAndText {
+    width: 70% !important;
+    }
+    .ModalPokedex .modal-content button {
+     display: flex;
+    margin: 25px auto;
+    padding: 3em;
+    }
+}
+
 
 .ModalPokedex button:hover {
     transform: scale(1.1);
@@ -142,7 +158,7 @@ This could be improoved much further, by applying the advice the below article o
 
 /* RIGHT PART */
 .modal-container>div {
-    width: 500px;
+    width: 580px;
 }
 
 .modal-container>div>p {
@@ -157,8 +173,8 @@ This could be improoved much further, by applying the advice the below article o
 .modal-container .stats-container {
     display: flex;
     flex-wrap: wrap;
-    background-color: rgb(100, 182, 97);
-    font-size: 1.3rem;
+    background-color: rgb(143, 188, 143);
+    font-size: 1.4rem;
     color: #fff;
     border-radius: 5px;
     padding: 20px;
@@ -184,44 +200,50 @@ This could be improoved much further, by applying the advice the below article o
 
 .ModalPokedex .usual-attacks {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     text-align: left;
+}
+
+@media only screen and (max-width: 968px) {
+    .ModalPokedex .usual-attacks {
+        flex-direction: column;
+    }
 }
 
 .ModalPokedex ul {
     display: flex;
     margin-left: 10px;
     padding-inline-start: 0;
+    margin: 10px;
 }
 
 .ModalPokedex li {
     list-style: none;
     margin-right: 10px;
+    width: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: start;
+
+
 }
 
 
 .ModalPokedex .MuiSvgIcon-root {
-    width: 6em;
+    width: 100px;
     height: 6em;
     cursor: pointer;
 }
 
+.modal-container .ButtonAndText {
+    width: 280px;
+}
 
 @media screen and (max-width: 800px) {
     .modal-content {
         /*margin-top: 120px;*/
-        width: 80%;
-        max-width: 92vw;
+        /*width: 80%;*/
+        /*max-width: 92vw;*/
         margin: 0 auto;
-    }
-}
-
-@media screen and (max-width: 400px) {
-    .simple-data {
-        flex-direction: column;
-    }
-
-    .attacks-list {
-        flex-direction: column;
     }
 }

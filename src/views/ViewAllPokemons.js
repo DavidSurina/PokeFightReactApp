@@ -20,6 +20,8 @@ const ViewAllPokemons = ({pokemonList, fightPokemon, setFightPokemon}) => {
             currentPokemon={myPokemon}
             setMyPokemon={setMyPokemon}
             pokemonList={pokemonList}
+            setFightPokemon={setFightPokemon}
+            fightPokemon={fightPokemon}
             />
       <div className="pokemon-list">
         <CenteredGrid
