@@ -95,6 +95,48 @@ main {
     margin: 0 !important;
 }
 
-.MuiGrid-spacing-xs-4 {
-    margin: -32px !important ;
+
+/*Media Queries*/
+
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+    .header {
+        position:initial;
+    }
+
+    .header::after {
+        display: none;
+    }
+
+    .header-form {
+        width: 100%;
+    }
+
+    .logo-wrapper {
+        width: 90%;
+        margin: 0 5%;
+    }
+
+    .pokefight-logo {
+        width: 100%;
+        padding: 0;
+    }
+
+    .main {
+        padding-top: 5rem;
+    }
+
+    .fight-bar {
+        width: 100%;
+        min-height: 25rem;
+    }
+
+    .fight-button-a,
+    .fight-button-na {
+        min-width: 10rem;
+    }
+
+    .reset-button {
+        min-width: 8rem;
+    }
 }
