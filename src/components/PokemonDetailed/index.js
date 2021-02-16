@@ -140,26 +140,28 @@ const  TransitionsModal = ({ handleCloseParent, open, currentPokemon, setMyPokem
                <div className="modal">
                   <div className="modal-content">
                      <span className="close" onClick={handleCloseParent}>×</span>
-                      <h3> Fight with: {currentPokemon ? currentPokemon.name.english : ''}
-                          <span> No.00 {currentPokemon ? currentPokemon.id : ''}</span></h3>
+                      <h3> <span className="mobileHide">Fight with: </span> {currentPokemon ? currentPokemon.name.english : ''}
+                          <span> No. {currentPokemon ? currentPokemon.id : ''}</span></h3>
                        <hr className="line" />
                      <div className="modal-container">
-                        <ArrowBackIosIcon  onClick={()=> {arrowDown()}}  color="secondary"></ArrowBackIosIcon>
+                        <ArrowBackIosIcon  onClick={()=> {arrowDown()}}  color="secondary" ></ArrowBackIosIcon>
                         <div className="ButtonAndText">
                           <Button className={classesModal.button} variant="outlined" size="small" color="secondary"
                               onClick={() => { fightPokemonSelection(fightPokemon)}}>
-                              Choose Pokemon for fight!
+                              Choose Pokemon <span className="mobileHide">for fight</span>!
                           </Button>
-                             <p className="encodingIssue">{pokemonDescription ?
+
+                          </div>  <div className="imagecontainer">
+
+                              <p className="encodingIssue">{pokemonDescription ?
                                   pokemonDescription.data.flavor_text_entries[0].flavor_text
                                  // JSON.stringify(pokemonDescription.data.flavor_text_entries[0].flavor_text).replace( /[\r\n]+/gm, " " )
                                  : ''
                                }
                                </p>
-                          </div>  <div className="imagecontainer">
-                        {imageResult}
+                              {imageResult}
                         </div>
-                       <ArrowForwardIosIcon onClick={()=> {arrowUp()}} color="secondary"></ArrowForwardIosIcon>
+                       <ArrowForwardIosIcon onClick={()=> {arrowUp()}} color="secondary"  ></ArrowForwardIosIcon>
                         <div>
                           <div className="stats-container">
                               <h4>
