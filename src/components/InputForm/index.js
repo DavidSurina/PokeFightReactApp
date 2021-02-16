@@ -1,9 +1,12 @@
 import { Link } from 'react-router-dom';
 import './style.css';
 
-export default function InputForm({input, setInput}) {
+export default function InputForm({ input, setInput }) {
   return (
-    <form action="" className="header-form">
+    <form
+      action="submit"
+      className="header-form"
+      onSubmit={(e) => e.preventDefault()}>
       <Link to="/" className="home-button">
         Home
       </Link>
@@ -14,9 +17,11 @@ export default function InputForm({input, setInput}) {
         maxLength="20"
         placeholder="Search Pokemon"
         value={input}
-        onChange={(event)=> setInput(event.target.value)}
+        onChange={(event) => setInput(event.target.value)}
       />
-      <Link to="/pokemons/search" className="search-submit-button" type="submit" >Search</Link>
+      <Link to="/pokemons/search" className="search-submit-button">
+        Search
+      </Link>
     </form>
   );
 }
