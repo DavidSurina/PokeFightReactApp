@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 // materialUI
 import { makeStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
@@ -13,12 +13,31 @@ import Divider from '@material-ui/core/Divider';
 // styles
 import customStyles from "./materialStyle.css.js";
 
+import axios from "axios";
+
 const useStyles = makeStyles(customStyles);
 
 export default function ImgMediaCard({ pokemon,  handleOpenParent, setMyPokemon, setFightPokemon, fightPokemon }) {
+  //state variable created to determine if the picture is loaded
+  const [loaded, setLoaded] = useState(false);
+
+  const urlStr = `https://pokeres.bastionbot.org/images/pokemon/${pokemon.id}.png`;
+
   const classes = useStyles();
 
-  const imgString = `https://pokeres.bastionbot.org/images/pokemon/${pokemon.id}.png`;
+  //async call to api for img
+  const getImage = async () => {
+    try{
+      const response = await axios.get(urlStr)
+      if (response.data) {
+        setLoaded(true)
+        return response.config.url}
+      } catch (err){
+        console.error(err)
+      }
+      
+  }
+  getImage();
 
   const fightPokemonSelection = (arr) => {
     const nArray = [...arr];
@@ -31,6 +50,7 @@ export default function ImgMediaCard({ pokemon,  handleOpenParent, setMyPokemon,
       setFightPokemon(nArray);
     }
   }
+
   return (
     <Card className={classes.root}>
       <CardActionArea>
@@ -39,7 +59,7 @@ export default function ImgMediaCard({ pokemon,  handleOpenParent, setMyPokemon,
           component="img"
           alt="Pokeball"
           height="140"
-          image={imgString}
+          image={loaded === true ? urlStr : "https://upload.wikimedia.org/wikipedia/commons/4/4c/Pokeball.png"}
           title="Pokeball"
           onClick={() => {
               handleOpenParent();
