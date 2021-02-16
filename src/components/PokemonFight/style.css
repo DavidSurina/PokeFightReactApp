@@ -1,7 +1,8 @@
 .pokefight-wrapper {
     min-height: 30rem;
-    width: 60rem;
-    margin: 0 auto;
+    width: 100%;
+    max-width: 60rem;
+    margin: 10rem auto 20rem auto;
     background: url("https://cutewallpaper.org/21/battle-backgrounds/Free-download-Pokemon-Battle-Background-The-background-.png");
     background-size: cover;
     background-repeat: no-repeat;
@@ -33,5 +34,5 @@
 }
 
 .pokefight-top-img {
-    margin-top: 7rem;
+    margin-top: 5rem;
 }
