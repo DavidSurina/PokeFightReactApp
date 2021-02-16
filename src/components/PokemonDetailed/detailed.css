@@ -3,6 +3,10 @@
     list-style: none;
 }
 
+.MuiChip-root {
+    margin: 0 1em;
+}
+
 #modalFrame {
     padding: 0;
     margin: 0;

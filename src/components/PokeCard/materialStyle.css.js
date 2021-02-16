@@ -47,7 +47,7 @@ const customStyles = {
   center: {
     justifyContent: "center",
   },
-  // in case we find a solution to get meterialUI classes to work -> ${classes.pokeType} 
+  // in case we find a solution to get meterialUI classes to work -> ${classes.pokeType}
   Normal: {
     backgroundColor: "#A8A77A",
   },
