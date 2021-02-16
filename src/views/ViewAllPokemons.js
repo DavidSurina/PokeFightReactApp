@@ -1,34 +1,19 @@
 // ViewAllPokemons
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import TransitionsModal from '../components/PokemonDetailed';
 import CenteredGrid from '../components/PokeGrid';
 
-// Import api functionality
-import Api from "../api/index";
 
-const ViewAllPokemons = ({fightPokemon, setFightPokemon}) => {
-  const [pokemonList, setPokemonList] = useState()
-  const [myPokemon,   setMyPokemon]   = useState()
+const ViewAllPokemons = ({pokemonList, fightPokemon, setFightPokemon}) => {
+  
+  const [myPokemon, setMyPokemon]   = useState()
 
   const [open, setOpen] =  useState(false);
   const handleOpenParent  = () => { setOpen(true); };
   const handleCloseParent = () => { setOpen(false); };
 
-  useEffect(() => {
-    Api.getAllPokemons()
-      .then((res)=>{
-        setPokemonList(res);
-      })
-      .catch((err)=>{
-        console.error(err)
-      })
-  },[]);
-
-
-
   return(
     <>
-      <h1 className="grid-heading">All Pokemons</h1>
        <TransitionsModal
             handleCloseParent={handleCloseParent}
             open={open}

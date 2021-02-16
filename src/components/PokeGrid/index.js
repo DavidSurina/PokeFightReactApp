@@ -33,7 +33,6 @@ export default function CenteredGrid({ pokemons, handleOpenParent, setMyPokemon,
         alignContent="flex-start"
         wrap= "wrap"
         xl={12}
-        style={{ minHeight: "50vh" }}
         >
         {/*         {restaurants.map((iteration, index) => {
           return <RestaurantCard key={index} restaurant={iteration} />;
@@ -54,7 +53,10 @@ export default function CenteredGrid({ pokemons, handleOpenParent, setMyPokemon,
             })
           : null}
       </Grid>
-      <button className="load-more-btn" onClick={() => setLoadCount(loadCount + 20)}>Load more</button>
+
+      <div class="load-more-btn-container">
+        <button className="load-more-btn" onClick={() => setLoadCount(loadCount + 20)}>Load more</button>
+      </div>
     </div>
   );
 }

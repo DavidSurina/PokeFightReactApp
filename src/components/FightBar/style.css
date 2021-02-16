@@ -62,10 +62,23 @@
     font-family: "Swanky and Moo Moo", sans-serif;
 }
 
-.fight-button {
+.fight-button-a {
     height: 4rem;
     width: 70%;
     background-color: red;
+    border: 3px solid black;
+    border-radius: 2rem;
+    font-size: 2.7rem;
+    text-align: center;
+    text-decoration: none;
+    color: #fff;
+    cursor: pointer;
+}
+
+.fight-button-na {
+    height: 4rem;
+    width: 70%;
+    background-color: rgb(83, 83, 83);
     border: 3px solid black;
     border-radius: 2rem;
     font-size: 2.7rem;

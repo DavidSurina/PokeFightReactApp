@@ -17,12 +17,11 @@ const useStyles = makeStyles(customStyles);
 
 export default function ImgMediaCard({ pokemon,  handleOpenParent, setMyPokemon, setFightPokemon, fightPokemon }) {
   const classes = useStyles();
-  //console.log(pokemon);
   const fightPokemonSelection = (arr) => {
     if(arr.length < 2) {
       //const oArray = arr
       //console.log(oArray)
-      const nArray = arr;
+      const nArray = [...arr];
       nArray.push(pokemon);
       console.log(nArray);
       setFightPokemon(nArray)
@@ -32,8 +31,6 @@ export default function ImgMediaCard({ pokemon,  handleOpenParent, setMyPokemon,
       alert("you chose 2 pokemon already")
     }
   }
-
-
   return (
     <Card className={classes.root}>
       <CardActionArea>
@@ -61,7 +58,7 @@ export default function ImgMediaCard({ pokemon,  handleOpenParent, setMyPokemon,
         </CardContent>
       </CardActionArea>
       <CardActions className={classes.center}>
-        <Button className={classes.button} variant="outlined" size="small" color="secondary" onClick={() => { 
+        <Button className={classes.button} variant="outlined" size="small" color="secondary" onClick={() => {
           fightPokemonSelection(fightPokemon)}}>
           Choose
         </Button>
@@ -69,3 +66,5 @@ export default function ImgMediaCard({ pokemon,  handleOpenParent, setMyPokemon,
     </Card>
   );
 }
+
+//${pokeType.toLowerCase()}`}

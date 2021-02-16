@@ -1,5 +1,3 @@
-import { FullscreenExit } from "@material-ui/icons";
-
 const customStyles = {
   root: {
     maxWidth: 345,
