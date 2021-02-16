@@ -27,13 +27,10 @@ const  TransitionsModal = ({ handleCloseParent, open, currentPokemon, setMyPokem
   // copied from PokeCard/ Component: ImgMediaCard
   const fightPokemonSelection = (arr) => {
     if(arr.length < 2) {
-      //const oArray = arr
-      //console.log(oArray)
-      const nArray = arr;
+      const nArray = [...arr];
       nArray.push(currentPokemon);
       console.log(nArray);
       setFightPokemon(nArray)
-      alert(`${currentPokemon.name.english} ready to fight`)
     } else {
       //console.log(arr)
       alert("you chose 2 pokemon already")
