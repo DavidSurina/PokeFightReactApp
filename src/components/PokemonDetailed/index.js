@@ -157,8 +157,9 @@ const  TransitionsModal = ({ handleCloseParent, open, currentPokemon, setMyPokem
                               onClick={() => { fightPokemonSelection(fightPokemon)}}>
                               Choose Pokemon for fight!
                           </Button>
-                             <p>{pokemonDescription ?
-                                 pokemonDescription.data.flavor_text_entries[0].flavor_text
+                             <p className="encodingIssue">{pokemonDescription ?
+                                  pokemonDescription.data.flavor_text_entries[0].flavor_text
+                                 // JSON.stringify(pokemonDescription.data.flavor_text_entries[0].flavor_text).replace( /[\r\n]+/gm, " " )
                                  : ''
                                }
                                </p>
