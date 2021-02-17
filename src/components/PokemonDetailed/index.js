@@ -16,7 +16,7 @@ import ArrowForwardIosIcon from '@material-ui/icons/ArrowForwardIos';
 import ArrowBackIosIcon    from '@material-ui/icons/ArrowBackIos';
 
 
-const  TransitionsModal = ({ handleCloseParent, open, currentPokemon, setMyPokemon, pokemonList, setFightPokemon, fightPokemon, fightSelectionController  }) => {
+const  TransitionsModal = ({ handleCloseParent, open, currentPokemon, setMyPokemon, pokemonList, setFightPokemon, fightPokemon, fightSelectionController, pokeInfo  }) => {
 
   const [pokemonDetails, setPokemonDetails] = useState();
   const [pokemonDescription, setPokemonDescription] = useState();
@@ -109,13 +109,14 @@ const  TransitionsModal = ({ handleCloseParent, open, currentPokemon, setMyPokem
                       <h3> <span className="mobileHide">Fight with: </span> {currentPokemon ? currentPokemon.name.english : ''}
                           <span> No. {currentPokemon ? currentPokemon.id : ''}</span></h3>
                        <hr className="line" />
+                       <div className="PokeInfo">{pokeInfo}</div>
                      <div className="modal-container">
                         <ArrowBackIosIcon  onClick={()=> {arrowDown()}}  color="secondary" ></ArrowBackIosIcon>
                         <div className="ButtonAndText">
                           <Button className={classesModal.button} variant="outlined" size="small" color="secondary"
                               onClick={() => { fightSelectionController(fightPokemon, currentPokemon)}}
                               >
-                              Choose Pokemon <span className="mobileHide">for fight</span>!
+                              Choose  {currentPokemon ? currentPokemon.name.english : ''} &nbsp;<span className="mobileHide"> and  fight</span>!
                           </Button>
 
                           </div>  <div className="imagecontainer">

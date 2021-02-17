@@ -26,6 +26,12 @@
     outline: transparent;
 }
 
+.PokeInfo {
+    margin: 2em auto;
+    font-size: 2em;
+    width: 50%;
+}
+
 
 /*this will prevent the modal from beeing visible onpageload*/
 #pageload {
