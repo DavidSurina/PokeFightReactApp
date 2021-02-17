@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import './style.css';
 
 export default function FightBar({ fightingPoke, reset }) {
-  
+
   return (
     <section className="fight-bar">
 
@@ -58,7 +58,6 @@ export default function FightBar({ fightingPoke, reset }) {
           alt="fighter-one"
         />
       </div>
-      
     </section>
   );
 }
