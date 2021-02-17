@@ -15,25 +15,28 @@ const ViewAllPokemons = ({pokemonList, fightPokemon, setFightPokemon}) => {
 
 
   useEffect(() => {
-     setPokeInfo( `Choose two Pokemons! \nAnd let them fight against one another!` );
+     setPokeInfo( `Choose two Pokemons! \nYou can let them fight against one another!` );
   }, []);
 
 
 
   const fightSelectionController = (arr, pokemon) => {
-   const nArray = [...arr];
-    if(arr.length < 2) {
+
+   let nArray = [...arr];
+    if(arr.length < 1) {
       nArray.push(pokemon);
       setFightPokemon(nArray)
-      setPokeInfo( `Okay, cool! \nYour first Pokemon is: Name_1. \nNow Choose your second Pokemon! ` )
-    } else if(arr.length === 2) {
+      setPokeInfo( `Okay, cool! \nYour first Pokemon is: ${nArray[0].name.english}. \nNow Choose your second Pokemon! ` )
+    } else if(arr.length === 1) {
       nArray[1] = pokemon;
       setFightPokemon(nArray);
-      setPokeInfo( `Okay now you have choosen both Pokemons. \nThey are ready to fight: \nHit the Fight Button! ` );
+      setPokeInfo( `${nArray[0].name.english} is ready to fight against ${nArray[1].name.english}! \nHit the Fight Button! ` );
+    } else  {
+      handleCloseParent()
+      // revert values back
+      setPokeInfo('Choose two Pokemons! \nYou can let them fight against one another!')
+      setFightPokemon([])
     }
-      //  console.log('fightPokemon: ',   fightPokemon)
-      //  console.log('fightPokemon: ',   fightPokemon ?  fightPokemon[0].name.english : "nix" )
-      //  ${fightPokemon[0].name.english ?  fightPokemon[0].name.english : "Name_1" }
   }
   return(
     <>

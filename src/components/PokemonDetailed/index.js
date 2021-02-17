@@ -116,7 +116,8 @@ const  TransitionsModal = ({ handleCloseParent, open, currentPokemon, setMyPokem
                           <Button className={classesModal.button} variant="outlined" size="small" color="secondary"
                               onClick={() => { fightSelectionController(fightPokemon, currentPokemon)}}
                               >
-                              Choose  {currentPokemon ? currentPokemon.name.english : ''} &nbsp;<span className="mobileHide"> and  fight</span>!
+                              Choose  {currentPokemon ? currentPokemon.name.english : ''}
+                              {/*&nbsp;<span className="mobileHide"> and fight</span>!*/}
                           </Button>
 
                           </div>  <div className="imagecontainer">
