@@ -41,7 +41,7 @@ export default function ImgMediaCard({ pokemon,  handleOpenParent, setMyPokemon,
           className={classes.img}
           component="img"
           alt="Pokeball"
-          height="140"
+          height="140px"
           image={urlStr}
           onError={onMediaFallback}
           title="Pokeball"

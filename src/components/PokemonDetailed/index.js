@@ -1,5 +1,7 @@
 // MODAL COMPONENT
-import axios from "axios";
+// import axios from "axios";
+import Api from "../../api";
+
 // https://material-ui.com/components/modal/#transitions
 import React, { useState, useEffect  } from 'react';
 import {Modal, makeStyles, Backdrop, Fade } from '@material-ui/core';
@@ -38,21 +40,7 @@ const  TransitionsModal = ({ handleCloseParent, open, currentPokemon, setMyPokem
   }
 
    const requestpokemonDetails = (PokeNumber) => {
-        let details = "https://pokeapi.co/api/v2/pokemon/"
-        let description = "https://pokeapi.co/api/v2/pokemon-species/"
-
-        const URLdetails = axios.get(details+PokeNumber);
-        const URLDescription = axios.get(description+PokeNumber);
-
-        axios.all([URLdetails, URLDescription]).then(axios.spread((...responses) => {
-              const resDetails = responses[0]
-              const resDescription = responses[1]
-              setPokemonDetails(resDetails);
-              setPokemonDescription(resDescription);
-        }))
-        .catch(errors => {
-              console.error(errors);
-        })
+            Api.requestpokemonDetails(PokeNumber, setPokemonDetails, setPokemonDescription)
     }
       // arrow Up click through collection
       const arrowUp = () => {
