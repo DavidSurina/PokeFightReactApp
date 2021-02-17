@@ -25,9 +25,7 @@ export default function ImgMediaCard({
   fightPokemon,
   fightSelectionController,
 }) {
-  //state variable created to determine if the picture is loaded
-  // const [imgStr, setImgStr] = useState(PokeballPng);
-
+  
   const urlStr = `https://pokeres.bastionbot.org/images/pokemon/${pokemon.id}.png`;
 
   const onMediaFallback = (event) => (event.target.src = FALLBACK_IMAGE);

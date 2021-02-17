@@ -1,4 +1,4 @@
-import FALLBACK_IMAGE from '../../img/pokeball.png';
+import background_img from '../../img/pokeball.png';
 
 const customStyles = {
   root: {
@@ -8,7 +8,7 @@ const customStyles = {
     margin: "2rem auto",
     border: "4px solid black",
     borderRadius: "2rem",
-    backgroundImage: `url(${FALLBACK_IMAGE})`,
+    backgroundImage: `url(${background_img})`,
     backgroundRepeat: "no-repeat",
     backgroundPosition: "center",
     "&:hover" : {
