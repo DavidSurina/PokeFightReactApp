@@ -22,7 +22,16 @@ export default function CenteredGrid({ pokemons, handleOpenParent, setMyPokemon,
   const classes = useStyles();
   let [loadCount, setLoadCount] = useState(20);
 
-
+  const fightSelectionController = (arr, pokemon) => {
+    const nArray = [...arr];
+    if(arr.length < 2) {
+      nArray.push(pokemon);
+      setFightPokemon(nArray)
+    } else if(arr.length === 2) {
+      nArray[1] = pokemon;
+      setFightPokemon(nArray);
+    }
+  }
   return (
     <div className={classes.root}>
       <Grid
@@ -48,7 +57,8 @@ export default function CenteredGrid({ pokemons, handleOpenParent, setMyPokemon,
                     handleOpenParent={handleOpenParent}
                     setMyPokemon={setMyPokemon}
                     setFightPokemon={setFightPokemon}
-                    fightPokemon={fightPokemon}  />
+                    fightPokemon={fightPokemon}
+                    fightSelectionController={fightSelectionController}  />
               );
             })
           : null}
