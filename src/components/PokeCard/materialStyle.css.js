@@ -1,9 +1,16 @@
+import FALLBACK_IMAGE from '../../img/pokeball.png';
+
 const customStyles = {
   root: {
     maxWidth: 345,
+    minWidth: 345,
+    height: 450,
     margin: "2rem auto",
     border: "4px solid black",
     borderRadius: "2rem",
+    backgroundImage: `url(${FALLBACK_IMAGE})`,
+    backgroundRepeat: "no-repeat",
+    backgroundPosition: "center",
     "&:hover" : {
         boxShadow: "0 0 5px 3px rgb(129, 129, 129)",
         transform: "scale(1.05)",
@@ -14,6 +21,7 @@ const customStyles = {
     backgroundColor: "#000",
   },
   img: {
+    minHeight: "345px",
     height: "60%",
   },
   name: {
