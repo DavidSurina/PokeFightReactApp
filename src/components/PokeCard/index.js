@@ -18,7 +18,7 @@ import customStyles from "./materialStyle.css.js";
 
 const useStyles = makeStyles(customStyles);
 
-export default function ImgMediaCard({ pokemon,  handleOpenParent, setMyPokemon, setFightPokemon, fightPokemon, fightSelectionController}) {
+export default function ImgMediaCard({ pokemon,  handleOpenParent, setMyPokemon, fightPokemon, fightSelectionController}) {
 
   //state variable created to determine if the picture is loaded
   const [imgStr, setImgStr] = useState(PokeballPng);
@@ -47,7 +47,7 @@ export default function ImgMediaCard({ pokemon,  handleOpenParent, setMyPokemon,
         <Divider className={classes.divider}/>n
         <CardContent>
           <Typography className={classes.name} gutterBottom variant="h5" component="h2">
-            {pokemon.name.english}
+            #{pokemon.id} {pokemon.name.english}
           </Typography>
           <Typography variant="body2" component="div" className="type-wrapper" align="center">
             {pokemon.type.map((pokeType, index)=>{
