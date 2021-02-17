@@ -46,8 +46,8 @@ const  TransitionsModal = ({ handleCloseParent, open, currentPokemon, setMyPokem
 
         axios.all([URLdetails, URLDescription]).then(axios.spread((...responses) => {
               const resDetails = responses[0]
-              setPokemonDetails(resDetails);
               const resDescription = responses[1]
+              setPokemonDetails(resDetails);
               setPokemonDescription(resDescription);
         }))
         .catch(errors => {

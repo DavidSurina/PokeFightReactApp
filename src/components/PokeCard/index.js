@@ -13,6 +13,8 @@ import Chip from '@material-ui/core/Chip';
 import Divider from '@material-ui/core/Divider';
 //pokeball png
 import PokeballPng from '../../img/pokeball.png';
+import FALLBACK_IMAGE from '../../img/pokeball.png';
+
 // styles
 import customStyles from "./materialStyle.css.js";
 
@@ -21,11 +23,14 @@ const useStyles = makeStyles(customStyles);
 export default function ImgMediaCard({ pokemon,  handleOpenParent, setMyPokemon, fightPokemon, fightSelectionController}) {
 
   //state variable created to determine if the picture is loaded
-  const [imgStr, setImgStr] = useState(PokeballPng);
+  // const [imgStr, setImgStr] = useState(PokeballPng);
 
   //api image string and call to get the image
   const urlStr = `https://pokeres.bastionbot.org/images/pokemon/${pokemon.id}.png`
-  Api.getImage(urlStr, setImgStr);
+  // Api.getImage(urlStr, setImgStr);
+
+
+  const onMediaFallback = event => event.target.src = FALLBACK_IMAGE;
 
   const classes = useStyles();
 
@@ -37,14 +42,15 @@ export default function ImgMediaCard({ pokemon,  handleOpenParent, setMyPokemon,
           component="img"
           alt="Pokeball"
           height="140"
-          image={imgStr}
+          image={urlStr}
+          onError={onMediaFallback}
           title="Pokeball"
           onClick={() => {
               handleOpenParent();
               setMyPokemon(pokemon)
             }}
         />
-        <Divider className={classes.divider}/>n
+        <Divider className={classes.divider}/>
         <CardContent>
           <Typography className={classes.name} gutterBottom variant="h5" component="h2">
             #{pokemon.id} {pokemon.name.english}
