@@ -114,17 +114,16 @@
  .ModalPokedex .modal-container {
         flex-direction: column;
  }
-@media only screen and (max-width: 2210px) {
 
-    .modal-container .ButtonAndText {
-    width: 70% !important;
-    }
-    .ModalPokedex .modal-content button {
-     display: flex;
-    margin: 25px auto;
-    padding: 3em;
-    }
+.modal-container .ButtonAndText {
+width: 70% !important;
 }
+.ModalPokedex .modal-content button {
+ display: flex;
+margin: 25px auto;
+padding: 3em;
+}
+
 
 
 .ModalPokedex button:hover {
@@ -196,7 +195,7 @@ This could be improoved much further, by applying the advice the below article o
         max-width: 222px;
     }
 
-@media screen and (max-width: 3200px) {
+
     .modal-container {
         position: relative;
 }
@@ -219,7 +218,6 @@ This could be improoved much further, by applying the advice the below article o
     }
 
 
-}
 
 
 
@@ -235,10 +233,10 @@ This could be improoved much further, by applying the advice the below article o
         top: 3%;
     }
     #modalFrame > div > div > div > div > svg:nth-child(1) {
-        left: 8vw;
+        left: 8%;
     }
     #modalFrame > div > div > div > div > svg:nth-child(4) {
-        right: 8vw;
+        right: 8%;
     }
 
 
