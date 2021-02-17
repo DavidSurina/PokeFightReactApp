@@ -1,5 +1,4 @@
-import React, {useState} from 'react';
-import Api from "../../api";
+import React from 'react';
 // materialUI
 import { makeStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
@@ -24,10 +23,7 @@ export default function ImgMediaCard({ pokemon,  handleOpenParent, setMyPokemon,
   //state variable created to determine if the picture is loaded
   // const [imgStr, setImgStr] = useState(PokeballPng);
 
-  //api image string and call to get the image
   const urlStr = `https://pokeres.bastionbot.org/images/pokemon/${pokemon.id}.png`
-  // Api.getImage(urlStr, setImgStr);
-
 
   const onMediaFallback = event => event.target.src = FALLBACK_IMAGE;
 
