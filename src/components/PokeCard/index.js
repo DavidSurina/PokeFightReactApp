@@ -18,7 +18,7 @@ import customStyles from "./materialStyle.css.js";
 
 const useStyles = makeStyles(customStyles);
 
-export default function ImgMediaCard({ pokemon,  handleOpenParent, setMyPokemon, setFightPokemon, fightPokemon }) {
+export default function ImgMediaCard({ pokemon,  handleOpenParent, setMyPokemon, setFightPokemon, fightPokemon, fightSelectionController}) {
 
   //state variable created to determine if the picture is loaded
   const [imgStr, setImgStr] = useState(PokeballPng);
@@ -28,17 +28,6 @@ export default function ImgMediaCard({ pokemon,  handleOpenParent, setMyPokemon,
   Api.getImage(urlStr, setImgStr);
 
   const classes = useStyles();
-
-  const fightPokemonSelection = (arr) => {
-    const nArray = [...arr];
-    if(arr.length < 2) {
-      nArray.push(pokemon);
-      setFightPokemon(nArray)
-    } else if(arr.length === 2) {
-      nArray[1] = pokemon;
-      setFightPokemon(nArray);
-    }
-  }
 
   return (
     <Card className={classes.root}>
@@ -68,7 +57,7 @@ export default function ImgMediaCard({ pokemon,  handleOpenParent, setMyPokemon,
       </CardActionArea>
       <CardActions className={classes.center}>
         <Button className={classes.button} variant="outlined" size="small" color="secondary" onClick={() => {
-          fightPokemonSelection(fightPokemon)}}>
+          fightSelectionController(fightPokemon, pokemon)}}>
           Choose
         </Button>
       </CardActions>

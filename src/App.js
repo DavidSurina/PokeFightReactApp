@@ -6,12 +6,12 @@ import Api from "./api/index";
 /* components */
 import InputForm from "./components/InputForm";
 import FightBar from "./components/FightBar";
-import PokemonFight from "./components/PokemonFight";
 import Footer from "./components/Footer";
 
 /* views */
-import ViewAllPokemons from "./views/ViewAllPokemons"
-import ViewSearch from "./views/ViewSearch"
+import ViewAllPokemons from "./views/ViewAllPokemons";
+import ViewSearch from "./views/ViewSearch";
+import ViewFight from "./views/ViewFight";
 
 /* Logo */
 import logo from "./img/pokefight_logo.png";
@@ -47,7 +47,7 @@ function App() {
       <main className="main">
         <Switch>
           <Route path="/pokemons/fight">
-            <PokemonFight fightingPoke={pokeFightSel}/>
+            <ViewFight fightingPoke={pokeFightSel}/>
           </Route>
           <Route path="/pokemons/search">
             <FightBar fightingPoke={pokeFightSel} reset={setPokeFightSel}/>
