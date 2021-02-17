@@ -11,11 +11,11 @@ const customStyles = {
     backgroundImage: `url(${background_img})`,
     backgroundRepeat: "no-repeat",
     backgroundPosition: "top",
-    transform: "scale(0.7)",
+    transform: "scale(0.9)",
     backgroundSize: "contain",
     "&:hover" : {
         boxShadow: "0 0 5px 3px rgb(129, 129, 129)",
-        transform: "scale(0.75)",
+        transform: "scale(0.95)",
         transition: "all .3s",
     }
   },

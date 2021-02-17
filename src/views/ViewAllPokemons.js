@@ -15,7 +15,7 @@ const ViewAllPokemons = ({pokemonList, fightPokemon, setFightPokemon}) => {
 
 
   useEffect(() => {
-     setPokeInfo( `Choose two Pokemons! \nYou can let them fight against one another!` );
+     setPokeInfo( `Choose two Pokemons and... \nlet them fight!` );
   }, []);
 
 
@@ -35,6 +35,7 @@ const ViewAllPokemons = ({pokemonList, fightPokemon, setFightPokemon}) => {
       handleCloseParent()
       // revert values back
       setPokeInfo('Choose two Pokemons! \nYou can let them fight against one another!')
+      // this should only kick in if the user really hits the fight button
       setFightPokemon([])
     }
   }
