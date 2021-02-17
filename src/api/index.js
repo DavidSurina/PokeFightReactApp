@@ -42,8 +42,6 @@ const Api = {
               console.error(errors);
         })
     }
-
-
 };
 
 export default Api;

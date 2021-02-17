@@ -16,7 +16,7 @@ import ArrowForwardIosIcon from '@material-ui/icons/ArrowForwardIos';
 import ArrowBackIosIcon    from '@material-ui/icons/ArrowBackIos';
 
 
-const  TransitionsModal = ({ handleCloseParent, open, currentPokemon, setMyPokemon, pokemonList, setFightPokemon, fightPokemon  }) => {
+const  TransitionsModal = ({ handleCloseParent, open, currentPokemon, setMyPokemon, pokemonList, setFightPokemon, fightPokemon, fightSelectionController  }) => {
 
   const [pokemonDetails, setPokemonDetails] = useState();
   const [pokemonDescription, setPokemonDescription] = useState();
@@ -25,19 +25,6 @@ const  TransitionsModal = ({ handleCloseParent, open, currentPokemon, setMyPokem
     // PageLoad-Initialization of -API-Request for details
    currentPokemon ?  requestpokemonDetails(currentPokemon.id) :  console.log('no Detailed-Pokemon-Data')
   },[currentPokemon]);
-
-  // copied from PokeCard/ Component: ImgMediaCard
-  const fightPokemonSelection = (arr) => {
-    if(arr.length < 2) {
-      const nArray = [...arr];
-      nArray.push(currentPokemon);
-      console.log(nArray);
-      setFightPokemon(nArray)
-    } else {
-      //console.log(arr)
-      alert("you chose 2 pokemon already")
-    }
-  }
 
    const requestpokemonDetails = (PokeNumber) => {
             Api.requestpokemonDetails(PokeNumber, setPokemonDetails, setPokemonDescription)
@@ -72,10 +59,8 @@ const  TransitionsModal = ({ handleCloseParent, open, currentPokemon, setMyPokem
       const sizeResult   = pokemonDetails ? <span>{pokemonDetails.data.height.toFixed(1)/10} m </span> : ['no size info '] ;
       const weightResult = pokemonDetails ? <span>{pokemonDetails.data.weight}  kg </span> : ['no weight info '] ;
       const imageResult  = currentPokemon ? <img src={'https://pokeres.bastionbot.org/images/pokemon/'+currentPokemon.id+'.png'}  alt={currentPokemon.name.english}  />  : ['no image information'] ;
-
       // types will be looped over in the jsx return statement
       const types = currentPokemon ? currentPokemon.type : ['no data about Types for this Pokemon'] ;
-
       // attacks-array
       const attacks = pokemonDetails ? pokemonDetails.data.moves   : [{'move': {'name' : 'No Name available at current'}}]
       const attackResult = attacks ?
@@ -83,7 +68,6 @@ const  TransitionsModal = ({ handleCloseParent, open, currentPokemon, setMyPokem
       attacks.slice(0, 6).map((attack, index) =>  { return  <li key={index}> {attack.move.name}  </li> } )
       // else pass the following sting
       : 'no attackResult-Data';
-
      // Modal Styling
       const useStyles = makeStyles((theme) => ({
         modal: {
@@ -98,12 +82,9 @@ const  TransitionsModal = ({ handleCloseParent, open, currentPokemon, setMyPokem
           padding: theme.spacing(2, 4, 3),
         },
       }));
-
       const classesModal = useStyles();
       // const useStyles = makeStyles();
-
       const classesButton = useStyles(customStyles);
-
 
   return (
     <>
@@ -132,7 +113,8 @@ const  TransitionsModal = ({ handleCloseParent, open, currentPokemon, setMyPokem
                         <ArrowBackIosIcon  onClick={()=> {arrowDown()}}  color="secondary" ></ArrowBackIosIcon>
                         <div className="ButtonAndText">
                           <Button className={classesModal.button} variant="outlined" size="small" color="secondary"
-                              onClick={() => { fightPokemonSelection(fightPokemon)}}>
+                              onClick={() => { fightSelectionController(fightPokemon, currentPokemon)}}
+                              >
                               Choose Pokemon <span className="mobileHide">for fight</span>!
                           </Button>
 
