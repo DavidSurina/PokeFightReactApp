@@ -12,7 +12,6 @@ import Typography from '@material-ui/core/Typography';
 import Chip from '@material-ui/core/Chip';
 import Divider from '@material-ui/core/Divider';
 //pokeball png
-import PokeballPng from '../../img/pokeball.png';
 import FALLBACK_IMAGE from '../../img/pokeball.png';
 
 // styles
