@@ -7,9 +7,13 @@ export default function InputForm({ input, setInput }) {
       action="submit"
       className="header-form"
       onSubmit={(e) => e.preventDefault()}>
+
+      {/*----Home Button----*/}
       <Link to="/" className="home-button">
         Home
       </Link>
+
+      {/*----Input----*/}
       <input
         className="search-input"
         type="text"
@@ -19,6 +23,8 @@ export default function InputForm({ input, setInput }) {
         value={input}
         onChange={(event) => setInput(event.target.value)}
       />
+
+      {/*----Search Button----*/}
       <Link to="/pokemons/search" className="search-submit-button">
         Search
       </Link>
