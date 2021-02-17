@@ -20,6 +20,8 @@ const useStyles = makeStyles((theme) => ({
 
 export default function CenteredGrid({ pokemons, handleOpenParent, setMyPokemon, setFightPokemon, fightPokemon}) {
   const classes = useStyles();
+  
+  //State Variable that increments on LoadMore Button click and loads more pokemon
   let [loadCount, setLoadCount] = useState(20);
 
   const fightSelectionController = (arr, pokemon) => {

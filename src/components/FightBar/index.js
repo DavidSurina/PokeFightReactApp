@@ -7,6 +7,8 @@ export default function FightBar({ fightingPoke, reset }) {
   
   return (
     <section className="fight-bar">
+
+      {/*----Fighter One Block----*/}
       <div className="fighter-one-wrapper">
         <h3 className="fighter-one-name">
           {fightingPoke[0] ? fightingPoke[0].name.english : 'Choose'}
@@ -21,6 +23,8 @@ export default function FightBar({ fightingPoke, reset }) {
           alt="fighter-one"
         />
       </div>
+
+      {/*----Block With Fight and Reset Button----*/}
       <div className="fight-button-wrapper">
         <p className="vs-sign">VS</p>
         <Link
@@ -34,11 +38,12 @@ export default function FightBar({ fightingPoke, reset }) {
           className="reset-button"
           onClick={() => {
             reset([]);
-            //console.log(fightingPoke);
           }}>
           reset
         </button>
       </div>
+
+      {/*----Fighter Two Block----*/}
       <div className="fighter-two-wrapper">
         <h3 className="fighter-two-name">
           {fightingPoke[1] ? fightingPoke[1].name.english : 'Choose'}
@@ -53,6 +58,7 @@ export default function FightBar({ fightingPoke, reset }) {
           alt="fighter-one"
         />
       </div>
+      
     </section>
   );
 }

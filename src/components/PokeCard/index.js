@@ -1,5 +1,4 @@
-import React, {useState} from 'react';
-import Api from "../../api";
+import React from 'react';
 // materialUI
 import { makeStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
@@ -12,52 +11,87 @@ import Typography from '@material-ui/core/Typography';
 import Chip from '@material-ui/core/Chip';
 import Divider from '@material-ui/core/Divider';
 //pokeball png
-import PokeballPng from '../../img/pokeball.png';
+import FALLBACK_IMAGE from '../../img/pokeball.png';
+
 // styles
-import customStyles from "./materialStyle.css.js";
+import customStyles from './materialStyle.css.js';
 
 const useStyles = makeStyles(customStyles);
 
-export default function ImgMediaCard({ pokemon,  handleOpenParent, setMyPokemon, setFightPokemon, fightPokemon, fightSelectionController}) {
+export default function ImgMediaCard({
+  pokemon,
+  handleOpenParent,
+  setMyPokemon,
+  fightPokemon,
+  fightSelectionController,
+}) {
+  
+  const urlStr = `https://pokeres.bastionbot.org/images/pokemon/${pokemon.id}.png`;
 
-  //state variable created to determine if the picture is loaded
-  const [imgStr, setImgStr] = useState(PokeballPng);
-
-  //api image string and call to get the image
-  const urlStr = `https://pokeres.bastionbot.org/images/pokemon/${pokemon.id}.png`
-  Api.getImage(urlStr, setImgStr);
+  const onMediaFallback = (event) => (event.target.src = FALLBACK_IMAGE);
 
   const classes = useStyles();
 
   return (
     <Card className={classes.root}>
       <CardActionArea>
+
+        {/*-----Card Image*-------*/}
+
         <CardMedia
           className={classes.img}
           component="img"
           alt="Pokeball"
-          height="140"
-          image={imgStr}
+          image={urlStr}
+          onError={onMediaFallback}
           title="Pokeball"
           onClick={() => {
-              handleOpenParent();
-              setMyPokemon(pokemon)
-            }}
+            handleOpenParent();
+            setMyPokemon(pokemon);
+          }}
         />
-        <Divider className={classes.divider}/>n
+        <Divider className={classes.divider} />
+
+        {/*-------Card Content-------*/}
+
         <CardContent>
-          <Typography className={classes.name} gutterBottom variant="h5" component="h2">
-            {pokemon.name.english}
+          <Typography
+            className={classes.name}
+            gutterBottom
+            variant="h5"
+            component="h2">
+            #{pokemon.id} {pokemon.name.english}
           </Typography>
-          <Typography variant="body2" component="div" className="type-wrapper" align="center">
-            {pokemon.type.map((pokeType, index)=>{
-              return (<Chip key={index} className={`${classes.type} ${classes[pokeType]}`} size="medium" label={pokeType} />)})}
+          <Typography
+            variant="body2"
+            component="div"
+            className="type-wrapper"
+            align="center">
+            {pokemon.type.map((pokeType, index) => {
+              return (
+                <Chip
+                  key={index}
+                  className={`${classes.type} ${classes[pokeType]}`}
+                  size="medium"
+                  label={pokeType}
+                />
+              );
+            })}
           </Typography>
         </CardContent>
       </CardActionArea>
+
+      {/*-------Card Button-------*/}
+
       <CardActions className={classes.center}>
-        <Button className={classes.button} variant="outlined" size="small" color="secondary" onClick={() => {
-          fightSelectionController(fightPokemon, pokemon)}}>
+        <Button
+          className={classes.button}
+          variant="outlined"
+          size="small"
+          color="secondary"
+          onClick={() => {
+            fightSelectionController(fightPokemon, pokemon);
+          }}>
           Choose
         </Button>
       </CardActions>
