@@ -30,6 +30,7 @@
     margin: 2em auto;
     font-size: 2em;
     width: 50%;
+    white-space: pre-line;
 }
 
 
