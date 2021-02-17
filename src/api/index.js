@@ -15,7 +15,16 @@ const Api = {
       console.error(error);
       return [];
     }
-  },
+  }, getImage: async (urlStr, setImgStrVar) => {
+    try{
+      const response = await axios.get(urlStr)
+      if (response.data) {
+        setImgStrVar(urlStr)
+      }
+    } catch (err) {
+      console.log(err)
+    }
+  }
 };
 
 export default Api;
