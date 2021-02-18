@@ -1,7 +1,17 @@
+
+
+
+.hideThis {
+    display: none !important ;
+}
+
+
+
 .pokemon-list ul li {
     margin-top: 2em;
     list-style: none;
 }
+
 
 .MuiChip-root {
     margin: 0 1em;
@@ -29,7 +39,7 @@
 .PokeInfo {
     margin: 2em auto;
     font-size: 2em;
-    width: 50%;
+    width: 55%;
     white-space: pre-line;
 }
 
@@ -240,10 +250,10 @@ This could be improoved much further, by applying the advice the below article o
         top: 3%;
     }
     #modalFrame > div > div > div > div > svg:nth-child(1) {
-        left: 8%;
+        left: 1%;
     }
     #modalFrame > div > div > div > div > svg:nth-child(4) {
-        right: 8%;
+        right: 1%;
     }
 
 
