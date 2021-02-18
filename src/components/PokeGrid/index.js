@@ -20,7 +20,7 @@ const useStyles = makeStyles((theme) => ({
 
 export default function CenteredGrid({ pokemons, handleOpenParent, setMyPokemon, setFightPokemon, fightPokemon, fightSelectionController}) {
   const classes = useStyles();
-  
+
   //State Variable that increments on LoadMore Button click and loads more pokemon
   let [loadCount, setLoadCount] = useState(20);
 
@@ -35,9 +35,6 @@ export default function CenteredGrid({ pokemons, handleOpenParent, setMyPokemon,
         wrap= "wrap"
         xl={12}
         >
-        {/*         {restaurants.map((iteration, index) => {
-          return <RestaurantCard key={index} restaurant={iteration} />;
-        })} */}
 
       {/* FIXME: get better solution for limiting/offset/streaming */}
         {pokemons
