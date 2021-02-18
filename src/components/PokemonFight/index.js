@@ -21,5 +21,5 @@ export default function PokemonFight({fightingPoke}) {
         );
     } else {
         return (<h1>Sorry select pokemon to fight</h1>)
-    } 
+    }
 }
