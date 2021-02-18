@@ -16,7 +16,7 @@ import ArrowForwardIosIcon from '@material-ui/icons/ArrowForwardIos';
 import ArrowBackIosIcon    from '@material-ui/icons/ArrowBackIos';
 
 
-const  TransitionsModal = ({ handleCloseParent, open, currentPokemon, setMyPokemon, pokemonList, setFightPokemon, fightPokemon, fightSelectionController, pokeInfo  }) => {
+const  TransitionsModal = ({ handleCloseParent, open, currentPokemon, setMyPokemon, pokemonList, setFightPokemon, fightPokemon, fightSelectionController, pokeInfo,  setPokeInfo   }) => {
 
   const [pokemonDetails, setPokemonDetails] = useState();
   const [pokemonDescription, setPokemonDescription] = useState();
@@ -68,8 +68,8 @@ const  TransitionsModal = ({ handleCloseParent, open, currentPokemon, setMyPokem
       attacks.slice(0, 6).map((attack, index) =>  { return  <li key={index}> {attack.move.name}  </li> } )
       // else pass the following sting
       : 'no attackResult-Data';
-     // Modal Styling
-      const useStyles = makeStyles((theme) => ({
+
+const useStyles = makeStyles((theme) => ({
         modal: {
           display: 'flex',
           alignItems: 'center',
@@ -81,17 +81,17 @@ const  TransitionsModal = ({ handleCloseParent, open, currentPokemon, setMyPokem
           boxShadow: theme.shadows[5],
           padding: theme.spacing(2, 4, 3),
         },
+        ...customStyles // these come from your premade styles
       }));
-      const classesModal = useStyles();
-      // const useStyles = makeStyles();
-      const classesButton = useStyles(customStyles);
+const classes = useStyles();
+
 
   return (
     <>
       <Modal
       aria-labelledby="transition-modal-title"
       aria-describedby="transition-modal-description"
-      className={classesModal.modal}
+      className={classes.modal}
       open={open}
       onClose={handleCloseParent}
       closeAfterTransition
@@ -101,26 +101,63 @@ const  TransitionsModal = ({ handleCloseParent, open, currentPokemon, setMyPokem
       }}
       >
       <Fade in={open} >
-         <div className={classesModal.paper} id="modalFrame" >
+         <div className={classes.paper} id="modalFrame" >
               <div className="ModalPokedex">
                <div className="modal">
                   <div className="modal-content">
-                     <span className="close" onClick={handleCloseParent}>×</span>
+                     <span className="close" onClick={() => {
+                      console.log('close was hit')
+                      setFightPokemon([])
+                      setPokeInfo({ ...pokeInfo,  textInfo: 'Choose two Pokemons and... \nlet them fight! ', chooseOrFight: true,  firstOrSecondChoice: false,  buttonShow: true } );
+                      handleCloseParent();
+                    }
+                    }  >
+                      ×
+                      </span>
                       <h3> <span className="mobileHide">Fight with: </span> {currentPokemon ? currentPokemon.name.english : ''}
-                          <span> No. {currentPokemon ? currentPokemon.id : ''}</span></h3>
-                       <hr className="line" />
-                       <div className="PokeInfo">{pokeInfo}</div>
-                     <div className="modal-container">
-                        <ArrowBackIosIcon  onClick={()=> {arrowDown()}}  color="secondary" ></ArrowBackIosIcon>
+                          <span> No. {currentPokemon ? currentPokemon.id : ''}</span>
+                      </h3>
+                      <hr className="line" />
+                      <div className="PokeInfo">{pokeInfo.textInfo}</div>
+                      <div className="modal-container">
+                        <ArrowBackIosIcon
+                        onClick={()=> {arrowDown()}}
+                        color="secondary"
+                        className={pokeInfo.chooseOrFight ? "showThis" : "hideThis"}
+                        >
+                        </ArrowBackIosIcon>
                         <div className="ButtonAndText">
-                          <Button className={classesModal.button} variant="outlined" size="small" color="secondary"
+                          <Button
+                          className={classes.button}
+                          className={`${pokeInfo.buttonShow ? "showThis" : "hideThis"} chooseButtonInModal `}
+                           variant="outlined" size="small" color="secondary"
                               onClick={() => { fightSelectionController(fightPokemon, currentPokemon)}}
                               >
-                              Choose  {currentPokemon ? currentPokemon.name.english : ''} &nbsp;<span className="mobileHide"> and  fight</span>!
+                              Choose
+                              {/*{currentPokemon ? currentPokemon.name.english : ''}*/}
+                               &nbsp;<span className="mobileHide"
+                               >
+                                {pokeInfo.firstOrSecondChoice ? "second" : "first"}
+
+                               Pokemon</span>
                           </Button>
 
-                          </div>  <div className="imagecontainer">
 
+                          <Button
+                          className={classes.button}
+                          className={`${pokeInfo.chooseOrFight ? "hideThis" : "showThis"} chooseButtonInModal `}
+                           variant="outlined" size="small" color="secondary"
+                              onClick={() => { console.log('hit-and-run')}}
+                              >
+                              Fight! &nbsp; &nbsp;
+                              {currentPokemon ? currentPokemon.name.english : ''}
+                              &nbsp;against&nbsp;
+                              {currentPokemon ? currentPokemon.name.english : ''}
+
+                          </Button>
+
+
+                          </div>  <div className="imagecontainer">
                               <p className="encodingIssue">{pokemonDescription ?
                                   pokemonDescription.data.flavor_text_entries[0].flavor_text
                                  // JSON.stringify(pokemonDescription.data.flavor_text_entries[0].flavor_text).replace( /[\r\n]+/gm, " " )
@@ -128,16 +165,19 @@ const  TransitionsModal = ({ handleCloseParent, open, currentPokemon, setMyPokem
                                }
                                </p>
                               {imageResult}
-                        </div>
-                       <ArrowForwardIosIcon onClick={()=> {arrowUp()}} color="secondary"  ></ArrowForwardIosIcon>
+                      </div>
+                      <ArrowForwardIosIcon
+                      onClick={()=> {arrowUp();  setPokeInfo({ ...pokeInfo,  buttonShow: true } )}}
+                      color="secondary"
+                      className={pokeInfo.chooseOrFight ? "showThis" : "hideThis"}
+                      ></ArrowForwardIosIcon>
                         <div>
                           <div className="stats-container">
                               <h4>
                               Type :</h4>
-
                             <Typography variant="body2" component="div" className="type-wrapper" align="center">
                                {types.map((typeItem, index) =>  { return  (
-                                  <Chip key={index} className={`${classesButton.types} ${classesButton[typeItem]}`} size="medium" label={typeItem} />
+                                  <Chip key={index} className={`${classes.types} ${classes[typeItem]}`} size="medium" label={typeItem} />
                                   )
                                })}
                             </Typography>

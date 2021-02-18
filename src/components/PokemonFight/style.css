@@ -1,8 +1,71 @@
+
+
+@media only screen and (max-width: 1360px) {
+        /*MOBILE DEFINITION AT 1360 or less */
+}
+
+
+.animationtime {
+    position: relative;
+    top: -50px;
+    font-size: 5rem;
+}
+
+.counterDesign {
+    font-size: 10rem;
+    color: #7b312a;
+    text-transform: capitalize;
+}
+
+.fightWrapper {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 65vh;
+}
+
+
+.wrapperPane {
+    /*background-color: blue;*/
+    width: 33vw;
+    height: 100%;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+}
+
+.winner, .tableOfContent {
+    font-size: 10rem;
+    color: #7b312a;
+    text-transform: capitalize;
+}
+
+.tableOfContent {
+    /*justify-content: flex-start;*/
+    font-size: 8rem;
+}
+
+.toc .tocLabel {
+    font-size: 5rem;
+    text-decoration: underline;
+}
+
+.hiddenWinner {
+    display: none;
+}
+
+#winner, #tableOfContent {
+    display: block;
+}
+
 .pokefight-wrapper {
-    min-height: 30rem;
-    width: 100%;
-    max-width: 60rem;
-    margin: 10rem auto 20rem auto;
+    height: 46rem;
+/*    width: 100%; */
+    max-width: 60em;
+   /* margin: 10rem auto 20rem auto;*/
     background: url("https://cutewallpaper.org/21/battle-backgrounds/Free-download-Pokemon-Battle-Background-The-background-.png");
     background-size: cover;
     background-repeat: no-repeat;
@@ -31,8 +94,38 @@
 
 .pokefight-bot-img {
     margin-left: 2rem;
+    animation: tilt .4s linear infinite alternate;
 }
 
 .pokefight-top-img {
     margin-top: 5rem;
+    animation: tilt .4s linear infinite alternate;
 }
+
+.pokefight-bot-name-wrapper,
+.pokefight-top-name-wrapper {
+    width: 50%;
+    padding: 1rem;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    background-color: #fff;
+    border: 3px solid #000;
+    border-radius: 1rem;
+}
+
+.pokefight-bot-name-wrapper h2,
+.pokefight-top-name-wrapper h2 {
+    width: 100%;
+    font-size: 1.8rem;
+}
+
+.pokefight-stats {
+    width: 50%;
+    font-size: 1.5rem;
+}
+
+@keyframes tilt {
+    from { transform: rotate(3deg)}
+    to { transform: rotate(-3deg)}
+  }
