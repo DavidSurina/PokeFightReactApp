@@ -68,8 +68,8 @@ const  TransitionsModal = ({ handleCloseParent, open, currentPokemon, setMyPokem
       attacks.slice(0, 6).map((attack, index) =>  { return  <li key={index}> {attack.move.name}  </li> } )
       // else pass the following sting
       : 'no attackResult-Data';
-     // Modal Styling
-      const useStyles = makeStyles((theme) => ({
+
+const useStyles = makeStyles((theme) => ({
         modal: {
           display: 'flex',
           alignItems: 'center',
@@ -81,17 +81,36 @@ const  TransitionsModal = ({ handleCloseParent, open, currentPokemon, setMyPokem
           boxShadow: theme.shadows[5],
           padding: theme.spacing(2, 4, 3),
         },
+        ...customStyles // these come from your premade styles
       }));
-      const classesModal = useStyles();
-      // const useStyles = makeStyles();
-      const classesButton = useStyles(customStyles);
+const classes = useStyles();
+
+
+
+     // // Modal Styling
+     //  const useStyles = makeStyles((theme) => ({
+     //    modal: {
+     //      display: 'flex',
+     //      alignItems: 'center',
+     //      justifyContent: 'center',
+     //    },
+     //    paper: {
+     //      backgroundColor: theme.palette.background.paper,
+     //      border: '2px solid #000',
+     //      boxShadow: theme.shadows[5],
+     //      padding: theme.spacing(2, 4, 3),
+     //    },
+     //  }));
+     //  const classes = useStyles();
+     //  // const useStyles = makeStyles();
+     //  const classesButton = useStyles(customStyles);
 
   return (
     <>
       <Modal
       aria-labelledby="transition-modal-title"
       aria-describedby="transition-modal-description"
-      className={classesModal.modal}
+      className={classes.modal}
       open={open}
       onClose={handleCloseParent}
       closeAfterTransition
@@ -101,7 +120,7 @@ const  TransitionsModal = ({ handleCloseParent, open, currentPokemon, setMyPokem
       }}
       >
       <Fade in={open} >
-         <div className={classesModal.paper} id="modalFrame" >
+         <div className={classes.paper} id="modalFrame" >
               <div className="ModalPokedex">
                <div className="modal">
                   <div className="modal-content">
@@ -128,7 +147,7 @@ const  TransitionsModal = ({ handleCloseParent, open, currentPokemon, setMyPokem
                         </ArrowBackIosIcon>
                         <div className="ButtonAndText">
                           <Button
-                          className={classesModal.button}
+                          className={classes.button}
                           className={`${pokeInfo.buttonShow ? "showThis" : "hideThis"}
                           chooseButtonInModal `}
                            variant="outlined" size="small" color="secondary"
@@ -145,7 +164,7 @@ const  TransitionsModal = ({ handleCloseParent, open, currentPokemon, setMyPokem
 
 
                           <Button
-                          className={classesModal.button}
+                          className={classes.button}
                           className={`${pokeInfo.chooseOrFight ? "hideThis" : "showThis"} chooseButtonInModal `}
                            variant="outlined" size="small" color="secondary"
                               onClick={() => { console.log('hit-and-run')}}
@@ -178,7 +197,7 @@ const  TransitionsModal = ({ handleCloseParent, open, currentPokemon, setMyPokem
                               Type :</h4>
                             <Typography variant="body2" component="div" className="type-wrapper" align="center">
                                {types.map((typeItem, index) =>  { return  (
-                                  <Chip key={index} className={`${classesButton.types} ${classesButton[typeItem]}`} size="medium" label={typeItem} />
+                                  <Chip key={index} className={`${classes.types} ${classes[typeItem]}`} size="medium" label={typeItem} />
                                   )
                                })}
                             </Typography>
