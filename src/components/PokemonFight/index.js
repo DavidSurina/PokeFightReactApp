@@ -1,7 +1,9 @@
+import FightController from "./fight-controller2";
+
 import "./style.css";
 
 export default function PokemonFight({fightingPoke}) {
-    
+
 
     console.log(fightingPoke)
     if(fightingPoke.length === 2) {
@@ -9,7 +11,7 @@ export default function PokemonFight({fightingPoke}) {
             <div className="pokefight-wrapper">
                 <div className="pokefight-top-wrapper">
                     <div className="pokefight-top-name-wrapper">
-                        <h2>{fightingPoke[1].name.english}</h2>
+                        <h2 onClick={() => FightController(fightingPoke)}>{fightingPoke[1].name.english}</h2>
                         <p class="pokefight-stats">Hp: {fightingPoke[1].base.HP}</p>
                         <p class="pokefight-stats">Speed: {fightingPoke[1].base.Speed}</p>
                         <p class="pokefight-stats">Attack: {fightingPoke[1].base.Attack}</p>
