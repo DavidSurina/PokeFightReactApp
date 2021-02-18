@@ -31,8 +31,38 @@
 
 .pokefight-bot-img {
     margin-left: 2rem;
+    animation: tilt .4s linear infinite alternate;
 }
 
 .pokefight-top-img {
     margin-top: 5rem;
+    animation: tilt .4s linear infinite alternate;
 }
+
+.pokefight-bot-name-wrapper,
+.pokefight-top-name-wrapper {
+    width: 50%;
+    padding: 1rem;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    background-color: #fff;
+    border: 3px solid #000;
+    border-radius: 1rem;
+}
+
+.pokefight-bot-name-wrapper h2,
+.pokefight-top-name-wrapper h2 {
+    width: 100%;
+    font-size: 1.8rem;
+}
+
+.pokefight-stats {
+    width: 50%;
+    font-size: 1.5rem;
+}
+
+@keyframes tilt {
+    from { transform: rotate(3deg)}
+    to { transform: rotate(-3deg)}
+  }
