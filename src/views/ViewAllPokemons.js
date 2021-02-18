@@ -7,31 +7,38 @@ import CenteredGrid from '../components/PokeGrid';
 const ViewAllPokemons = ({pokemonList, fightPokemon, setFightPokemon}) => {
 
   const [myPokemon, setMyPokemon]   = useState()
-  const [pokeInfo, setPokeInfo] = useState('');
+  const [open, setOpen]             = useState(false);
+  const [pokeInfo, setPokeInfo]     = useState({textInfo: ' ', chooseOrFight: true,  firstOrSecondChoice: false,  buttonShow: true });
 
-  const [open, setOpen] =  useState(false);
   const handleOpenParent  = () => { setOpen(true); };
   const handleCloseParent = () => { setOpen(false); };
 
-
   useEffect(() => {
-     setPokeInfo('Choose two Pokemons! \nAnd let them fight against one another!');
+     setPokeInfo( {...pokeInfo, textInfo: `Choose two Pokemons and... \nlet them fight!`, buttonShow: true });
   }, []);
 
+// console.log('\npokeInfo.buttonShow', pokeInfo.buttonShow, '\npokeInfo.chooseOrFight ', pokeInfo.chooseOrFight, '\npokeInfo.firstOrSecond ', pokeInfo.firstOrSecond, '\npokeInfo.textInfo', pokeInfo.textInfo )
+
   const fightSelectionController = (arr, pokemon) => {
-   const nArray = [...arr];
-    if(arr.length < 2) {
+
+   let nArray = [...arr];
+    if(arr.length < 1) {
       nArray.push(pokemon);
       setFightPokemon(nArray)
-      setPokeInfo( `Okay, cool! Your first Pokemon is: Name_1. \nNow Choose your second Pokemon! ` )
-    } else if(arr.length === 2) {
+      setPokeInfo({ ...pokeInfo, textInfo: `Okay, cool! \nYour first Pokemon is: ${nArray[0].name.english}. \nNow Choose your second Pokemon! `, buttonShow: false, firstOrSecondChoice: true,  } )
+
+    } else if(arr.length === 1) {
       nArray[1] = pokemon;
       setFightPokemon(nArray);
-      setPokeInfo( `Okay now you have choosen both Pokemons. \nThey are ready to fight: \nHit the Fight Button! ` );
+
+      setPokeInfo({...pokeInfo, textInfo: `Okay, ${nArray[0].name.english} will fight against ${nArray[1].name.english}. \nHit the Fight Button! `, buttonShow: false, chooseOrFight: false} );
+    } else  {
+      handleCloseParent()
+      // revert values back
+       setPokeInfo({...pokeInfo, textInfo: 'Choose two Pokemons! \nYou can let them fight against one another!', buttonShow: true, firstOrSecondChoice: false, } )
+       // reset (setFightPokemon to empty Array )should only happen if the user really hits the fight button
+       setFightPokemon([])
     }
-      //  console.log('fightPokemon: ',   fightPokemon)
-      //  console.log('fightPokemon: ',   fightPokemon ?  fightPokemon[0].name.english : "nix" )
-      //  ${fightPokemon[0].name.english ?  fightPokemon[0].name.english : "Name_1" }
   }
   return(
     <>
@@ -45,6 +52,7 @@ const ViewAllPokemons = ({pokemonList, fightPokemon, setFightPokemon}) => {
             fightPokemon={fightPokemon}
             fightSelectionController={fightSelectionController}
             pokeInfo={pokeInfo}
+             setPokeInfo={setPokeInfo}
             />
       <div className="pokemon-list">
         <CenteredGrid

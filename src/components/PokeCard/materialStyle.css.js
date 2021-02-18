@@ -10,10 +10,12 @@ const customStyles = {
     borderRadius: "2rem",
     backgroundImage: `url(${background_img})`,
     backgroundRepeat: "no-repeat",
-    backgroundPosition: "center",
+    backgroundPosition: "top",
+    transform: "scale(0.9)",
+    backgroundSize: "contain",
     "&:hover" : {
         boxShadow: "0 0 5px 3px rgb(129, 129, 129)",
-        transform: "scale(1.05)",
+        transform: "scale(0.95)",
         transition: "all .3s",
     }
   },
