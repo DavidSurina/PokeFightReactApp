@@ -86,25 +86,6 @@ const useStyles = makeStyles((theme) => ({
 const classes = useStyles();
 
 
-
-     // // Modal Styling
-     //  const useStyles = makeStyles((theme) => ({
-     //    modal: {
-     //      display: 'flex',
-     //      alignItems: 'center',
-     //      justifyContent: 'center',
-     //    },
-     //    paper: {
-     //      backgroundColor: theme.palette.background.paper,
-     //      border: '2px solid #000',
-     //      boxShadow: theme.shadows[5],
-     //      padding: theme.spacing(2, 4, 3),
-     //    },
-     //  }));
-     //  const classes = useStyles();
-     //  // const useStyles = makeStyles();
-     //  const classesButton = useStyles(customStyles);
-
   return (
     <>
       <Modal
@@ -148,8 +129,7 @@ const classes = useStyles();
                         <div className="ButtonAndText">
                           <Button
                           className={classes.button}
-                          className={`${pokeInfo.buttonShow ? "showThis" : "hideThis"}
-                          chooseButtonInModal `}
+                          className={`${pokeInfo.buttonShow ? "showThis" : "hideThis"} chooseButtonInModal `}
                            variant="outlined" size="small" color="secondary"
                               onClick={() => { fightSelectionController(fightPokemon, currentPokemon)}}
                               >

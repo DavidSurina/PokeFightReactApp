@@ -1,8 +1,71 @@
+
+
+@media only screen and (max-width: 1360px) {
+        /*MOBILE DEFINITION AT 1360 or less */
+}
+
+
+.animationtime {
+    position: relative;
+    top: -50px;
+    font-size: 5rem;
+}
+
+.counterDesign {
+    font-size: 10rem;
+    color: #7b312a;
+    text-transform: capitalize;
+}
+
+.fightWrapper {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 65vh;
+}
+
+
+.wrapperPane {
+    /*background-color: blue;*/
+    width: 33vw;
+    height: 100%;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+}
+
+.winner, .tableOfContent {
+    font-size: 10rem;
+    color: #7b312a;
+    text-transform: capitalize;
+}
+
+.tableOfContent {
+    /*justify-content: flex-start;*/
+    font-size: 8rem;
+}
+
+.toc .tocLabel {
+    font-size: 5rem;
+    text-decoration: underline;
+}
+
+.hiddenWinner {
+    display: none;
+}
+
+#winner, #tableOfContent {
+    display: block;
+}
+
 .pokefight-wrapper {
-    min-height: 30rem;
-    width: 100%;
-    max-width: 60rem;
-    margin: 10rem auto 20rem auto;
+    height: 46rem;
+/*    width: 100%; */
+    max-width: 60em;
+   /* margin: 10rem auto 20rem auto;*/
     background: url("https://cutewallpaper.org/21/battle-backgrounds/Free-download-Pokemon-Battle-Background-The-background-.png");
     background-size: cover;
     background-repeat: no-repeat;
