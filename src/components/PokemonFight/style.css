@@ -38,7 +38,7 @@
 }
 
 .winner, .tableOfContent {
-    font-size: 10rem;
+    font-size: 7rem;
     color: #7b312a;
     text-transform: capitalize;
 }
@@ -48,17 +48,19 @@
     font-size: 8rem;
 }
 
-.toc .tocLabel {
-    font-size: 5rem;
+.toc, .tocLabel {
+    font-size: 4rem;
     text-decoration: underline;
 }
 
 .hiddenWinner {
-    display: none;
+    display: block;
+    opacity: 0;
 }
 
 #winner, #tableOfContent {
     display: block;
+    opacity: 1;
 }
 
 .pokefight-wrapper {
@@ -95,11 +97,13 @@
 .pokefight-bot-img {
     margin-left: 2rem;
     animation: tilt .4s linear infinite alternate;
+    animation: botAttack 1s ease-out 3;
 }
 
 .pokefight-top-img {
     margin-top: 5rem;
     animation: tilt .4s linear infinite alternate;
+    animation: topAttack 1s ease-out 3;
 }
 
 .pokefight-bot-name-wrapper,
@@ -116,8 +120,17 @@
 
 .pokefight-bot-name-wrapper h2,
 .pokefight-top-name-wrapper h2 {
-    width: 100%;
+    width: 50%;
     font-size: 1.8rem;
+}
+
+#hp{
+    width: 45%;
+    margin: 3% 2.5%;
+    background-color: rgb(70, 230, 21);
+    text-align: center;
+    border-radius: 1rem;
+    border: 1px solid #000;
 }
 
 .pokefight-stats {
@@ -125,7 +138,45 @@
     font-size: 1.5rem;
 }
 
+.poke-audio {
+    margin: 0 auto;
+}
+
+
 @keyframes tilt {
     from { transform: rotate(3deg)}
     to { transform: rotate(-3deg)}
   }
+
+@keyframes topAttack {
+    0% {
+        transform: translateX(0) translateY(0); 
+    }
+    50%{
+        transform: translateX(0) translateY(0);
+    }
+
+    75% {
+        transform: translateX(-120%) translateY(80%) rotateZ(-15deg);
+    }
+
+    100% {
+        transform: translateX(0) translateY(0);
+    }
+}
+
+@keyframes botAttack {
+    0% {
+        transform: translateX(0) translateY(0) rotatez(5deg);
+    }
+    25%{
+        transform: translateX(120%) translateY(-80%) rotatez(15deg);
+    }
+    50% {
+        transform: translateX(0) translateY(0) rotatez(5deg);
+    }
+
+    100% {
+        transform: translateX(0) translateY(0) rotatez(5deg);
+    }
+}
