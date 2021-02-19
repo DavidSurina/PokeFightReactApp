@@ -1,4 +1,3 @@
-Ready for the 
 # PokeFight
 
 WBS Coding School - Team-Project
@@ -68,29 +67,32 @@ WBS Coding School - Team-Project
 
 ---
 
+### Design and Architecture
+![WireFrame](https://raw.githubusercontent.com/widukin/PokeFightReactApp/dev/public/images/2021-02-10_17-48-41.png)
+![Mockup top](https://raw.githubusercontent.com/widukin/PokeFightReactApp/dev/public/images/image-2.png)
+![Mockup bottom](https://raw.githubusercontent.com/widukin/PokeFightReactApp/dev/public/images/image.png)
+
 ## Demo
+
 ### Frontend
 [PokeFightReactApp on Netlify](https://pokefigth.netlify.app)
 
 ### Backend
 [PokeFight on Heroku](https://evening-falls-69897.herokuapp.com)
 
-Test available endpoints for **POSTS**
+Test available endpoints for **Pokemons**
 
-- [All posts](https://flaky-tales-api.herokuapp.com/posts)
-- [Post with postId 4](https://flaky-tales-api.herokuapp.com/posts/4)
-- [All posts ordered by {rating} and sorted in {desc}ending order](https://flaky-tales-api.herokuapp.com/posts?orderby=rating&sort=desc)
-- [All posts with a rating of 4](https://flaky-tales-api.herokuapp.com/posts/ratings/4)
-- [All posts and the users data from user with userId 2](https://flaky-tales-api.herokuapp.com/posts/users/2)
-- [All posts with topicId 2](https://flaky-tales-api.herokuapp.com/posts/topics/2)
-- [Search for posts of which the title contains Cook](https://flaky-tales-api.herokuapp.com/posts/search?title=Cook)
+- [GET all Pokemons](https://evening-falls-69897.herokuapp.com/pokemons)
+- [GET Pokemon with id=1](https://evening-falls-69897.herokuapp.com/pokemons/1)
+- [GET names of Pokemon with id=1](hhttps://evening-falls-69897.herokuapp.com/pokemons/1/name)
+- [GET types of Pokemon with id=1](hhttps://evening-falls-69897.herokuapp.com/pokemons/1/type)
+- [GET bases of Pokemon with id=1](hhttps://evening-falls-69897.herokuapp.com/pokemons/1/base)
 
-Test available endpoints for **USERS**
 
-- [All users](https://flaky-tales-api.herokuapp.com/users)
-- [User with userId 2](https://flaky-tales-api.herokuapp.com/users/2)
-- [All users orderd by {username} and sorted in {desc}ending order](https://flaky-tales-api.herokuapp.com/users?orderby=username&sort=desc)
-- [Search for users of which fields contain _"tustra anz"_](https://flaky-tales-api.herokuapp.com/users/search/?who=tustra&anz)
+Test available endpoints for **Fights**
+
+- [GET all Fights](https://evening-falls-69897.herokuapp.com/fights)
+- [GET the 5 latest Fights](https://evening-falls-69897.herokuapp.com/fights?limit=5)
 
 ## Requirements and Installation
 
@@ -159,13 +161,14 @@ sample schema (will be provided soon)
 - [npm - express-promise-router - wrapper for Express 4's Router allowing middleware to return promises](https://www.npmjs.com/package/express-promise-router)
 - [npm - axios - promise based HTTP client](https://www.npmjs.com/package/axios)
 - [npm - mongoose - MongoDB object modeling tool](https://www.npmjs.com/package/mongoose)
-- [npm - module for environment variables](https://www.npmjs.com/package/dotenv)
+- [npm - body-parser - Parse incoming request bodies in a middleware before your handlers, available under the req.body property](https://www.npmjs.com/package/body-parser)
+- [npm - dotenv - module for environment variables](https://www.npmjs.com/package/dotenv)
 - [npm - nodemon - automatic restart of node application](https://www.npmjs.com/package/nodemon)
 - [npm - react - JavaScript library for creating user interfaces](https://www.npmjs.com/package/react)
 - [npm - react-dom - working with the DOM](https://www.npmjs.com/search?q=React-dom)
 - [npm - react-router-dom - DOM bindings for React Router](https://www.npmjs.com/package/react-router-dom)
-- [npm - @material-ui/cor - React components for faster and simpler web development](https://www.npmjs.com/package/@material-ui/core)
 - [npm - cores - enable CORS with various options](https://www.npmjs.com/package/cors)
+- [npm - @material-ui/cor - React components for faster and simpler web development](https://www.npmjs.com/package/@material-ui/core)
 
 ### MongoDB and mongoose
 - [MongoDB Atlas](https://www.mongodb.com/cloud/atlas)

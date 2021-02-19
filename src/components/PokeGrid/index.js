@@ -1,9 +1,11 @@
-import React from 'react';
+import React, { useState } from 'react';
 // components
 import ImgMediaCard from '../PokeCard';
 // materialUI
 import { makeStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
+
+import "./style.css"
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -16,8 +18,11 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function CenteredGrid({ pokemons }) {
+export default function CenteredGrid({ pokemons, handleOpenParent, setMyPokemon, setFightPokemon, fightPokemon, fightSelectionController}) {
   const classes = useStyles();
+
+  //State Variable that increments on LoadMore Button click and loads more pokemon
+  let [loadCount, setLoadCount] = useState(20);
 
   return (
     <div className={classes.root}>
@@ -26,22 +31,31 @@ export default function CenteredGrid({ pokemons }) {
         spacing={4}
         direction="row"
         alignItems="center"
-        alignContent="flex-start"
+        alignContent="center"
         wrap= "wrap"
-        xl="20"
-        style={{ minHeight: "50vh" }}
+        xl={12}
         >
-        {/*         {restaurants.map((iteration, index) => {
-          return <RestaurantCard key={index} restaurant={iteration} />;
-        })} */}
+
+      {/* FIXME: get better solution for limiting/offset/streaming */}
         {pokemons
-          ? pokemons.slice(0, 20).map((pokemon) => {
+          ? pokemons.slice(0, loadCount).map((pokemon, index) => {
               return (
-                  <ImgMediaCard pokemon={pokemon} />
+                  <ImgMediaCard
+                    key={index}
+                    pokemon={pokemon}
+                    handleOpenParent={handleOpenParent}
+                    setMyPokemon={setMyPokemon}
+                    setFightPokemon={setFightPokemon}
+                    fightPokemon={fightPokemon}
+                    fightSelectionController={fightSelectionController}  />
               );
             })
           : null}
       </Grid>
+
+      <div className="load-more-btn-container">
+        <button className="load-more-btn" onClick={() => setLoadCount(loadCount + 20)}>Load more</button>
+      </div>
     </div>
   );
 }

@@ -1,0 +1,24 @@
+.load-more-btn-container {
+    width: 100%;
+    display: flex;
+    justify-content: center !important;
+}
+
+.load-more-btn {
+    width: 10%;
+    min-width: 200px;
+    height: 5rem;
+    margin: 5rem auto;
+    background-color: #fff;
+    border: 3px solid #000;
+    border-radius: 2rem;
+    font-size: 2.5rem;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.load-more-btn:hover {
+    color: #fff;
+    background-color: red;
+    transition: all .2s;
+}
