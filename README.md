@@ -84,9 +84,9 @@ Test available endpoints for **Pokemons**
 
 - [GET all Pokemons](https://evening-falls-69897.herokuapp.com/pokemons)
 - [GET Pokemon with id=1](https://evening-falls-69897.herokuapp.com/pokemons/1)
-- [GET names of Pokemon with id=1](hhttps://evening-falls-69897.herokuapp.com/pokemons/1/name)
-- [GET types of Pokemon with id=1](hhttps://evening-falls-69897.herokuapp.com/pokemons/1/type)
-- [GET bases of Pokemon with id=1](hhttps://evening-falls-69897.herokuapp.com/pokemons/1/base)
+- [GET names of Pokemon with id=1](https://evening-falls-69897.herokuapp.com/pokemons/1/name)
+- [GET types of Pokemon with id=1](https://evening-falls-69897.herokuapp.com/pokemons/1/type)
+- [GET bases of Pokemon with id=1](https://evening-falls-69897.herokuapp.com/pokemons/1/base)
 
 
 Test available endpoints for **Fights**
