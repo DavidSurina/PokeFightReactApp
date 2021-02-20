@@ -49,34 +49,32 @@ export default function PokemonFight({ fightingPoke }) {
         </div>
         <div
           className={`${viewCounter ? 'showThis' : 'hideThis'} fightWrapper `}>
+          {/* ##### Game Statistic ###### */}
           <div
             className={`${
               viewResult ? 'showThis' : 'hideThis'
             } tableOfContent wrapperPane `}>
-            More Statistics:
-            <span className="toc hiddenWinner">
+            Game Statistics:
+            <span className="toc">
               <span className="tocLabel" id="winner">
-                The Winner:
+                Winner:
               </span>{' '}
               {fightingPoke[1].name.english}{' '}
             </span>
             <span className="toc">
               <span className="tocLabel" id="looser">
-                The Looser:
+                Looser:
               </span>{' '}
               {winnerObj.length > 0 ? winnerObj[0].loser : ''}
             </span>
             <span className="toc">
               <span className="tocLabel" id="date">
-                The Date:
-              </span>
+                Date:
+              </span>{' '}
               {winnerObj.length > 0 ? winnerObj[0].date : ''}
             </span>
-            <span className="toc">
-              <span className="tocLabel">More Info:</span> More Info{' '}
-            </span>
           </div>
-
+          {/* ##### Pokemon Fight ###### */}
           <div className="pokefight-wrapper wrapperPane ">
             <div
               className={`${
@@ -96,20 +94,20 @@ export default function PokemonFight({ fightingPoke }) {
                   id="hp"
                   value="100"
                   max={fightingPoke[1].base.HP}></progress>
-                <p class="pokefight-stats">Hp: {fightingPoke[1].base.HP}</p>
-                <p class="pokefight-stats">
+                <p className="pokefight-stats">Hp: {fightingPoke[1].base.HP}</p>
+                <p className="pokefight-stats">
                   Speed: {fightingPoke[1].base.Speed}
                 </p>
-                <p class="pokefight-stats">
+                <p className="pokefight-stats">
                   Attack: {fightingPoke[1].base.Attack}
                 </p>
-                <p class="pokefight-stats">
+                <p className="pokefight-stats">
                   Defense: {fightingPoke[1].base.Defense}
                 </p>
-                <p class="pokefight-stats">
+                <p className="pokefight-stats">
                   Sp.Attack: {fightingPoke[1].base['Sp. Attack']}
                 </p>
-                <p class="pokefight-stats">
+                <p className="pokefight-stats">
                   Sp.Defense: {fightingPoke[1].base['Sp. Defense']}
                 </p>
               </div>
@@ -150,22 +148,24 @@ export default function PokemonFight({ fightingPoke }) {
               </div>
             </div>
           </div>
+          {/* ##### Game History ###### */}
           <div
             className={`${
-              winnerObj ? 'showThis' : 'hideThis'
-            } winner wrapperPane `}>
-            THE WINNER IS
-            <span id="winner">
-              {winnerObj.length > 0 ? winnerObj[0].winner : ''}
+              viewResult ? 'showThis' : 'hideThis'
+            } history wrapperPane `}>
+            Game History:
+            <span id="history" className="toc">
+              History 
             </span>
           </div>
         </div>
         <audio
           src="https://play.pokemonshowdown.com/audio/hgss-johto-trainer.mp3"
-          class="poke-audio"
+          className="poke-audio"
           volume="0.1"
           controls
-          autoPlay></audio>
+          autoPlay>
+        </audio>
       </>
     );
   } else {
