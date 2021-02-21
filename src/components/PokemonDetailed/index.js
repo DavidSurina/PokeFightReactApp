@@ -158,7 +158,7 @@ const TransitionsModal = ({
                   <span
                     className="close"
                     onClick={() => {
-                      console.log('close was hit');
+                      // console.log('close was hit');
                       setFightPokemon([]);
                       setPokeInfo({
                         ...pokeInfo,

@@ -21,12 +21,18 @@ const ViewAllPokemons = ({ pokemonList, fightPokemon, setFightPokemon }) => {
   };
 
   useEffect(() => {
+    // console.log('reset all existing Fight-Values to zero  ');
+    setFightPokemon([]);
     setPokeInfo({
       ...pokeInfo,
-      textInfo: `Choose two Pokemons and fight!`,
+      textInfo:
+        'Choose two Pokemons and fight!',
+      chooseOrFight: true,
+      firstOrSecondChoice: false,
       buttonShow: true,
     });
   }, []);
+
 
   const fightSelectionController = (arr, pokemon) => {
     let nArray = [...arr];

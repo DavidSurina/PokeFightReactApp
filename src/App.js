@@ -1,6 +1,6 @@
 // App.js
 import React, { useEffect, useState } from 'react';
-import { Switch, Route } from 'react-router-dom';
+import { Switch, Route, Link } from 'react-router-dom';
 // Import api functionality
 import Api from './api/index';
 /* components */
@@ -52,7 +52,10 @@ function App() {
     <div className="App">
       <header className="header">
         <div className="logo-wrapper">
-          <img className="pokefight-logo" src={logo} alt="pokefight-logo" />
+          <Link
+            to="./pokemons"  >
+            <img className="pokefight-logo" src={logo} alt="pokefight-logo" />
+          </Link>
         </div>
         <InputForm input={searchInput} setInput={setSearchInput} />
       </header>
