@@ -1,4 +1,5 @@
 import FightController from './fight-controller';
+import ReactAudioPlayer from 'react-audio-player';
 
 import './style.css';
 import './blink.css';
@@ -160,12 +161,12 @@ export default function PokemonFight({ fightingPoke }) {
             </span>
           </div>
         </div>
-        <audio
-          src="https://play.pokemonshowdown.com/audio/hgss-johto-trainer.mp3"
-          class="poke-audio"
-          volume="0.1"
-          controls
-          autoPlay></audio>
+        <ReactAudioPlayer
+            src="https://play.pokemonshowdown.com/audio/hgss-johto-trainer.mp3"
+            class="poke-audio"
+            volume={0.05}
+            autoPlay
+            controls/>
       </>
     );
   } else {

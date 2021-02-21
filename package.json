@@ -11,6 +11,7 @@
     "@testing-library/user-event": "^12.6.3",
     "axios": "^0.21.1",
     "react": "^17.0.1",
+    "react-audio-player": "^0.14.0",
     "react-dom": "^17.0.1",
     "react-native-sound-player": "^0.10.5",
     "react-router-dom": "^5.2.0",
