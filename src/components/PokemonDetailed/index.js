@@ -226,8 +226,6 @@ const TransitionsModal = ({
                          {currentPokemon ? currentPokemon.name.english : ''}
                         &nbsp;
                       </Button>
-
-
                    <h3>
                     {' '}
                     <span className="mobileHide">Fight with: </span>{' '}

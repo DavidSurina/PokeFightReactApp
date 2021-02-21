@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 
 import FightController from './fight-controller';
 import ReactAudioPlayer from 'react-audio-player';
@@ -48,7 +49,7 @@ export default function PokemonFight({ fightingPoke, fightHistory }) {
         <div
           className={`${
             viewCounter ? 'showThis' : 'hideThis'
-          } fightContentWrapper `}>
+          } fightContentWrapper result `}>
           {/* ##### Game Statistic ###### */}
 
           <div
@@ -72,9 +73,10 @@ export default function PokemonFight({ fightingPoke, fightHistory }) {
 
           <div className="pokefight-wrapper wrapperPane ">
               <div className={`${viewResult ? "showThis" : "hideThis"} animationtime`}>
-                <span className="blink">Click here to play again</span>
-               </div>
-
+                <Link to="./pokemons" >
+                        <span className="blink">Click here to play again</span>
+                </Link>
+              </div>
             <div className="pokefight-top-wrapper">
               <div className="pokefight-top-name-wrapper">
                 <h2
