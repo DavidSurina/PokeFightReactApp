@@ -4,8 +4,11 @@ import ImgMediaCard from '../PokeCard';
 // materialUI
 import { makeStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
+import ScrollToTop from 'react-scroll-up';
+import ExpandLessOutlinedIcon from '@material-ui/icons/ExpandLessOutlined';
 
-import './style.css';
+import "./style.css"
+import { blue } from '@material-ui/core/colors';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -66,6 +69,18 @@ export default function CenteredGrid({
           Load more
         </button>
       </div>
+      <ScrollToTop showUnder={160} style={{right: "45%"}}>
+        <ExpandLessOutlinedIcon
+          style={
+            {
+            width: '8em',
+            height: '2em',
+            backgroundColor: 'rgba(0, 0, 0, 0.05)',
+            borderRadius: '10px',
+            }
+          }
+        />
+      </ScrollToTop>
     </div>
   );
 }
