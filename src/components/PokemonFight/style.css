@@ -51,13 +51,13 @@ ul {
   list-style: none;
 } 
 
-#winner {
+.winner {
   color: #ffe031;
   font-weight: 600;
   background-color: #396bba;
 }
 
-#winner::before, #winner::after {
+.winner::before, .winner::after {
   content: "\2606";
   font-weight: 200;
 }

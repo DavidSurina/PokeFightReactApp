@@ -58,16 +58,19 @@ const Api = {
       return [];
     }
   },
-/*   saveFight: async (winner_id, looser_id) => {
+  saveFight: async (fightData) => {
+    const {winner, looser} = fightData;
+    const {winner_id, winner_name} = winner;
+    const {looser_id, looser_name} = looser;
     try {
       await axios.post(
-        `${endpoint}fights/crate`, 
-        {winner_id, looser_id}
+        `${endpoint}fights/create`, 
+        {winner_id, winner_name, looser_id, looser_name}
       );
     } catch (err) {
       console.log("saveFight: ", err);
     }
-  }, */
+  },
 };
 
 export default Api;

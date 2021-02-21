@@ -10,9 +10,6 @@ export default function PokemonFight({ fightingPoke, fightHistory }) {
   const [viewCounter, setViewCounter] = useState(false);
   const [viewResult, setViewResult] = useState(false);
   const [winnerObj, setWinnerObj] = useState([]);
-/*   const [fightHis, setFightHis] = useState(fightHistory);
-  console.log(fightHis); */
-
 
   useEffect(() => {
     const timer =
@@ -56,16 +53,10 @@ export default function PokemonFight({ fightingPoke, fightHistory }) {
             } tableOfContent wrapperPane `}>
             Game Statistics:
             <span className="toc">
-              <span className="tocLabel">
-                Winner:
-              </span>{' '}
-              {fightingPoke[1].name.english}{' '}
-            </span>
-            <span className="toc">
-              <span className="tocLabel">
-                Looser:
-              </span>{' '}
-              {winnerObj.length > 0 ? winnerObj[0].loser : ''}
+              <span className="tocLabel winner">
+                {winnerObj.length > 0 ? winnerObj[0].winner.winner_name : ''}
+              </span> vs {winnerObj.length > 0 ? winnerObj[0].looser.looser_name : ''}
+              
             </span>
             <span className="toc">
               <span className="tocLabel" id="date">
@@ -157,7 +148,7 @@ export default function PokemonFight({ fightingPoke, fightHistory }) {
             <ul id="history" className="toc">
               { 
                 fightHistory.map(fight => {
-                  return <li key={fight._id}><span id="winner">{fight.winner.winner_name}</span> vs {fight.looser.looser_name}</li>
+                  return <li key={fight._id}><span className="winner">{fight.winner.winner_name}</span> vs {fight.looser.looser_name}</li>
                 })
               }
             </ul>
