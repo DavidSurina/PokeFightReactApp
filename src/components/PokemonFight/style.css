@@ -65,9 +65,8 @@
 
 .pokefight-wrapper {
     height: 46rem;
-/*    width: 100%; */
+    /*width: 100%; */
     max-width: 60em;
-   /* margin: 10rem auto 20rem auto;*/
     background: url("https://cutewallpaper.org/21/battle-backgrounds/Free-download-Pokemon-Battle-Background-The-background-.png");
     background-size: cover;
     background-repeat: no-repeat;
@@ -96,13 +95,11 @@
 
 .pokefight-bot-img {
     margin-left: 2rem;
-    animation: tilt .4s linear infinite alternate;
     animation: botAttack 1s ease-out 3;
 }
 
 .pokefight-top-img {
     margin-top: 5rem;
-    animation: tilt .4s linear infinite alternate;
     animation: topAttack 1s ease-out 3;
 }
 
@@ -138,15 +135,10 @@
     font-size: 1.5rem;
 }
 
-.poke-audio {
+.react-audio-player {
     margin: 0 auto;
 }
 
-
-@keyframes tilt {
-    from { transform: rotate(3deg)}
-    to { transform: rotate(-3deg)}
-  }
 
 @keyframes topAttack {
     0% {

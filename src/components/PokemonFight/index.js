@@ -163,7 +163,6 @@ export default function PokemonFight({ fightingPoke }) {
         </div>
         <ReactAudioPlayer
             src="https://play.pokemonshowdown.com/audio/hgss-johto-trainer.mp3"
-            class="poke-audio"
             volume={0.05}
             autoPlay
             controls/>
