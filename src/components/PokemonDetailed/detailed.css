@@ -6,6 +6,19 @@
 }
 
 
+.linkStyling {
+    text-decoration: none;
+    color: white;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.workaround {
+    visibility: hidden;
+}
 
 .pokemon-list ul li {
     margin-top: 2em;

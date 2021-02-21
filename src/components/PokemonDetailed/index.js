@@ -1,6 +1,7 @@
 // MODAL COMPONENT
 // import axios from "axios";
 import Api from '../../api';
+import { Link } from 'react-router-dom';
 
 // https://material-ui.com/components/modal/#transitions
 import React, { useState, useEffect } from 'react';
@@ -215,14 +216,14 @@ const TransitionsModal = ({
                         } chooseButtonInModal `}
                         variant="outlined"
                         size="small"
-                        color="secondary"
-                        onClick={() => {
-                          console.log('hit-and-run');
-                        }}>
-                        Start to Fight!
-                        {/*{currentPokemon ? currentPokemon.name.english : ''}
-                        &nbsp;against&nbsp;
-                        {currentPokemon ? currentPokemon.name.english : ''}*/}
+                        color="secondary" >
+                        <span className="workaround">Start to&nbsp;&nbsp;&nbsp;FIGHT!</span>
+                        <Link
+                          to={fightPokemon.length === 2 ? `/pokemons/fight` : `/`}
+                          className="linkStyling">
+                          Start to&nbsp;&nbsp;&nbsp;FIGHT!
+                        </Link>
+
                       </Button>
                    <h3>
                     {' '}

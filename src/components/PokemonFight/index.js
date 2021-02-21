@@ -53,7 +53,7 @@ export default function PokemonFight({ fightingPoke, fightHistory }) {
 
           <div
             className={`${viewResult ? 'showThis' : 'hideThis'} wrapperPane`}>
-            <h2 class="panel-heading">Game Statistics:</h2>
+            <h2 className="panel-heading">Game Statistics:</h2>
             <span className="toc">
               <span className="winner">
                 {winnerObj.length > 0 ? winnerObj[0].winner.winner_name : ''}
@@ -144,11 +144,11 @@ export default function PokemonFight({ fightingPoke, fightHistory }) {
             className={`${
               viewResult ? 'showThis' : 'hideThis'
             } history wrapperPane`}>
-            <h2 class="panel-heading">Game History:</h2>
+            <h2 className="panel-heading">Game History:</h2>
             <ul id="history" className="toc">
               {fightHistory.map((fight) => {
                 return (
-                  <li class="fight-entry" key={fight._id}>
+                  <li className="fight-entry" key={fight._id}>
                     <span className="winner">{fight.winner.winner_name}</span>
                     <span>vs</span>
                     <span>{fight.looser.looser_name}</span>
