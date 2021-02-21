@@ -25,11 +25,23 @@ function App() {
   let [searchInput, setSearchInput] = useState('');
   //Selected pokemon for fight
   let [pokeFightSel, setPokeFightSel] = useState([]);
+  //Fight History
+  const [fightHistory, setFightHistory] = useState([]);
 
   useEffect(() => {
     Api.getAllPokemons()
       .then((res) => {
         setPokemonList(res);
+      })
+      .catch((err) => {
+        console.error(err);
+      });
+  }, []);
+
+  useEffect(() => {
+    Api.getFightHistory()
+      .then((res) => {
+        setFightHistory(res);
       })
       .catch((err) => {
         console.error(err);
@@ -48,7 +60,7 @@ function App() {
         <Switch>
           {/*----Pokefigth Route----*/}
           <Route path="/pokemons/fight">
-            <ViewFight fightingPoke={pokeFightSel} />
+            <ViewFight fightingPoke={pokeFightSel} fightHistory={fightHistory}/>
           </Route>
 
           {/*----PokeSearch Route----*/}

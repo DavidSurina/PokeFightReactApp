@@ -1,9 +1,6 @@
-
-
 @media only screen and (max-width: 1360px) {
         /*MOBILE DEFINITION AT 1360 or less */
 }
-
 
 .animationtime {
     position: relative;
@@ -12,8 +9,8 @@
 }
 
 .counterDesign {
-    font-size: 10rem;
-    color: #7b312a;
+    font-size: 6rem;
+    color: #396bba;
     text-transform: capitalize;
 }
 
@@ -24,7 +21,6 @@
     height: 65vh;
 }
 
-
 .wrapperPane {
     /*background-color: blue;*/
     width: 33vw;
@@ -34,40 +30,41 @@
     justify-content: center;
     align-items: center;
     flex-direction: column;
-
 }
 
-.winner, .tableOfContent {
-    font-size: 7rem;
-    color: #7b312a;
-    text-transform: capitalize;
-}
-
-.tableOfContent {
-    /*justify-content: flex-start;*/
-    font-size: 8rem;
+.history, .tableOfContent {
+    font-size: 4rem;
+    color: #396bba;
+    /* text-transform: capitalize; */
 }
 
 .toc, .tocLabel {
-    font-size: 4rem;
-    text-decoration: underline;
+    font-size: 2rem;
 }
 
-.hiddenWinner {
-    display: block;
-    opacity: 0;
-}
-
-#winner, #tableOfContent {
+#history, #tableOfContent {
     display: block;
     opacity: 1;
 }
 
+ul {
+  list-style: none;
+} 
+
+.winner {
+  color: #ffe031;
+  font-weight: 600;
+  background-color: #396bba;
+}
+
+.winner::before, .winner::after {
+  content: "\2606";
+  font-weight: 200;
+}
+
 .pokefight-wrapper {
     height: 46rem;
-/*    width: 100%; */
     max-width: 60em;
-   /* margin: 10rem auto 20rem auto;*/
     background: url("https://cutewallpaper.org/21/battle-backgrounds/Free-download-Pokemon-Battle-Background-The-background-.png");
     background-size: cover;
     background-repeat: no-repeat;
