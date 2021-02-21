@@ -35,7 +35,7 @@
 .history, .tableOfContent {
     font-size: 4rem;
     color: #396bba;
-    text-transform: capitalize;
+    /* text-transform: capitalize; */
 }
 
 .toc, .tocLabel {
@@ -45,6 +45,21 @@
 #history, #tableOfContent {
     display: block;
     opacity: 1;
+}
+
+ul {
+  list-style: none;
+} 
+
+#winner {
+  color: #ffe031;
+  font-weight: 600;
+  background-color: #396bba;
+}
+
+#winner::before, #winner::after {
+  content: "\2606";
+  font-weight: 200;
 }
 
 .pokefight-wrapper {

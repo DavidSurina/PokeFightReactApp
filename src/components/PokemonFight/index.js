@@ -4,12 +4,15 @@ import './style.css';
 import './blink.css';
 import { useState, useEffect } from 'react';
 
-export default function PokemonFight({ fightingPoke }) {
+export default function PokemonFight({ fightingPoke, fightHistory }) {
   const [counter, setCounter] = useState(4);
   const [resultDisplay, setResultDisplay] = useState(8);
   const [viewCounter, setViewCounter] = useState(false);
   const [viewResult, setViewResult] = useState(false);
   const [winnerObj, setWinnerObj] = useState([]);
+/*   const [fightHis, setFightHis] = useState(fightHistory);
+  console.log(fightHis); */
+
 
   useEffect(() => {
     const timer =
@@ -28,16 +31,13 @@ export default function PokemonFight({ fightingPoke }) {
       setInterval(() => setResultDisplay(resultDisplay - 1), 1000);
     if (!resultTimer) {
       setViewResult(true);
-      setWinnerObj(FightController(fightingPoke)); 
+      setWinnerObj(FightController(fightingPoke));
     }
     return () => {
       clearInterval(resultTimer);
     };
-  }, [resultDisplay]);
+  }, [resultDisplay, fightingPoke]);
 
-  
-
-  //console.log(winnerObj)
   if (fightingPoke.length === 2) {
     return (
       <>
@@ -56,13 +56,13 @@ export default function PokemonFight({ fightingPoke }) {
             } tableOfContent wrapperPane `}>
             Game Statistics:
             <span className="toc">
-              <span className="tocLabel" id="winner">
+              <span className="tocLabel">
                 Winner:
               </span>{' '}
               {fightingPoke[1].name.english}{' '}
             </span>
             <span className="toc">
-              <span className="tocLabel" id="looser">
+              <span className="tocLabel">
                 Looser:
               </span>{' '}
               {winnerObj.length > 0 ? winnerObj[0].loser : ''}
@@ -154,9 +154,13 @@ export default function PokemonFight({ fightingPoke }) {
               viewResult ? 'showThis' : 'hideThis'
             } history wrapperPane `}>
             Game History:
-            <span id="history" className="toc">
-              History 
-            </span>
+            <ul id="history" className="toc">
+              { 
+                fightHistory.map(fight => {
+                  return <li key={fight._id}><span id="winner">{fight.winner.winner_name}</span> vs {fight.looser.looser_name}</li>
+                })
+              }
+            </ul>
           </div>
         </div>
         <audio
