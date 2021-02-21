@@ -1,4 +1,4 @@
-
+/*detailed CSS */
 
 
 .hideThis {
@@ -37,12 +37,22 @@
 }
 
 .PokeInfo {
-    margin: 2em auto;
-    font-size: 2em;
+    margin: 1em auto 0;
+    font-size: 3em;
     width: 55%;
     white-space: pre-line;
+    height: 165px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
+
+@media only screen and (max-width: 768px) {
+    .PokeInfo {
+        font-size: 2em;
+    }
+}
 
 /*this will prevent the modal from beeing visible onpageload*/
 #pageload {
@@ -103,12 +113,12 @@
 
 .ModalPokedex span {
     font-weight: normal;
-    font-size: 1.3rem;
+    font-size: 1.63rem;
 }
 
 .ModalPokedex .modal-content button {
     display: block;
-    font-family: "Baloo Paaji 2", cursive;
+/*    font-family: "Baloo Paaji 2", cursive;*/
     font-size: 1.2rem;
     background-color: #cf283a;
     color: #fff;
@@ -132,9 +142,7 @@
         flex-direction: column;
  }
 
-.modal-container .ButtonAndText {
-width: 70% !important;
-}
+
 .ModalPokedex .modal-content button {
  display: flex;
 margin: 25px auto;
@@ -176,7 +184,7 @@ This could be improoved much further, by applying the advice the below article o
 }
 
 
-@media only screen and (max-width: 3968px) {
+
      .ModalPokedex .usual-attacks {
         flex-direction: column;
     }
@@ -184,10 +192,8 @@ This could be improoved much further, by applying the advice the below article o
         width: 80% !important;
         margin: 13px 0 0 0;
     }
-    .modal-container>div{
-        width: 80% !important;
-    }
-}
+
+
 
 
 
@@ -263,9 +269,6 @@ This could be improoved much further, by applying the advice the below article o
 
 
 /* RIGHT PART */
-.modal-container>div {
-    width: 580px;
-}
 
 .modal-container>div>p {
     text-align: justify;
@@ -330,9 +333,22 @@ This could be improoved much further, by applying the advice the below article o
 
 
 
-.modal-container .ButtonAndText {
+/*.modal-container .ButtonAndText {
     width: 280px;
 }
+.modal-container .ButtonAndText {
+width: 70% !important;
+}*/
+/*.modal-container>div {
+    width: 580px;
+}*/
+.modal-container>div{
+    width: 80% !important;
+    height: 165px;
+}
+
+
+
 .encodingIssue {
     white-space: pre-wrap;
     margin: 0 2em;

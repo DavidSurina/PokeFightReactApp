@@ -130,7 +130,20 @@ const TransitionsModal = ({
         aria-describedby="transition-modal-description"
         className={classes.modal}
         open={open}
-        onClose={handleCloseParent}
+        onClose={() => {
+                      console.log('close was hit');
+                      setFightPokemon([]);
+                      setPokeInfo({
+                        ...pokeInfo,
+                        textInfo:
+                          'Choose two Pokemons and fight!',
+                        chooseOrFight: true,
+                        firstOrSecondChoice: false,
+                        buttonShow: true,
+                      });
+                      handleCloseParent();
+                    }}
+
         closeAfterTransition
         BackdropComponent={Backdrop}
         BackdropProps={{
@@ -149,7 +162,7 @@ const TransitionsModal = ({
                       setPokeInfo({
                         ...pokeInfo,
                         textInfo:
-                          'Choose two Pokemons and... \nlet them fight! ',
+                          'Choose two Pokemons and fight!',
                         chooseOrFight: true,
                         firstOrSecondChoice: false,
                         buttonShow: true,
@@ -158,19 +171,15 @@ const TransitionsModal = ({
                     }}>
                     ×
                   </span>
-                  <h3>
-                    {' '}
-                    <span className="mobileHide">Fight with: </span>{' '}
-                    {currentPokemon ? currentPokemon.name.english : ''}
-                    <span> No. {currentPokemon ? currentPokemon.id : ''}</span>
-                  </h3>
-                  <hr className="line" />
                   <div className="PokeInfo">{pokeInfo.textInfo}</div>
                   <div className="modal-container">
                     <ArrowBackIosIcon
+
                       onClick={() => {
                         arrowDown();
+                        setPokeInfo({ ...pokeInfo, buttonShow: true });
                       }}
+
                       color="secondary"
                       className={
                         pokeInfo.chooseOrFight ? 'showThis' : 'hideThis'
@@ -190,13 +199,13 @@ const TransitionsModal = ({
                             currentPokemon
                           );
                         }}>
-                        Choose
-                        {/*{currentPokemon ? currentPokemon.name.english : ''}*/}
-                        &nbsp;
+
                         <span className="mobileHide">
-                          {pokeInfo.firstOrSecondChoice ? 'second' : 'first'}
-                          Pokemon
+                          {pokeInfo.firstOrSecondChoice ? 'now,' : ''}
                         </span>
+                        &nbsp;Choose: &nbsp;&nbsp;&nbsp;
+                         {currentPokemon ? currentPokemon.name.english : ''}
+                        &nbsp;
                       </Button>
 
                       <Button
@@ -210,11 +219,19 @@ const TransitionsModal = ({
                         onClick={() => {
                           console.log('hit-and-run');
                         }}>
-                        Fight! &nbsp; &nbsp;
-                        {currentPokemon ? currentPokemon.name.english : ''}
+                        Start to Fight!
+                        {/*{currentPokemon ? currentPokemon.name.english : ''}
                         &nbsp;against&nbsp;
-                        {currentPokemon ? currentPokemon.name.english : ''}
+                        {currentPokemon ? currentPokemon.name.english : ''}*/}
                       </Button>
+                   <h3>
+                    {' '}
+                    <span className="mobileHide">Fight with: </span>{' '}
+                    {currentPokemon ? currentPokemon.name.english : ''}
+                    <span> No. {currentPokemon ? currentPokemon.id : ''}</span>
+                  </h3>
+                  <hr className="line" />
+
                     </div>{' '}
                     <div className="imagecontainer">
                       <p className="encodingIssue">
