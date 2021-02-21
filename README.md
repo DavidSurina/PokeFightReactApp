@@ -159,9 +159,15 @@ To run the application (databse required!):
 ```javascript
 {
   _id: {type: Number, required: true, unique: true},
-  winner_id: {type: Number, required: true},
-  looser_id: {type: Number, required: true},
   date: {type: Date, default: Date.now},
+    winner: {
+      winner_id: {type: Number, required: true},
+      winner_name: {type: String},
+    },
+    looser: {
+      looser_id: {type: Number, required: true},
+      looser_name:  {type: String},
+    },
 }
 ```
 

@@ -5,6 +5,8 @@ import ImgMediaCard from '../PokeCard';
 import { makeStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
 
+import { goToTop } from 'react-scrollable-anchor'
+
 import "./style.css"
 
 const useStyles = makeStyles((theme) => ({
@@ -55,6 +57,7 @@ export default function CenteredGrid({ pokemons, handleOpenParent, setMyPokemon,
 
       <div className="load-more-btn-container">
         <button className="load-more-btn" onClick={() => setLoadCount(loadCount + 20)}>Load more</button>
+        <button class="go-top-btn" onClick={goToTop}>Top</button>
       </div>
     </div>
   );
