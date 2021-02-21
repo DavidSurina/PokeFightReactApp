@@ -1,6 +1,14 @@
 /*detailed CSS */
 
 
+
+
+.VisiHideThis {
+    visibility: hidden !important ;
+}
+
+
+.ModalPokedex .modal-content .hideThis,
 .hideThis {
     display: none !important ;
 }
@@ -348,10 +356,10 @@ This could be improoved much further, by applying the advice the below article o
 
 /*.modal-container .ButtonAndText {
     width: 280px;
-}
-.modal-container .ButtonAndText {
-width: 70% !important;
 }*/
+.modal-container .ButtonAndText {
+    /*background-color: yellow;*/
+}
 /*.modal-container>div {
     width: 580px;
 }*/

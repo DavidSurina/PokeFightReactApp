@@ -71,6 +71,10 @@ export default function PokemonFight({ fightingPoke, fightHistory }) {
           {/* ##### Pokemon Fight ###### */}
 
           <div className="pokefight-wrapper wrapperPane ">
+              <div className={`${viewResult ? "showThis" : "hideThis"} animationtime`}>
+                <span className="blink">Click here to play again</span>
+               </div>
+
             <div className="pokefight-top-wrapper">
               <div className="pokefight-top-name-wrapper">
                 <h2

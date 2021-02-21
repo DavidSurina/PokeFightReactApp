@@ -186,10 +186,28 @@ const TransitionsModal = ({
                         pokeInfo.chooseOrFight ? 'showThis' : 'hideThis'
                       }></ArrowBackIosIcon>
                     <div className="ButtonAndText">
+
                       <Button
                         className={classes.button}
                         className={`${
-                          pokeInfo.buttonShow ? 'showThis' : 'hideThis'
+                          pokeInfo.chooseOrFight ? 'hideThis' : 'showThis'
+                        } chooseButtonInModal `}
+                        variant="outlined"
+                        size="small"
+                        color="secondary" >
+                        <span className="workaround">Start to&nbsp;&nbsp;&nbsp;FIGHT!</span>
+                        <Link
+                          to={fightPokemon.length === 2 ? `/pokemons/fight` : `/`}
+                          className="linkStyling">
+                          Start to&nbsp;&nbsp;&nbsp;FIGHT!
+                        </Link>
+
+                      </Button>
+
+                       <Button
+                        className={classes.button}
+                        className={`${
+                          pokeInfo.buttonShow ? 'showThis' : 'VisiHideThis'
                         } chooseButtonInModal `}
                         variant="outlined"
                         size="small"
@@ -209,22 +227,7 @@ const TransitionsModal = ({
                         &nbsp;
                       </Button>
 
-                      <Button
-                        className={classes.button}
-                        className={`${
-                          pokeInfo.chooseOrFight ? 'hideThis' : 'showThis'
-                        } chooseButtonInModal `}
-                        variant="outlined"
-                        size="small"
-                        color="secondary" >
-                        <span className="workaround">Start to&nbsp;&nbsp;&nbsp;FIGHT!</span>
-                        <Link
-                          to={fightPokemon.length === 2 ? `/pokemons/fight` : `/`}
-                          className="linkStyling">
-                          Start to&nbsp;&nbsp;&nbsp;FIGHT!
-                        </Link>
 
-                      </Button>
                    <h3>
                     {' '}
                     <span className="mobileHide">Fight with: </span>{' '}
