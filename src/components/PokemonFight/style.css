@@ -1,182 +1,224 @@
-
-
-@media only screen and (max-width: 1360px) {
-        /*MOBILE DEFINITION AT 1360 or less */
-}
-
-
 .animationtime {
-    position: relative;
-    top: -50px;
-    font-size: 5rem;
+  position: relative;
+  top: -50px;
+  font-size: 5rem;
 }
 
 .counterDesign {
-    font-size: 10rem;
-    color: #7b312a;
-    text-transform: capitalize;
+  font-size: 6rem;
+  color: #396bba;
+  text-transform: capitalize;
 }
 
-.fightWrapper {
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    height: 65vh;
+.fightContentWrapper {
+  min-height: 48rem;
+  padding: 8rem 0;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
 }
 
+.panel-heading {
+  color: #396bba;
+  font-size: 4rem;
+}
+
+/*------Left Panel - Game Statistics------*/
 
 .wrapperPane {
-    /*background-color: blue;*/
-    width: 33vw;
-    height: 100%;
-    text-align: center;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-
+  width: 33vw;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }
 
-.winner, .tableOfContent {
-    font-size: 7rem;
-    color: #7b312a;
-    text-transform: capitalize;
+#history,
+#tableOfContent {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  opacity: 1;
 }
 
-.tableOfContent {
-    /*justify-content: flex-start;*/
-    font-size: 8rem;
+.toc {
+  display: flex;
+  justify-content: space-around;
+  font-size: 2.5rem;
 }
 
-.toc, .tocLabel {
-    font-size: 4rem;
-    text-decoration: underline;
+.toc span {
+  margin: 1rem 0.5rem;
+  padding: 1rem 0;
 }
 
-.hiddenWinner {
-    display: block;
-    opacity: 0;
+/*------Right Panel - fight history------*/
+
+ul {
+  list-style: none;
 }
 
-#winner, #tableOfContent {
-    display: block;
-    opacity: 1;
+.fight-entry {
+  width: 100%;
+  display: flex;
+  justify-content: center;
 }
+
+.fight-entry span {
+  font-size: 2.5rem;
+  margin: 1rem 0.5rem;
+  padding: 1rem 0;
+}
+
+.winner {
+  color: #ffe031;
+  font-weight: 600;
+  background-color: #396bba;
+  border-radius: 1rem 0;
+}
+
+.winner::before,
+.winner::after {
+  content: '\2606';
+  font-weight: 200;
+}
+
+/*------Pokefight Middle Panel------*/
 
 .pokefight-wrapper {
-    height: 46rem;
-/*    width: 100%; */
-    max-width: 60em;
-   /* margin: 10rem auto 20rem auto;*/
-    background: url("https://cutewallpaper.org/21/battle-backgrounds/Free-download-Pokemon-Battle-Background-The-background-.png");
-    background-size: cover;
-    background-repeat: no-repeat;
-    display: flex;
-    flex-direction: column;
-    border: 3px solid #000;
-    border-radius: 2rem;
+  min-height: 35rem;
+  height: 46rem;
+  width: 60rem;
+  background: url('https://cutewallpaper.org/21/battle-backgrounds/Free-download-Pokemon-Battle-Background-The-background-.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+  display: flex;
+  flex-direction: column;
+  border: 3px solid #000;
+  border-radius: 2rem;
 }
 
 .pokefight-top-wrapper,
 .pokefight-bot-wrapper {
-    width: 100%;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
 }
 
 .pokefight-top-wrapper {
-    justify-content: flex-end;
+  justify-content: flex-end;
 }
 
 .pokefight-bot-img,
 .pokefight-top-img {
-    width: 35%;
+  width: 35%;
 }
 
 .pokefight-bot-img {
-    margin-left: 2rem;
-    animation: tilt .4s linear infinite alternate;
-    animation: botAttack 1s ease-out 3;
+  margin-left: 2rem;
+  animation: botAttack 1s ease-out 3;
 }
 
 .pokefight-top-img {
-    margin-top: 5rem;
-    animation: tilt .4s linear infinite alternate;
-    animation: topAttack 1s ease-out 3;
+  margin-top: 5rem;
+  animation: topAttack 1s ease-out 3;
 }
 
 .pokefight-bot-name-wrapper,
 .pokefight-top-name-wrapper {
-    width: 50%;
-    padding: 1rem;
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    background-color: #fff;
-    border: 3px solid #000;
-    border-radius: 1rem;
+  width: 50%;
+  padding: 1rem;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  background-color: #fff;
+  border: 3px solid #000;
+  border-radius: 1rem;
 }
 
 .pokefight-bot-name-wrapper h2,
 .pokefight-top-name-wrapper h2 {
-    width: 50%;
-    font-size: 1.8rem;
+  width: 50%;
+  font-size: 1.8rem;
 }
 
-#hp{
-    width: 45%;
-    margin: 3% 2.5%;
-    background-color: rgb(70, 230, 21);
-    text-align: center;
-    border-radius: 1rem;
-    border: 1px solid #000;
+#hp {
+  width: 45%;
+  margin: 3% 2.5%;
+  background-color: rgb(70, 230, 21);
+  text-align: center;
+  border-radius: 1rem;
+  border: 1px solid #000;
 }
 
 .pokefight-stats {
-    width: 50%;
-    font-size: 1.5rem;
+  width: 50%;
+  font-size: 1.5rem;
 }
 
-.poke-audio {
-    margin: 0 auto;
+/*------Audio Player------*/
+
+.react-audio-player {
+  margin: 3rem auto;
 }
 
-
-@keyframes tilt {
-    from { transform: rotate(3deg)}
-    to { transform: rotate(-3deg)}
-  }
+/*------Animations------*/
 
 @keyframes topAttack {
-    0% {
-        transform: translateX(0) translateY(0); 
-    }
-    50%{
-        transform: translateX(0) translateY(0);
-    }
+  0% {
+    transform: translateX(0) translateY(0);
+  }
+  50% {
+    transform: translateX(0) translateY(0);
+  }
 
-    75% {
-        transform: translateX(-120%) translateY(80%) rotateZ(-15deg);
-    }
+  75% {
+    transform: translateX(-120%) translateY(80%) rotateZ(-15deg);
+  }
 
-    100% {
-        transform: translateX(0) translateY(0);
-    }
+  100% {
+    transform: translateX(0) translateY(0);
+  }
 }
 
 @keyframes botAttack {
-    0% {
-        transform: translateX(0) translateY(0) rotatez(5deg);
-    }
-    25%{
-        transform: translateX(120%) translateY(-80%) rotatez(15deg);
-    }
-    50% {
-        transform: translateX(0) translateY(0) rotatez(5deg);
-    }
+  0% {
+    transform: translateX(0) translateY(0) rotatez(5deg);
+  }
+  25% {
+    transform: translateX(120%) translateY(-80%) rotatez(15deg);
+  }
+  50% {
+    transform: translateX(0) translateY(0) rotatez(5deg);
+  }
 
-    100% {
-        transform: translateX(0) translateY(0) rotatez(5deg);
-    }
+  100% {
+    transform: translateX(0) translateY(0) rotatez(5deg);
+  }
+}
+
+/*------Blink Animation------*/
+
+.blink {
+  animation: blinkingText 1.2s infinite;
+}
+@keyframes blinkingText {
+  0% {
+    color: #396bba;
+  }
+  49% {
+    color: #396bba;
+  }
+  60% {
+    color: transparent;
+  }
+  99% {
+    color: transparent;
+  }
+  100% {
+    color: #396bba;
+  }
 }
