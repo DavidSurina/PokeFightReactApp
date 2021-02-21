@@ -1,71 +1,91 @@
 // ViewAllPokemons
-import { useState, useEffect} from "react";
+import { useState, useEffect } from 'react';
 import TransitionsModal from '../components/PokemonDetailed';
 import CenteredGrid from '../components/PokeGrid';
 
+const ViewAllPokemons = ({ pokemonList, fightPokemon, setFightPokemon }) => {
+  const [myPokemon, setMyPokemon] = useState();
+  const [open, setOpen] = useState(false);
+  const [pokeInfo, setPokeInfo] = useState({
+    textInfo: ' ',
+    chooseOrFight: true,
+    firstOrSecondChoice: false,
+    buttonShow: true,
+  });
 
-const ViewAllPokemons = ({pokemonList, fightPokemon, setFightPokemon}) => {
-
-  const [myPokemon, setMyPokemon]   = useState()
-  const [open, setOpen]             = useState(false);
-  const [pokeInfo, setPokeInfo]     = useState({textInfo: ' ', chooseOrFight: true,  firstOrSecondChoice: false,  buttonShow: true });
-
-  const handleOpenParent  = () => { setOpen(true); };
-  const handleCloseParent = () => { setOpen(false); };
+  const handleOpenParent = () => {
+    setOpen(true);
+  };
+  const handleCloseParent = () => {
+    setOpen(false);
+  };
 
   useEffect(() => {
-     setPokeInfo( {...pokeInfo, textInfo: `Choose two Pokemons and... \nlet them fight!`, buttonShow: true });
+    setPokeInfo({
+      ...pokeInfo,
+      textInfo: `Choose two Pokemons and... \nlet them fight!`,
+      buttonShow: true,
+    });
   }, []);
 
-// console.log('\npokeInfo.buttonShow', pokeInfo.buttonShow, '\npokeInfo.chooseOrFight ', pokeInfo.chooseOrFight, '\npokeInfo.firstOrSecond ', pokeInfo.firstOrSecond, '\npokeInfo.textInfo', pokeInfo.textInfo )
-
   const fightSelectionController = (arr, pokemon) => {
-
-   let nArray = [...arr];
-    if(arr.length < 1) {
+    let nArray = [...arr];
+    if (arr.length < 1) {
       nArray.push(pokemon);
-      setFightPokemon(nArray)
-      setPokeInfo({ ...pokeInfo, textInfo: `Okay, cool! \nYour first Pokemon is: ${nArray[0].name.english}. \nNow Choose your second Pokemon! `, buttonShow: false, firstOrSecondChoice: true,  } )
-
-    } else if(arr.length === 1) {
+      setFightPokemon(nArray);
+      setPokeInfo({
+        ...pokeInfo,
+        textInfo: `Okay, cool! \nYour first Pokemon is: ${nArray[0].name.english}. \nNow Choose your second Pokemon! `,
+        buttonShow: false,
+        firstOrSecondChoice: true,
+      });
+    } else if (arr.length === 1) {
       nArray[1] = pokemon;
       setFightPokemon(nArray);
 
-      setPokeInfo({...pokeInfo, textInfo: `Okay, ${nArray[0].name.english} will fight against ${nArray[1].name.english}. \nHit the Fight Button! `, buttonShow: false, chooseOrFight: false} );
-    } else  {
-      handleCloseParent()
+      setPokeInfo({
+        ...pokeInfo,
+        textInfo: `Okay, ${nArray[0].name.english} will fight against ${nArray[1].name.english}. \nHit the Fight Button! `,
+        buttonShow: false,
+        chooseOrFight: false,
+      });
+    } else {
+      handleCloseParent();
       // revert values back
-       setPokeInfo({...pokeInfo, textInfo: 'Choose two Pokemons! \nYou can let them fight against one another!', buttonShow: true, firstOrSecondChoice: false, } )
-       // reset (setFightPokemon to empty Array )should only happen if the user really hits the fight button
-       setFightPokemon([])
+      setPokeInfo({
+        ...pokeInfo,
+        textInfo:
+          'Choose two Pokemons! \nYou can let them fight against one another!',
+        buttonShow: true,
+        firstOrSecondChoice: false,
+      });
+      // reset (setFightPokemon to empty Array )should only happen if the user really hits the fight button
+      setFightPokemon([]);
     }
-      //  console.log('fightPokemon: ',   fightPokemon)
-      //  console.log('fightPokemon: ',   fightPokemon ?  fightPokemon[0].name.english : "nix" )
-      //  ${fightPokemon[0].name.english ?  fightPokemon[0].name.english : "Name_1" }
-  }
-  return(
+  };
+  return (
     <>
-       <TransitionsModal
-            handleCloseParent={handleCloseParent}
-            open={open}
-            currentPokemon={myPokemon}
-            setMyPokemon={setMyPokemon}
-            pokemonList={pokemonList}
-            setFightPokemon={setFightPokemon}
-            fightPokemon={fightPokemon}
-            fightSelectionController={fightSelectionController}
-            pokeInfo={pokeInfo}
-             setPokeInfo={setPokeInfo}
-            />
+      <TransitionsModal
+        handleCloseParent={handleCloseParent}
+        open={open}
+        currentPokemon={myPokemon}
+        setMyPokemon={setMyPokemon}
+        pokemonList={pokemonList}
+        setFightPokemon={setFightPokemon}
+        fightPokemon={fightPokemon}
+        fightSelectionController={fightSelectionController}
+        pokeInfo={pokeInfo}
+        setPokeInfo={setPokeInfo}
+      />
       <div className="pokemon-list">
         <CenteredGrid
-            pokemons={pokemonList}
-            handleOpenParent={handleOpenParent}
-            setMyPokemon={setMyPokemon}
-            setFightPokemon={setFightPokemon}
-            fightPokemon={fightPokemon}
-            fightSelectionController={fightSelectionController}
-            />
+          pokemons={pokemonList}
+          handleOpenParent={handleOpenParent}
+          setMyPokemon={setMyPokemon}
+          setFightPokemon={setFightPokemon}
+          fightPokemon={fightPokemon}
+          fightSelectionController={fightSelectionController}
+        />
       </div>
     </>
   );

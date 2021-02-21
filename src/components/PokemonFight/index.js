@@ -1,8 +1,9 @@
+import { useState, useEffect } from 'react';
+
 import FightController from './fight-controller';
+import ReactAudioPlayer from 'react-audio-player';
 
 import './style.css';
-import './blink.css';
-import { useState, useEffect } from 'react';
 
 export default function PokemonFight({ fightingPoke, fightHistory }) {
   const [counter, setCounter] = useState(4);
@@ -41,38 +42,35 @@ export default function PokemonFight({ fightingPoke, fightHistory }) {
         <div
           className={`${
             viewCounter ? 'hideThis' : 'showThis'
-          } fightWrapper counterDesign `}>
+          } fightContentWrapper counterDesign `}>
           Fight Preparation: {counter}
         </div>
         <div
-          className={`${viewCounter ? 'showThis' : 'hideThis'} fightWrapper `}>
+          className={`${
+            viewCounter ? 'showThis' : 'hideThis'
+          } fightContentWrapper `}>
           {/* ##### Game Statistic ###### */}
+
           <div
-            className={`${
-              viewResult ? 'showThis' : 'hideThis'
-            } tableOfContent wrapperPane `}>
-            Game Statistics:
+            className={`${viewResult ? 'showThis' : 'hideThis'} wrapperPane`}>
+            <h2 class="panel-heading">Game Statistics:</h2>
             <span className="toc">
-              <span className="tocLabel winner">
+              <span className="winner">
                 {winnerObj.length > 0 ? winnerObj[0].winner.winner_name : ''}
-              </span> vs {winnerObj.length > 0 ? winnerObj[0].looser.looser_name : ''}
-              
+              </span>
+              <span>vs</span>
+              <span>
+                {winnerObj.length > 0 ? winnerObj[0].looser.looser_name : ''}
+              </span>
             </span>
             <span className="toc">
-              <span className="tocLabel" id="date">
-                Date:
-              </span>{' '}
               {winnerObj.length > 0 ? winnerObj[0].date : ''}
             </span>
           </div>
+
           {/* ##### Pokemon Fight ###### */}
+
           <div className="pokefight-wrapper wrapperPane ">
-            <div
-              className={`${
-                viewResult ? 'hideThis' : 'showThis'
-              } animationtime`}>
-              <span className="blink">Animation</span>
-            </div>
             <div className="pokefight-top-wrapper">
               <div className="pokefight-top-name-wrapper">
                 <h2
@@ -139,28 +137,33 @@ export default function PokemonFight({ fightingPoke, fightHistory }) {
               </div>
             </div>
           </div>
+
           {/* ##### Game History ###### */}
+
           <div
             className={`${
               viewResult ? 'showThis' : 'hideThis'
-            } history wrapperPane `}>
-            Game History:
+            } history wrapperPane`}>
+            <h2 class="panel-heading">Game History:</h2>
             <ul id="history" className="toc">
-              { 
-                fightHistory.map(fight => {
-                  return <li key={fight._id}><span className="winner">{fight.winner.winner_name}</span> vs {fight.looser.looser_name}</li>
-                })
-              }
+              {fightHistory.map((fight) => {
+                return (
+                  <li class="fight-entry" key={fight._id}>
+                    <span className="winner">{fight.winner.winner_name}</span>
+                    <span>vs</span>
+                    <span>{fight.looser.looser_name}</span>
+                  </li>
+                );
+              })}
             </ul>
           </div>
         </div>
-        <audio
+        <ReactAudioPlayer
           src="https://play.pokemonshowdown.com/audio/hgss-johto-trainer.mp3"
-          className="poke-audio"
-          volume="0.1"
+          volume={0.05}
+          autoPlay
           controls
-          autoPlay>
-        </audio>
+        />
       </>
     );
   } else {

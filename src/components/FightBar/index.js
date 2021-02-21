@@ -4,10 +4,8 @@ import { Link } from 'react-router-dom';
 import './style.css';
 
 export default function FightBar({ fightingPoke, reset }) {
-
   return (
     <section className="fight-bar">
-
       {/*----Fighter One Block----*/}
       <div className="fighter-one-wrapper">
         <h3 className="fighter-one-name">

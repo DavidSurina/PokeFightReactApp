@@ -7,7 +7,6 @@ export default function InputForm({ input, setInput }) {
       action="submit"
       className="header-form"
       onSubmit={(e) => e.preventDefault()}>
-
       {/*----Home Button----*/}
       <Link to="/" className="home-button">
         Home
