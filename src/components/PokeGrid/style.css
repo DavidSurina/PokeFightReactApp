@@ -1,44 +1,45 @@
 .load-more-btn-container {
-    width: 100%;
-    display: flex;
-    justify-content: center !important;
+  width: 100%;
+  display: flex;
+  justify-content: center !important;
 }
 
 .load-more-btn {
-    width: 10%;
-    min-width: 200px;
-    height: 5rem;
-    margin: 5rem 39% 5rem 45%;
-    background-color: #fff;
-    border: 3px solid #000;
-    border-radius: 2rem;
-    font-size: 2.5rem;
-    font-weight: 600;
-    cursor: pointer;
+  width: 10%;
+  min-width: 200px;
+  height: 5rem;
+  margin: 5rem 39% 5rem 45%;
+  background-color: #fff;
+  border: 3px solid #000;
+  border-radius: 2rem;
+  font-size: 2.5rem;
+  font-weight: 600;
+  cursor: pointer;
 }
 
 .load-more-btn:hover {
-    color: #fff;
-    background-color: red;
-    transition: all .2s;
+  color: #fff;
+  background-color: red;
+  transition: all 0.2s;
 }
 
 .go-top-btn {
-    width: 5%;
-    height: 5rem;
-    margin: 5rem 1% 5rem 0;
-    align-self: flex-end;
-    background-color: #fff;
-    border: 3px solid #000;
-    border-radius: 1rem;
-    font-size: 2.5rem;
-    transform: rotate(-15deg) translateY(-8px);
-    transition: all .2s;
+  width: 5%;
+  min-width: 100px;
+  height: 5rem;
+  margin: 5rem 1% 5rem 0;
+  align-self: flex-end;
+  background-color: #fff;
+  border: 3px solid #000;
+  border-radius: 1rem;
+  font-size: 2.5rem;
+  transform: rotate(-15deg) translateY(-8px);
+  transition: all 0.2s;
 }
 
 .go-top-btn:hover {
-    transform: rotate(0) translateY(0);
-    box-shadow: 0 4px 2px -2px gray;
-    background-color: red;
-    color: #fff;
+  transform: rotate(0) translateY(0);
+  box-shadow: 0 4px 2px -2px gray;
+  background-color: red;
+  color: #fff;
 }

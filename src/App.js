@@ -60,7 +60,10 @@ function App() {
         <Switch>
           {/*----Pokefigth Route----*/}
           <Route path="/pokemons/fight">
-            <ViewFight fightingPoke={pokeFightSel} fightHistory={fightHistory}/>
+            <ViewFight
+              fightingPoke={pokeFightSel}
+              fightHistory={fightHistory}
+            />
           </Route>
 
           {/*----PokeSearch Route----*/}
@@ -87,7 +90,6 @@ function App() {
               fightPokemon={pokeFightSel}
             />
           </Route>
-
         </Switch>
       </main>
       <Footer />

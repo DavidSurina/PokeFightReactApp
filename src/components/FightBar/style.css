@@ -1,103 +1,103 @@
 .fight-bar {
-    width: 40%;
-    min-width: 320px;
-    max-width: 1050px;
-    min-height: 32rem;
-    margin: 0 auto;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    background-image: linear-gradient(150deg, red 49.5%, black, white 50.5%) ;
-    border: 3px solid black;
-    border-radius: 13rem 0;
+  width: 40%;
+  min-width: 320px;
+  max-width: 1050px;
+  min-height: 3rem;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  background-image: linear-gradient(150deg, red 49.5%, black, white 50.5%);
+  border: 3px solid black;
+  border-radius: 10rem 0;
 }
 
 .fighter-one-wrapper,
 .fighter-two-wrapper {
-    width: 30%;
-    display: flex;
-    flex-direction: column;
+  width: 30%;
+  display: flex;
+  flex-direction: column;
 }
 
 .fighter-one-name,
 .fighter-two-name {
-    height: 20%;
-    margin-top: .5rem;
-    font-size: 2.5rem;
-    text-align: center;
+  height: 20%;
+  margin-top: 0.5rem;
+  font-size: 2.5rem;
+  text-align: center;
 }
 
 .fighter-one-name {
-    color: #fff;
+  color: #fff;
 }
 
 .fighter-one-img,
 .fighter-two-img {
-    height: 90%;
-    width: 90%;
-    margin: 0 auto;
+  height: 90%;
+  width: 90%;
+  margin: 0 auto;
 }
 
-.fighter-one-img:hover{
-    transform: rotate(5deg);
-    transition: all .2s;
+.fighter-one-img:hover {
+  transform: rotate(5deg);
+  transition: all 0.2s;
 }
 
 .fighter-two-img:hover {
-    transform: rotate(-5deg);
-    transition: all .2s;
+  transform: rotate(-5deg);
+  transition: all 0.2s;
 }
 
 .fight-button-wrapper {
-    height: 100%;
-    width: 25%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+  height: 100%;
+  width: 25%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
-.vs-sign{
-    font-size: 8rem;
-    text-align: center;
-    color: rgb(0, 0, 0);
-    font-family: "Swanky and Moo Moo", sans-serif;
+.vs-sign {
+  font-size: 8rem;
+  text-align: center;
+  color: rgb(0, 0, 0);
+  font-family: 'Swanky and Moo Moo', sans-serif;
 }
 
 .fight-button-a {
-    height: 4rem;
-    width: 70%;
-    background-color: red;
-    border: 3px solid black;
-    border-radius: 2rem;
-    font-size: 2.7rem;
-    text-align: center;
-    text-decoration: none;
-    color: #fff;
-    cursor: pointer;
+  height: 4rem;
+  width: 70%;
+  background-color: red;
+  border: 3px solid black;
+  border-radius: 2rem;
+  font-size: 2.7rem;
+  text-align: center;
+  text-decoration: none;
+  color: #fff;
+  cursor: pointer;
 }
 
 .fight-button-na {
-    height: 4rem;
-    width: 70%;
-    background-color: rgb(83, 83, 83);
-    border: 3px solid black;
-    border-radius: 2rem;
-    font-size: 2.7rem;
-    text-align: center;
-    text-decoration: none;
-    color: #fff;
-    cursor: pointer;
+  height: 4rem;
+  width: 70%;
+  background-color: rgb(83, 83, 83);
+  border: 3px solid black;
+  border-radius: 2rem;
+  font-size: 2.7rem;
+  text-align: center;
+  text-decoration: none;
+  color: #fff;
+  cursor: pointer;
 }
 
 .reset-button {
-    height: 4rem;
-    width: 60%;
-    margin-top: .5rem;
-    background-color: #fff;
-    border: 2px solid #000;
-    border-radius: 2rem;
-    font-size: 2rem;
-    cursor: pointer;
+  height: 4rem;
+  width: 60%;
+  margin-top: 0.5rem;
+  background-color: #fff;
+  border: 2px solid #000;
+  border-radius: 2rem;
+  font-size: 2rem;
+  cursor: pointer;
 }
