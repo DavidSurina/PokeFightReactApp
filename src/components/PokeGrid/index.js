@@ -59,7 +59,7 @@ export default function CenteredGrid({ pokemons, handleOpenParent, setMyPokemon,
       <div className="load-more-btn-container">
         <button className="load-more-btn" onClick={() => setLoadCount(loadCount + 20)}>Load more</button>
       </div>
-      <ScrollToTop showUnder={160} style={{right: "50%"}}>
+      <ScrollToTop showUnder={160} style={{right: "45%"}}>
         <ExpandLessOutlinedIcon
           style={
             {
