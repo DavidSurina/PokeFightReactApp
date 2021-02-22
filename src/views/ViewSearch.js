@@ -6,12 +6,17 @@ const ViewSearch = ({
   fightPokemon,
   setFightPokemon,
 }) => {
-  const searchRes = pokemonList.filter((pokemon) => {
-    return (
-      pokemon.name.english.toLowerCase().includes(searchInput) ||
-      pokemon.id == searchInput
-    );
-  });
+  const searchInputValue = searchInput.toLowerCase()
+  const searchRes = pokemonList ?
+                pokemonList.filter((pokemon) => {
+                  return (
+                    pokemon.name.english.toLowerCase().includes(searchInputValue) ||
+                    pokemon.id == searchInputValue
+                  );
+                })
+            :
+            console.log('pokemonList is empty');
+
   return (
     <ViewAllPokemons
       pokemonList={searchRes}

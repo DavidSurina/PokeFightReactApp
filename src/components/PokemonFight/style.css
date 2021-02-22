@@ -1,6 +1,6 @@
 .animationtime {
   position: relative;
-  top: -50px;
+  top: -70px;
   font-size: 5rem;
 }
 
@@ -88,6 +88,7 @@ ul {
 /*------Pokefight Middle Panel------*/
 
 .pokefight-wrapper {
+  position: relative;
   min-height: 35rem;
   height: 46rem;
   width: 60rem;
@@ -221,4 +222,18 @@ ul {
   100% {
     color: #396bba;
   }
+}
+
+
+
+
+
+@media only screen and (max-width: 1300px) {
+  .fightContentWrapper.result {
+        flex-direction: column;
+  }
+  .wrapperPane {
+      padding: 3rem;
+      margin: 3rem;
+}
 }

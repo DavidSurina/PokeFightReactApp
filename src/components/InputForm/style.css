@@ -23,6 +23,7 @@
 }
 
 .search-input {
+  display: none;
   width: 40rem;
   height: 5rem;
   margin: 0.5rem 2rem;
@@ -31,6 +32,19 @@
   border: 3px solid black;
   border-radius: 1.5rem;
 }
+
+
+#combo-box-demo {
+    background-color: whitesmoke;
+    /* width: 40rem; */
+    height: 5rem;
+    /* margin: 0.5rem 2rem; */
+    /* padding-left: 1rem; */
+    font-size: 2.5rem;
+    border: 3px solid black;
+    border-radius: 1.5rem;
+}
+
 
 .search-submit-button {
   width: 10rem;

@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 
 import FightController from './fight-controller';
 import ReactAudioPlayer from 'react-audio-player';
@@ -48,12 +49,12 @@ export default function PokemonFight({ fightingPoke, fightHistory }) {
         <div
           className={`${
             viewCounter ? 'showThis' : 'hideThis'
-          } fightContentWrapper `}>
+          } fightContentWrapper result `}>
           {/* ##### Game Statistic ###### */}
 
           <div
             className={`${viewResult ? 'showThis' : 'hideThis'} wrapperPane`}>
-            <h2 class="panel-heading">Game Statistics:</h2>
+            <h2 className="panel-heading">Game Statistics:</h2>
             <span className="toc">
               <span className="winner">
                 {winnerObj.length > 0 ? winnerObj[0].winner.winner_name : ''}
@@ -71,6 +72,11 @@ export default function PokemonFight({ fightingPoke, fightHistory }) {
           {/* ##### Pokemon Fight ###### */}
 
           <div className="pokefight-wrapper wrapperPane ">
+              <div className={`${viewResult ? "showThis" : "hideThis"} animationtime`}>
+                <Link to="./pokemons" >
+                        <span className="blink">Click here to play again</span>
+                </Link>
+              </div>
             <div className="pokefight-top-wrapper">
               <div className="pokefight-top-name-wrapper">
                 <h2
@@ -144,11 +150,11 @@ export default function PokemonFight({ fightingPoke, fightHistory }) {
             className={`${
               viewResult ? 'showThis' : 'hideThis'
             } history wrapperPane`}>
-            <h2 class="panel-heading">Game History:</h2>
+            <h2 className="panel-heading">Game History:</h2>
             <ul id="history" className="toc">
               {fightHistory.map((fight) => {
                 return (
-                  <li class="fight-entry" key={fight._id}>
+                  <li className="fight-entry" key={fight._id}>
                     <span className="winner">{fight.winner.winner_name}</span>
                     <span>vs</span>
                     <span>{fight.looser.looser_name}</span>
