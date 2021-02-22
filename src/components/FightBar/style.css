@@ -1,8 +1,8 @@
 .fight-bar {
-  width: 40%;
-  min-width: 320px;
+  width: 50%;
+  min-width: 300px;
   max-width: 1050px;
-  min-height: 3rem;
+  min-height: 25rem;
   margin: 0 auto;
   display: flex;
   flex-direction: row;
@@ -67,7 +67,7 @@
 
 .fight-button-a {
   height: 4rem;
-  width: 70%;
+  width: 80%;
   background-color: red;
   border: 3px solid black;
   border-radius: 2rem;
@@ -80,7 +80,8 @@
 
 .fight-button-na {
   height: 4rem;
-  width: 70%;
+  width: 80%;
+  max-width: 16rem;
   background-color: rgb(83, 83, 83);
   border: 3px solid black;
   border-radius: 2rem;

@@ -1,6 +1,6 @@
 // App.js
 import React, { useEffect, useState } from 'react';
-import { Switch, Route } from 'react-router-dom';
+import { Switch, Route, Link } from 'react-router-dom';
 // Import api functionality
 import Api from './api/index';
 /* components */
@@ -19,12 +19,15 @@ import logo from './img/pokefight_logo.png';
 import './App.css';
 
 function App() {
+  
   //All pokemon
   const [pokemonList, setPokemonList] = useState();
+
   //Search input
-  let [searchInput, setSearchInput] = useState('');
+  let [searchInput, setSearchInput] = useState('1');
   //Selected pokemon for fight
   let [pokeFightSel, setPokeFightSel] = useState([]);
+  
   //Fight History
   const [fightHistory, setFightHistory] = useState([]);
 
@@ -52,9 +55,12 @@ function App() {
     <div className="App">
       <header className="header">
         <div className="logo-wrapper">
-          <img className="pokefight-logo" src={logo} alt="pokefight-logo" />
+          <Link
+            to="./pokemons"  >
+            <img className="pokefight-logo" src={logo} alt="pokefight-logo" />
+          </Link>
         </div>
-        <InputForm input={searchInput} setInput={setSearchInput} />
+        <InputForm pokemonList={pokemonList} input={searchInput} setInput={setSearchInput} />
       </header>
       <main className="main">
         <Switch>

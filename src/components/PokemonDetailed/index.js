@@ -1,6 +1,7 @@
 // MODAL COMPONENT
 // import axios from "axios";
 import Api from '../../api';
+import { Link } from 'react-router-dom';
 
 // https://material-ui.com/components/modal/#transitions
 import React, { useState, useEffect } from 'react';
@@ -130,7 +131,20 @@ const TransitionsModal = ({
         aria-describedby="transition-modal-description"
         className={classes.modal}
         open={open}
-        onClose={handleCloseParent}
+        onClose={() => {
+                      console.log('close was hit');
+                      setFightPokemon([]);
+                      setPokeInfo({
+                        ...pokeInfo,
+                        textInfo:
+                          'Choose two Pokemons and fight!',
+                        chooseOrFight: true,
+                        firstOrSecondChoice: false,
+                        buttonShow: true,
+                      });
+                      handleCloseParent();
+                    }}
+
         closeAfterTransition
         BackdropComponent={Backdrop}
         BackdropProps={{
@@ -144,12 +158,12 @@ const TransitionsModal = ({
                   <span
                     className="close"
                     onClick={() => {
-                      console.log('close was hit');
+                      // console.log('close was hit');
                       setFightPokemon([]);
                       setPokeInfo({
                         ...pokeInfo,
                         textInfo:
-                          'Choose two Pokemons and... \nlet them fight! ',
+                          'Choose two Pokemons and fight!',
                         chooseOrFight: true,
                         firstOrSecondChoice: false,
                         buttonShow: true,
@@ -158,28 +172,42 @@ const TransitionsModal = ({
                     }}>
                     ×
                   </span>
-                  <h3>
-                    {' '}
-                    <span className="mobileHide">Fight with: </span>{' '}
-                    {currentPokemon ? currentPokemon.name.english : ''}
-                    <span> No. {currentPokemon ? currentPokemon.id : ''}</span>
-                  </h3>
-                  <hr className="line" />
                   <div className="PokeInfo">{pokeInfo.textInfo}</div>
                   <div className="modal-container">
                     <ArrowBackIosIcon
+
                       onClick={() => {
                         arrowDown();
+                        setPokeInfo({ ...pokeInfo, buttonShow: true });
                       }}
+
                       color="secondary"
                       className={
                         pokeInfo.chooseOrFight ? 'showThis' : 'hideThis'
                       }></ArrowBackIosIcon>
                     <div className="ButtonAndText">
+
                       <Button
                         className={classes.button}
                         className={`${
-                          pokeInfo.buttonShow ? 'showThis' : 'hideThis'
+                          pokeInfo.chooseOrFight ? 'hideThis' : 'showThis'
+                        } chooseButtonInModal `}
+                        variant="outlined"
+                        size="small"
+                        color="secondary" >
+                        <span className="workaround">Start to&nbsp;&nbsp;&nbsp;FIGHT!</span>
+                        <Link
+                          to={fightPokemon.length === 2 ? `/pokemons/fight` : `/`}
+                          className="linkStyling">
+                          Start to&nbsp;&nbsp;&nbsp;FIGHT!
+                        </Link>
+
+                      </Button>
+
+                       <Button
+                        className={classes.button}
+                        className={`${
+                          pokeInfo.buttonShow ? 'showThis' : 'VisiHideThis'
                         } chooseButtonInModal `}
                         variant="outlined"
                         size="small"
@@ -190,31 +218,22 @@ const TransitionsModal = ({
                             currentPokemon
                           );
                         }}>
-                        Choose
-                        {/*{currentPokemon ? currentPokemon.name.english : ''}*/}
-                        &nbsp;
-                        <span className="mobileHide">
-                          {pokeInfo.firstOrSecondChoice ? 'second' : 'first'}
-                          Pokemon
-                        </span>
-                      </Button>
 
-                      <Button
-                        className={classes.button}
-                        className={`${
-                          pokeInfo.chooseOrFight ? 'hideThis' : 'showThis'
-                        } chooseButtonInModal `}
-                        variant="outlined"
-                        size="small"
-                        color="secondary"
-                        onClick={() => {
-                          console.log('hit-and-run');
-                        }}>
-                        Fight! &nbsp; &nbsp;
-                        {currentPokemon ? currentPokemon.name.english : ''}
-                        &nbsp;against&nbsp;
-                        {currentPokemon ? currentPokemon.name.english : ''}
+                        <span className="mobileHide">
+                          {pokeInfo.firstOrSecondChoice ? 'now,' : ''}
+                        </span>
+                        &nbsp;Choose: &nbsp;&nbsp;&nbsp;
+                         {currentPokemon ? currentPokemon.name.english : ''}
+                        &nbsp;
                       </Button>
+                   <h3>
+                    {' '}
+                    <span className="mobileHide">Fight with: </span>{' '}
+                    {currentPokemon ? currentPokemon.name.english : ''}
+                    <span> No. {currentPokemon ? currentPokemon.id : ''}</span>
+                  </h3>
+                  <hr className="line" />
+
                     </div>{' '}
                     <div className="imagecontainer">
                       <p className="encodingIssue">
