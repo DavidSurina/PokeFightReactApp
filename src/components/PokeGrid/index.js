@@ -74,7 +74,7 @@ export default function CenteredGrid({
             {
             width: '2em',
             height: '2em',
-            backgroundColor: 'rgba(0, 0, 0, 0.05)',
+            backgroundColor: '#fff',
             borderRadius: '10px',
             border: "1px solid #000",
             }

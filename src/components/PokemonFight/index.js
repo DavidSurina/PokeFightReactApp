@@ -70,7 +70,7 @@ export default function PokemonFight({ fightingPoke, fightHistory }) {
 
           {/* ##### Pokemon Fight ###### */}
 
-          <div className="pokefight-wrapper wrapperPane ">
+          <div className="pokefight-wrapper">
             <div className="pokefight-top-wrapper">
               <div className="pokefight-top-name-wrapper">
                 <h2

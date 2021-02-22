@@ -103,8 +103,9 @@ main {
 /*Media Queries*/
 
 /* Extra small devices (phones, 600px and down) */
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 320px) {
   .header {
+    width: 320px;
     position: initial;
   }
 
@@ -113,7 +114,7 @@ main {
   }
 
   .header-form {
-    width: 100%;
+    width: 320px;
   }
 
   .logo-wrapper {
@@ -126,13 +127,23 @@ main {
     padding: 0;
   }
 
+  .search-input {
+    width: 90%;
+    margin: 1rem 0;
+  }
+
+  .search-submit-button {
+    margin-bottom: 1rem;
+  }
+
   .main {
     padding-top: 5rem;
   }
 
   .fight-bar {
-    width: 100%;
-    min-height: 25rem;
+    width: 95%;
+    max-width: 320px;
+    min-height: 22rem;
   }
 
   .fight-button-a,
@@ -142,5 +153,19 @@ main {
 
   .reset-button {
     min-width: 8rem;
+  }
+}
+
+@media only screen  and (min-width : 1262px) {
+  .search-input {
+    width: 35rem;
+  }
+}
+
+@media only screen  and (min-width : 1824px) {
+  main {
+    min-height: 85vh;
+    display: flex;
+    justify-content: center;
   }
 }

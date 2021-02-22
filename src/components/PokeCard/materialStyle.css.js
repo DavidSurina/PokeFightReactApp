@@ -3,7 +3,7 @@ import background_img from '../../img/pokeball.png';
 const customStyles = {
   root: {
     maxWidth: 345,
-    minWidth: 345,
+    minWidth: 320,
     margin: '2rem auto',
     border: '4px solid black',
     borderRadius: '2rem',
