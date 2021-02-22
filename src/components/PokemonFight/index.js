@@ -72,11 +72,7 @@ export default function PokemonFight({ fightingPoke, fightHistory }) {
           {/* ##### Pokemon Fight ###### */}
 
           <div className="pokefight-wrapper wrapperPane ">
-              <div className={`${viewResult ? "showThis" : "hideThis"} animationtime`}>
-                <Link to="./pokemons" >
-                        <span className="blink">Click here to play again</span>
-                </Link>
-              </div>
+              
             <div className="pokefight-top-wrapper">
               <div className="pokefight-top-name-wrapper">
                 <h2
@@ -163,6 +159,11 @@ export default function PokemonFight({ fightingPoke, fightHistory }) {
               })}
             </ul>
           </div>
+        </div>
+        <div className={`${viewResult ? "showThis" : "hideThis"} animationtime play-again`}>
+          <Link to="./pokemons" >
+                  <span className="blink">Click here to play again</span>
+          </Link>
         </div>
         <ReactAudioPlayer
           src="https://play.pokemonshowdown.com/audio/hgss-johto-trainer.mp3"

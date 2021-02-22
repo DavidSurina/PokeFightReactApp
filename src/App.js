@@ -19,12 +19,15 @@ import logo from './img/pokefight_logo.png';
 import './App.css';
 
 function App() {
+  
   //All pokemon
   const [pokemonList, setPokemonList] = useState();
+
   //Search input
   let [searchInput, setSearchInput] = useState('1');
   //Selected pokemon for fight
   let [pokeFightSel, setPokeFightSel] = useState([]);
+  
   //Fight History
   const [fightHistory, setFightHistory] = useState([]);
 

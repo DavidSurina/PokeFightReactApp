@@ -21,6 +21,7 @@ export default function InputForm({ input, setInput, pokemonList }) {
         input={input}
         setInput={setInput}
         />
+      {/*
       <input
         className="search-input"
         type="text"
@@ -30,7 +31,7 @@ export default function InputForm({ input, setInput, pokemonList }) {
         value={input}
         onChange={(event) => setInput(event.target.value)}
       />
-
+      */}
       {/*----Search Button----*/}
       <Link to="/pokemons/search" className="search-submit-button">
         Search

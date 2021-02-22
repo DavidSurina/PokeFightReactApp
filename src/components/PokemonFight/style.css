@@ -23,6 +23,10 @@
   font-size: 4rem;
 }
 
+.play-again{
+  margin: 2rem auto;
+}
+
 /*------Left Panel - Game Statistics------*/
 
 .wrapperPane {
@@ -166,6 +170,8 @@ ul {
   margin: 3rem auto;
 }
 
+
+
 /*------Animations------*/
 
 @keyframes topAttack {
@@ -228,12 +234,3 @@ ul {
 
 
 
-@media only screen and (max-width: 1300px) {
-  .fightContentWrapper.result {
-        flex-direction: column;
-  }
-  .wrapperPane {
-      padding: 3rem;
-      margin: 3rem;
-}
-}
