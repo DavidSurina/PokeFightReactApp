@@ -156,11 +156,17 @@ main {
   }
 }
 
-@media only screen  and (min-width : 1262px) {
-  .search-input {
-    width: 35rem;
+
+@media only screen and (max-width: 1300px) {
+  .fightContentWrapper.result {
+        flex-direction: column;
+  }
+  .wrapperPane {
+      padding: 3rem;
+      margin: 3rem;
   }
 }
+
 
 @media only screen  and (min-width : 1824px) {
   main {

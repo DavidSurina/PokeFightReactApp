@@ -1,6 +1,6 @@
 .animationtime {
   position: relative;
-  top: -50px;
+  top: -70px;
   font-size: 5rem;
 }
 
@@ -21,6 +21,10 @@
 .panel-heading {
   color: #396bba;
   font-size: 4rem;
+}
+
+.play-again{
+  margin: 2rem auto;
 }
 
 /*------Left Panel - Game Statistics------*/
@@ -88,6 +92,7 @@ ul {
 /*------Pokefight Middle Panel------*/
 
 .pokefight-wrapper {
+  position: relative;
   min-height: 35rem;
   height: 46rem;
   width: 60rem;
@@ -165,6 +170,8 @@ ul {
   margin: 3rem auto;
 }
 
+
+
 /*------Animations------*/
 
 @keyframes topAttack {
@@ -222,3 +229,8 @@ ul {
     color: #396bba;
   }
 }
+
+
+
+
+
