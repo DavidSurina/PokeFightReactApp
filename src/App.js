@@ -22,7 +22,7 @@ function App() {
   //All pokemon
   const [pokemonList, setPokemonList] = useState();
   //Search input
-  let [searchInput, setSearchInput] = useState('');
+  let [searchInput, setSearchInput] = useState('1');
   //Selected pokemon for fight
   let [pokeFightSel, setPokeFightSel] = useState([]);
   //Fight History
@@ -57,7 +57,7 @@ function App() {
             <img className="pokefight-logo" src={logo} alt="pokefight-logo" />
           </Link>
         </div>
-        <InputForm input={searchInput} setInput={setSearchInput} />
+        <InputForm pokemonList={pokemonList} input={searchInput} setInput={setSearchInput} />
       </header>
       <main className="main">
         <Switch>
