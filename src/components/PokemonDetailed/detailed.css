@@ -244,6 +244,11 @@ This could be improoved much further, by applying the advice the below article o
         position: relative;
 }
 
+
+
+
+
+
     .ModalPokedex .MuiSvgIcon-root {
         width: 50px;
         height: 3em;
@@ -263,28 +268,25 @@ This could be improoved much further, by applying the advice the below article o
 
 
 
-
-
-
 @media screen and (min-width: 1300px) {
 
     .ModalPokedex .MuiSvgIcon-root {
-        width: 80px;
-        height: 6em;
+        width: 80px !important;
+        height: 6em !important;
     }
     #modalFrame > div > div > div > div > svg:nth-child(1),
     #modalFrame > div > div > div > div > svg:nth-child(4) {
-        top: 3%;
+        top: 3% !important;
     }
     #modalFrame > div > div > div > div > svg:nth-child(1) {
-        left: 1%;
+        left: 1% !important;
     }
     #modalFrame > div > div > div > div > svg:nth-child(4) {
-        right: 1%;
+        right: 1% !important;
     }
-
-
 }
+
+
 
 
 

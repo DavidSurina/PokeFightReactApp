@@ -94,3 +94,9 @@
 #combo-box-demo-popup {
   font-size: 2rem;
 }
+
+.MuiInputLabel-root {
+    padding: .1em !important;
+    margin: .1em;
+    background-color: white;
+}
